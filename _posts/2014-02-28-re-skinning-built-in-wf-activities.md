@@ -3,7 +3,7 @@ layout: post
 title: Reskinning built in workflow activities
 categories:
 tags: [WF, .NET, C#]
-description: How to changing them ugly default workflow activity designers!
+description: How to change them ugly default workflow activity designers!
 ---
 
 ## Background
