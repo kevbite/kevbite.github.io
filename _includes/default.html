@@ -57,6 +57,11 @@
 				<i class="fa fa-twitter"></i>
 			</a>
 			{% endif %}
+			{% if site.author.flickr %}
+			<a type="button" class="navbar-toggle nav-link" href="http://flickr.com/{{ site.author.flickr }}">
+				<i class="fa fa-flickr"></i>
+			</a>
+			{% endif %}
 			{% if site.author.email %}
 			<a type="button" class="navbar-toggle nav-link" href="mailto:{{ site.author.email }}">
 				<i class="fa fa-envelope"></i>
