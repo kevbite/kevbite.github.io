@@ -27,7 +27,7 @@ author:
   email_md5: 112b8fad8d523dcfb981cf94767fb86b
 
 rss_path: feed.xml
-categories_path: categories.html
+categories_path: 
 tags_path: tags.html
 
 BASE_PATH:
