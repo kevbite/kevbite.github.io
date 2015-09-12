@@ -30,6 +30,13 @@
 			</a>
 		</li>
 		{% endif %}
+		{% if site.author.flickr %}
+		<li>
+			<a class="btn btn-default btn-sm" target="_blank" href="https://flickr.com/{{ site.author.flickr }}">
+				<i class="fa fa-flickr fa-lg"></i>
+			</a>
+		</li>
+		{% endif %}
 		{% if site.author.email %}
 		<li>
 			<a class="btn btn-default btn-sm" href="mailto:{{ site.author.email }}">
