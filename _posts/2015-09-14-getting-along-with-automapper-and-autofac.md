@@ -3,12 +3,15 @@ layout: post
 title: Getting along with AutoMapper and Autofac
 categories:
 tags: [.NET, C#, AutoMapper, Autofac]
-description: Allowing your IoC to do all the AutoMapper wirings
+description: Allowing your IoC to do all the AutoMapper configuration and wiring
 ---
 
 ## AutoMapper love-hate relationship
 
+I've always been up and down when using AutoMapper and everyone I talk to seem to have similar issues, so this is all about my love and hate for AutoMapper and how I resolved some of my hate with a bit of Autofac Magic!
+
 ### The love
+
 AutoMapper makes life such a breeze when you've got lots of Messages/DTOs/Models that you keep having to map back and forth, I normally end up working on fairly distributed systems or integrating with other systems so as you can imagine theres lots of mapping thats going off in the code-base.
 
 Even when a value doesn't map directly, like a `bool` mapping to a string of `"Yes"` or `"No"` it is made so easy with a custom value resolver.
