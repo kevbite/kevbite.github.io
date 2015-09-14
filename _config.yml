@@ -5,7 +5,7 @@ paginate_path: "page:num"
 exclude: ["README.md", "categories.html"] # files to exclude
 highlighter: pygments
 markdown: redcarpet
-disqus: kev_bite
+disqus: kevsoft
 google_tag_manager: GTM-5N8RNG
 
 defaults:
