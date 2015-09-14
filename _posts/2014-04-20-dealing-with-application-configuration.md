@@ -4,6 +4,7 @@ title: Dealing with application configuration
 categories:
 tags: [ISP, Abstraction, Settings, .NET, Configuration, C#]
 description: A simple way to abstract away all the pesty application settings
+comments: true
 ---
 
 ## Messy Configuration code

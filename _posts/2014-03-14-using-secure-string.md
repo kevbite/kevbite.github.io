@@ -4,6 +4,7 @@ title: Using secure string
 categories:
 tags: [.NET, C#]
 description: Simple overview on when to use SecureString
+comments: true
 ---
 
 ## Overview

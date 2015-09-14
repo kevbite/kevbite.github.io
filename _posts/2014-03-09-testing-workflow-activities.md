@@ -3,7 +3,8 @@ layout: post
 title: Testing workflow activities
 categories:
 tags: [.NET, C#, WF]
-description: Example of how to unit test WF activities 
+description: Example of how to unit test WF activities
+comments: true
 ---
 
 ## It's Simple!

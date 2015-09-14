@@ -4,6 +4,7 @@ title: Getting along with AutoMapper and Autofac
 categories:
 tags: [.NET, C#, AutoMapper, Autofac]
 description: Allowing your IoC to do all the AutoMapper configuration and wiring
+comments: true
 ---
 
 ## AutoMapper love-hate relationship
