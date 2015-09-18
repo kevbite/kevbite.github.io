@@ -9,15 +9,15 @@ comments: true
 
 ## AutoMapper love-hate relationship
 
-I've always been up and down when using AutoMapper and everyone I talk to seem to have similar issues, so this is all about my love and hate for AutoMapper and how I resolved some of my hate with a bit of Autofac Magic!
+I've always been up and down when using AutoMapper and everyone I've spoken to seem to have similar issues, so this is all about my love and hate for AutoMapper and how I resolved some of my hate with a bit of Autofac Magic!
 
 ### The love
 
-AutoMapper makes life such a breeze when you've got lots of Messages/DTOs/Models that you keep having to map back and forth, I normally end up working on fairly distributed systems or integrating with other systems so as you can imagine theres lots of mapping thats going off in the code-base.
+AutoMapper makes life such a breeze when you've got lots of Messages/DTOs/Models that you keep having to map back and forth, I normally end up working on fairly distributed systems or integrating with other systems so as you can imagine there's lots of mapping that's going off in the code-base.
 
 Even when a value doesn't map directly, like a `bool` mapping to a string of `"Yes"` or `"No"` it is made so easy with a custom value resolver.
 
-Also I've got to say if your not asserting your mapping configurations, you are already loosing half the benefit of using AutoMapper. Every set of configurations I have them wrapped in tests where by I load the configurations and then Assert that that everything is OK, for example:
+Also I've got to say if you're not asserting your mapping configurations, you are already losing half the benefit of using AutoMapper. Every set of configurations I have them wrapped in tests whereby I load the configurations and then Assert that that everything is OK, for example:
 
 ```csharp
 [TestFixture]
@@ -37,7 +37,7 @@ public class MappingConfiugrationTests
 }
 ```
 
-AutoMapper checks to make sure that every destination type member has a matching member on the source type if it doesn't it will throw an AutoMapperConfigurationException with a very descriptive message:
+AutoMapper checks to make sure that every destination type member has a matching member on the source type, if it doesn't it will throw an AutoMapperConfigurationException with a very descriptive message:
 
 ```
 AutoMapper.AutoMapperConfigurationException : 
@@ -51,11 +51,11 @@ Unmapped properties:
 MiddleName
 ```
 
-This is extremely useful when your projects depends on nuget packages that contain contracts, if the owner of the package decides to add an extra property to their contact in the next version and you pull them changes down, your tests will pick up the problems before they start causing any issues!
+This is extremely useful when your projects depends on nuget packages that contain contracts, if the owner of the package decides to add an extra property to their contract in the next version and you pull them changes down, your tests will pick up the problems before they start causing any issues!
 
 ### The Hate
 
-Normally the reasons i moan about AutoMapper isn't actually down to how AutoMapper has been developed, its how its been configured or used in the first place.
+Normally the reasons I moan about AutoMapper isn't actually down to how AutoMapper has been developed, it's how its been configured or used in the first place.
 
 #### Naming conventions
 
@@ -70,11 +70,11 @@ But now times that by 20 members all named differently, the configuration starts
 
 #### Static global Mapper
 
-I'm not really too sure why people go down the route of just using the static mapper directly, Its good for examples but isn't really ideal for production code. It also seems to gets developers trying to create really bad abstract around it which loose half the functionality which AutoMapper gives you! Its also pretty hard to tests a static class in the middle of your code too without some hacky magic.
+I'm not really too sure why people go down the route of just using the static mapper directly, It's good for examples but isn't really ideal for production code. It also seems to get developers trying to create really bad abstract around it which lose half the functionality which AutoMapper gives you! It's also pretty hard to tests a static class in the middle of your code too without some hacky magic.
 
-AutoMapper gives you some nice interfaces to play around with, there is a good article that was posted on [Lost Techies](https://lostechies.com/jimmybogard/2009/05/12/automapper-and-ioc/ "Lost Techies") in 2009 that explains all you need to know.
+AutoMapper gives you some nice interfaces to play around with, there is a good article that was posted on [Los Techies](https://lostechies.com/jimmybogard/2009/05/12/automapper-and-ioc/ "Los Techies") in 2009 that explains all you need to know.
 
-Once your using the AutoMapper interfaces you can start testing your code and your not even loosing any functionality by wrapping it your self...
+Once your using the AutoMapper interfaces you can start testing your code and you're not even losing any functionality by wrapping it yourself...
 
 ```csharp
 public class ApplicantCreator
@@ -100,7 +100,7 @@ public class ApplicantCreator
 
 #### Long mapping configuration
 
-I'm really only going to say one this about long mapping configurations and thats everyone should start using [mapping profiles](https://github.com/AutoMapper/AutoMapper/wiki/Configuration#profile-instances), these are used to organize AutoMapper configuration so you don't just end up with a big long list of `Mapper.CreateMap<>` in your program.main() It just consolidates it and makes it easier to manage later down the line.
+I'm really only going to say one this about long mapping configurations and that's everyone should start using [mapping profiles](https://github.com/AutoMapper/AutoMapper/wiki/Configuration#profile-instances), these are used to organize AutoMapper configuration so you don't just end up with a big long list of `Mapper.CreateMap<>` in your program.main() It just consolidates it and makes it easier to manage later down the line.
 
 #### Dependency hell
 
