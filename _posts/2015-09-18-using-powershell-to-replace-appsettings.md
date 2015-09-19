@@ -9,17 +9,17 @@ comments: true
 
 ## Background
 
-This week I've been settings up some of our new automated deployment, we are using [AppVeyor](http://www.appveyor.com/ "AppVeyor") as our continuous intergration and delivery solution which is highly recomended in the .NET open source projects at the moment.
+This week I've been settings up some of our new automated deployment, we are using [AppVeyor](http://www.appveyor.com/ "AppVeyor") as our continuous intergration and delivery solution which is highly recommended in the .NET open source projects at the moment.
 
-Having used [Octopus Deploy](https://octopusdeploy.com/ "Octopus Deploy") before, I've been use to the ease of being able to replace configuration AppSettings values with environment specific values by just setting up environment variables within the Octopus web portal (see [Configuration files](http://docs.octopusdeploy.com/display/OD/Configuration+files "Configuration files")). I wanted to achive the same with AppVeyor deployment agents but a quick google proved this wasn't possible out of the box!
+Having used [Octopus Deploy](https://octopusdeploy.com/ "Octopus Deploy") before, I've been used to the ease of being able to replace configuration AppSettings values with environment specific values by just setting up environment variables within the Octopus web portal (see [Configuration files](http://docs.octopusdeploy.com/display/OD/Configuration+files "Configuration files")). I wanted to achieve the same with AppVeyor deployment agents but a quick google proved this wasn't possible out of the box!
 
 ## A bit of PowerShell
 
-I always like to keep things nice and modular, so before i even started to thinking about how this was going to fit in to the deployment life cycle I knew that I was going to create a small PowerShell script to replace our AppSettings.
+I always like to keep things nice and modular, so before I even started thinking about how this was going to fit in to the deployment life cycle I knew that I was going to create a small PowerShell script to replace our AppSettings.
 
 Having not used PowerShell much before and only knowing the basics, I actually found it pretty easy to throw together a script.
 
-The `replace_appsettings.ps1` script below loads up a given config file, navigates within the xml to the `appSettings` section, loops round each key and trys to find a matching enviroment varibles, if successful then replaces the value, after all we've searched every setting then the config is then overwritten.
+The `replace_appsettings.ps1` script below loads up a given config file, navigates within the xml to the `appSettings` section, loops around each key and trys to find matching environment variables, if successful then replaces the value, after all we've searched every setting then the config is then overwritten.
 
 ```powershell
 # replace_appsettings.ps1
@@ -48,15 +48,15 @@ ForEach($add in $xml.configuration.appSettings.add)
 $xml.Save($configPath)
 ```
 
-## Pluging in to AppVeyor Deployment Agent
+## Plugging in to AppVeyor Deployment Agent
 
 AppVeyor is very customisable, most of their build and deployment solutions allow you to plugin their pipeline with a custom command or PowerShell script.
 
-Within the AppVeyor deployment agent their is 2 scripts that allow custom configuration, both are required to be place within the root folder of the deployable artifact. The first script is `before-deploy.ps1` which is executed after the artifact is downloaded but before unzipping the artifact or executing any appveyor deployment stages (such as IIS Website or Windows Service). The second script is `deploy.ps1` which is executed after all the deployment stages have excuted or if you've only selected to deploy a windows application, it can be used for writing your own deploy scripts.
+Within the AppVeyor deployment agent there are 2 scripts that allow custom configuration, both are required to be placed within the root folder of the deployable artifact. The first script is `before-deploy.ps1` which is executed after the artifact is downloaded but before unzipping the artifact or executing any appveyor deployment stages (such as IIS Website or Windows Service). The second script is `deploy.ps1` which is executed after all the deployment stages have excuted or if you've only selected to deploy a windows application, it can be used for writing your own deploy scripts.
 
-To achive replacing the values within the config files I needed the artifacts to be already unzipped so I could edit the app.config file thus we needed to add/edit our `deploy.ps1` file.
+To achieve replacing the values within the config files I needed the artifacts to already be unzipped so I could edit the app.config file thus we needed to add/edit our `deploy.ps1` file.
 
-Seeings as we pulled out our script that does all the work, our `deploy.ps1` is now made really simple:
+Seeing as we pulled out our script that does all the work, our `deploy.ps1` is now made really simple:
 
 ```powershell
 # deploy.ps1

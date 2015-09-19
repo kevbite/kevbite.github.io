@@ -59,18 +59,18 @@ Normally the reasons I moan about AutoMapper isn't actually down to how AutoMapp
 
 #### Naming conventions
 
-Not having standard naming conventions throughout your code-base is really hard work, say we have a member on the source side of `CardNumber` but then on your destination side it's called `Card`, Its simple configure to start off with:
+Not having standard naming conventions throughout your code-base is really hard work, say we have a member on the source side of `CardNumber` but then on your destination side it's called `Card`, it's simple configure to start off with:
 
 ```csharp
 Mapper.CreateMap<CreditCard, CreditCardDto>()
     .ForMember(dest => dest.Card, opt => opt.MapFrom(src => src.CardNumber));
 ```
 
-But now times that by 20 members all named differently, the configuration starts getting out of hand and you feel like the benefits of using AutoMapper are going straight out the window! I've seen this happen a lot with poorly specified requirements or no requirements at all. There really needs to be an ubiquitous language set out with the client and the development team. This helps communication back and forth from the client but it also changes how us as developers write code, especially when you start splitting up the teams.
+But now times that by 20 members all named differently, the configuration starts getting out of hand and you feel like the benefits of using AutoMapper are going straight out of the window! I've seen this happen a lot with poorly specified requirements or no requirements at all. There really needs to be an ubiquitous language set out with the client and the development team. This helps communication back and forth from the client but it also changes how us as developers write code, especially when you start splitting up the teams.
 
 #### Static global Mapper
 
-I'm not really too sure why people go down the route of just using the static mapper directly, It's good for examples but isn't really ideal for production code. It also seems to get developers trying to create really bad abstract around it which lose half the functionality which AutoMapper gives you! It's also pretty hard to tests a static class in the middle of your code too without some hacky magic.
+I'm not really too sure why people go down the route of just using the static mapper directly, it's good for examples but isn't really ideal for production code. It also seems to get developers trying to create really bad abstract around it which loses half the functionality which AutoMapper gives you! It's also pretty hard to test a static class in the middle of your code too without some hacky magic.
 
 AutoMapper gives you some nice interfaces to play around with, there is a good article that was posted on [Los Techies](https://lostechies.com/jimmybogard/2009/05/12/automapper-and-ioc/ "Los Techies") in 2009 that explains all you need to know.
 
@@ -100,21 +100,21 @@ public class ApplicantCreator
 
 #### Long mapping configuration
 
-I'm really only going to say one this about long mapping configurations and that's everyone should start using [mapping profiles](https://github.com/AutoMapper/AutoMapper/wiki/Configuration#profile-instances), these are used to organize AutoMapper configuration so you don't just end up with a big long list of `Mapper.CreateMap<>` in your program.main() It just consolidates it and makes it easier to manage later down the line.
+I'm really only going to say one thing about long mapping configurations and that's everyone should start using [mapping profiles](https://github.com/AutoMapper/AutoMapper/wiki/Configuration#profile-instances), these are used to organize AutoMapper configuration so you don't just end up with a big long list of `Mapper.CreateMap<>` in your program.main() It just consolidates it and makes it easier to manage later down the line.
 
 #### Dependency hell
 
-Have you ever wanted to push in your own service or repository to a formatter, resolver or type converter before? Imagine we have an object that has a member of an enum and is required to be mapped to say a localized string which is store in a database, This sounds simple right? Well really it all depends how AutoMapper was originally setup, but if you have an IoC to hand you can simply call:
+Have you ever wanted to push in your own service or repository to a formatter, resolver or type converter before? Imagine we have an object that has a member of an enum and is required to be mapped to say a localized string which is stored in a database, this sounds simple right? Well really it all depends how AutoMapper was originally setup, but if you have an IoC to hand you can simply call:
 
 ```csharp
 Mapper.Configuration.ConstructServicesUsing(ioc.Resolve);
 ```
 
-Many times i've not had the IoC to hand when AutoMapper is being setup or its being setup with some crazy hand rolled reflection code so its mission impossible to set the property.
+Many times I've not had the IoC to hand when AutoMapper is being setup or it's being setup with some crazy hand rolled reflection code so it's mission impossible to set the property.
 
 ## Autofac
 
-Even though I've just been ranting about how annoying it can get, recently I've been working on a nice greenfield project where I had the chance to configure AutoMapper as i saw fit. Seeing as the IoC is core to configuring all my dependencies and wirings, i feel no reason why i shouldn't let it setup all my AutoMapper configuration too. So I decided to roll a nice Module to encapsulate configuring AutoMapper:
+Even though I've just been ranting about how annoying it can get, recently I've been working on a nice greenfield project where I've had the chance to configure AutoMapper as I saw fit. Seeing as the IoC is core to configuring all my dependencies and wirings, I feel no reason why I shouldn't let it setup all my AutoMapper configuration too. So I decided to roll a nice Module to encapsulate configuring AutoMapper:
 
 ```csharp
 public class AutoMapperModule : Module
