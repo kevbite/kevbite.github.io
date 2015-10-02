@@ -9,13 +9,13 @@ comments: true
 
 ## Forgetting to tag on release?
 
-Who hasn't forgot to tag their repository after doing a build and pushing it live? There's even git extensions that do all the hard work for us too, take [git flow](http://danielkummer.github.io/git-flow-cheatsheet) for example on a `git flow release publish {RELEASE}` it will create you a tag with your given version number. The only problem with git flow is it doesn't automatically push the tags to remote repositories so you have to manually call `git push --tags` -  *Now how many times you forgot to do that?*
+Who hasn't forgot to tag their repository after doing a build and pushing it live? There's even git extensions that do all the hard work for us too, take [git flow](http://danielkummer.github.io/git-flow-cheatsheet) for example on a `git flow release publish {RELEASE}` it will create you a tag with your given version number. The only problem with git flow is it doesn't automatically push the tags to remote repositories so you have to manually call `git push --tags` -  *Now how many times have you forgot to do that?*
 
 ## Continuous Integration Solution
 
-With most mature continuous integration solutions they come with a baked in solution for tagging your repository on a successful build.
+Most mature continuous integration solutions come with a baked in solution for tagging your repository on a successful build.
 
-The two off the top of my head that come to mind is CruiseControl.NET whereby you set a flag in your `sourcecontrol` XML block in the [configuration](http://cruisecontrolnet.org/projects/ccnet/wiki/Git configuration):
+The two that come to mind are CruiseControl.NET whereby you set a flag in your `sourcecontrol` XML block in the [configuration](http://cruisecontrolnet.org/projects/ccnet/wiki/Git configuration):
 
 ```xml
 <sourcecontrol type="git">
@@ -26,7 +26,7 @@ The two off the top of my head that come to mind is CruiseControl.NET whereby yo
 </sourcecontrol>
 ```
 
-Then there is TeamCity, they allow you to tag the repository (*VSC Labeling* in the JetBrains lingo) by setting up [Labeling Rules](https://confluence.jetbrains.com/display/TCD9/VCS+Labeling Labeling Rules):
+and then there is TeamCity, they allow you to tag the repository (*VSC Labeling* in the JetBrains lingo) by setting up [Labeling Rules](https://confluence.jetbrains.com/display/TCD9/VCS+Labeling Labeling Rules):
 
 ```
 Labeling pattern: %system.build.number%
@@ -39,7 +39,7 @@ So I've got a new toy, yes AppVeyor... Now there's no option within AppVeyor to 
 
 ### So what can we do?
 
-AppVeyor has a nice pluggable pipeline where you can add in your own custom scripts at any point within the build process, one of the points is `on success` this is called on every successful build, this can be configured within the `appveyor.yml` file:
+AppVeyor has a nice pluggable pipeline where you can add in your own custom scripts at any point within the build process, one of the points is `on success` this is called on every successful build, and can be configured within the `appveyor.yml` file:
 
 ```yaml
 
@@ -66,7 +66,7 @@ git push bitbucket --tags --quiet
 
 ```
 
-So We've used a lot of environment variables within our script, most of these are just the standard set of environment variables that AppVeyor build agent gives us, these can be found [here](http://www.appveyor.com/docs/environment-variables Environment Variables). There is also a few of our own:
+So we've used a lot of environment variables within our script, most of these are just the standard set of environment variables that AppVeyor build agent gives us, these can be found [here](http://www.appveyor.com/docs/environment-variables Environment Variables). There is also a few of our own:
 
  * GitEmail
  * GitUsername
@@ -76,7 +76,7 @@ We've pulled out these variables so we can re-use this script, plus we don't rea
 
 So we just need to inject our custom environment variables in to our build script, we can do this two ways.
 
-The first way is by configuring the environment variables within the AppVeyor portal, to navigating here go to a project then Setting -> Environment. Here you will see an option to add environment variables, then we can add the 3 custom environment variables above:
+The first way is by configuring the environment variables within the AppVeyor portal, to navigate here go to a project then Setting -> Environment. Here you will see an option to add environment variables, then we can add the 3 custom environment variables above:
 
 ![appveyor portal environment variables](/assets/posts/2015-09-29-tagging-bitbucket-repositories-with-appveyor/appveyor-portal-environment-variables.png)
 
@@ -92,11 +92,11 @@ The second option which I personally prefer is to setup the environment variable
 
 ```
 
-As you can see these can include encripted variables which can be generated [here](https://ci.appveyor.com/tools/encrypt encrypt variables), you can also read about how they work on the [build configuration](http://www.appveyor.com/docs/build-configuration#secure-variables secure variables) page.
+As you can see these can include encrypted variables which can be generated [here](https://ci.appveyor.com/tools/encrypt encrypt variables), you can also read about how they work on the [build configuration](http://www.appveyor.com/docs/build-configuration#secure-variables secure variables) page.
 
 Once we've sorted all that we'll have our build server automatically tagging our repositories!
 
 ### Caveats?
 
-Even though we have a nice automated solution, there is a little caveat to this approach. In this approach we have to create a read/write access user within Bitbucket and due to Bsitbucket is a per user licensing model this will use up one of our Bitbucket users! Doh! You could always just use your personal account but if you're working within a team I wouldn't advise it.
+Even though we have a nice automated solution, there is a little caveat to this approach. In this approach we have to create a read/write access user within Bitbucket and due to Bitbucket is a per user licensing model this will use up one of our Bitbucket users! Doh! You could always just use your personal account but if you're working within a team I wouldn't advise it.
 
