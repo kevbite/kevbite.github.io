@@ -9,7 +9,7 @@ comments: true
 
 ## What’s happened?
 Back in September 2015 I posted about how we can simplify some of the pains within AutoMapper with a little help from Autofac – [Getting along with AutoMapper and Autofac](/2015/09/14/getting-along-with-automapper-and-autofac.html)
-Since September 2016 there has been a release [V4.2.0]( https://www.nuget.org/packages/AutoMapper/4.2.0) on 28th January 2016 that broke the wiring within our inversion of control container setup, but don’t worry the changes are for the good and it seems like they’re going to kill off the evil statics members soon!
+Since September 2015 there has been a release [V4.2.0]( https://www.nuget.org/packages/AutoMapper/4.2.0) on 28th January 2016 that broke the wiring within our inversion of control container setup, but don’t worry the changes are for the good and it seems like they’re going to kill off the evil statics members soon!
 
 ## The new wiring
 The new wiring is actually simpler as we need to know less about the internals of AutoMapper to construct the AutoMapper objects. To start with we need to create a `MapperConfiguration` class that contains all our profiles and how our AutoMapper engine will be configured but instead of new’ing it up with lots of internal magic (`new ConfigurationStore(new TypeMapFactory(), MapperRegistry.Mappers`) we just new-up a `MapperConfiguration` passing in to the constructor an expression of how we want it configured:
