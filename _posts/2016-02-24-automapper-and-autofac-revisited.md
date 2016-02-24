@@ -22,7 +22,7 @@ var config = new MapperConfiguration(x =>
 	x.AddProfile(new MyProfile2());
 });
 ```
-Once we’ve got our `MapperConfiguration` object all configured correctly all we need to do is called the `CreateMapper()` function on the `MapperConfiguration` instance.
+Once we’ve got our `MapperConfiguration` object all configured correctly, all we need to do is call the `CreateMapper()` function on the `MapperConfiguration` instance.
 
 ```csharp
 var mapper = config.CreateMapper();
