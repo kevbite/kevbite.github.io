@@ -9,7 +9,7 @@ comments: true
 
 # Building your service with tests
 
-When working on a Service Fabric applications one of the first things that you will probably notice is that there is no easy way to get started with writing tests around your service.
+When working on a Service Fabric application, one of the first things that you will probably notice is that there is no easy way to get started with writing tests around your service.
 
 To build a stateful service within Service Fabric we inherit from a class called `StatefulService` and override a protected `RunAsync` method:
 
@@ -39,7 +39,7 @@ public sealed class MyStatefulService : StatefulService
 Due to the protection level of the method there is no way for us to call it within our tests. `new MyStatefulService(...).RunAsync(...);` will give us the following error
 >_Cannot access method 'RunAsync' here due to its protection level_.
 
-So lets find out what calls in to our RunAsync method, `StatefulServiceBase` is the base class of `StatefulService` and has been interface of `IStatefulUserServiceReplica` which also has a `RunAsync` method but it is explicitly implemented thus hiding the details of `IStatefulUserServiceReplica`. So instead we can cast our service to the interface and then call the method.
+So let's find out what calls in to our RunAsync method, `StatefulServiceBase` is the base class of `StatefulService` and has been interface of `IStatefulUserServiceReplica` which also has a `RunAsync` method but it is explicitly implemented thus hiding the details of `IStatefulUserServiceReplica`. So instead we can cast our service to the interface and then call the method.
 
 ```csharp
 
@@ -66,9 +66,9 @@ await (Task) runAsyncMethodInfo.Invoke(Service, new object[] { new CancellationT
 
 # RunAsync continuous loop
 
-The next problem we face is that the `RunAsync` method never returns to its caller. Calling the method directly within our tests will never end execution. We do however have a cancellation token that we can trigger to force an exception to be thrown, this will allow us to break out the infinite while loop.
+The next problem we face is that the `RunAsync` method never returns to its caller. Calling the method directly within our tests will never end execution. We do however have a cancellation token that we can trigger to force an exception to be thrown, this will allow us to break out of the infinite while loop.
 
-The standard practice within a stateful service is to start a transaction and then commit the transaction after the work is complete.
+The standard practice within a stateful service is to start a transaction and then commit the transaction after the work is completed.
 
 ```csharp
 
@@ -86,7 +86,7 @@ while (true)
 
 ```
 
-So if we could mock out a transaction object to trigger the cancellation token on disposal then this would give us one iteration of the while loop. The below code uses `moq` to create an mock of a `ITransaction` object that will trigger `Cancel` on a `CancellationTokenSource` object when the `Dispose` method is called. We also need to wrap the running of the service in a try/catch block as we'll be expecting a `OperationCanceledException` to be thrown.
+So if we could mock out a transaction object to trigger the cancellation token on disposal then this would give us one iteration of the while loop. The below code uses `moq` to create a mock of a `ITransaction` object that will trigger `Cancel` on a `CancellationTokenSource` object when the `Dispose` method is called. We also need to wrap the running of the service in a try/catch block as we'll be expecting a `OperationCanceledException` to be thrown.
 
 ```csharp
 var cancellationTokenSource = new CancellationTokenSource();
@@ -113,7 +113,7 @@ catch (OperationCanceledException)
 
 # Base test fixture
 
-Now we have got all the building blocks, we can now start to build a base test fixture. Below is an example of a test fixture that uses a template pattern to force the user to override a `CreateService` for create a `StatefulService`. It also has a `RunServiceTransactionOnce` method that will allow derived classes to run the service for one transaction.
+Now we have got all of the building blocks, we can start to build a base test fixture. Below is an example of a test fixture that uses a template pattern to force the user to override a `CreateService` for create a `StatefulService`. It also has a `RunServiceTransactionOnce` method that will allow derived classes to run the service for one transaction.
 
 ```csharp
 public abstract class StatefulServiceFixture<TStatefulService>
@@ -178,7 +178,7 @@ public abstract class StatefulServiceFixture<TStatefulService>
 
 # Real life example
 
-We can now map this to a real life example. We have requirements to create a microservice that listens to a `orders` queue and deque an item off each iterations within our loops, every `Order` that is received off the queue is checked to see if it requires a receipt to be generated and then dispatches the `Order` to the `ReceiptGenerator`. The xUnit tests for this are below:
+We can now map this to a real life example. We have requirements to create a microservice that listens to a `orders` queue and dequeue an item off each iterations within our loops, every `Order` that is received off the queue is checked to see if it requires a receipt to be generated and then dispatches the `Order` to the `ReceiptGenerator`. The xUnit tests for this are below:
 
 ```csharp
 public class OrderServiceTests : StatefulServiceFixture<OrderService>
@@ -230,7 +230,7 @@ public class OrderServiceTests : StatefulServiceFixture<OrderService>
 }
 ```
 
-For completeness the `OrderService` is below to cross reference the tests above tests.
+For completeness the `OrderService` implemention is below to cross reference with the tests.
 
 ```csharp
 public sealed class OrderService : StatefulService
