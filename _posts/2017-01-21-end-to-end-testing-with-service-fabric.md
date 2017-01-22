@@ -9,11 +9,11 @@ comments: true
 
 # End to end testing
 
-Most application which I have worked on developing I have always tried to have my build server test the application end to end so that I have a very high confidence that when I ship the code the features implemented are going to work as expected.
+Most application which I have worked on developing have always tried to have my build server test the application end to end so that I have a very high confidence that when I ship the code the features implemented are going to work as expected.
 
-Previous to Service Fabric, services I developed were built on top of _Owin_ or _TopSelf_, this allowed them to be run easily by just executing a executable file (*.exe). I could then just alter the configuration within the tests or inject in some environment variables to point to a local database or mocked web service and test my application fully.
+Previous to Service Fabric, services I developed were built on top of _[Owin](http://owin.org/)_ or _[TopSelf](http://topshelf-project.com/)_, this allowed them to be run easily by just executing a executable file (*.exe). I could then just alter the configuration within the tests or inject in some environment variables to point to a local database and/or a mocked web service and test my application fully.
 
-However if we try to execute a Service Fabric service from the command line it will just throw an exception due to there is not Service Fabric runtime:
+However if we try to execute a Service Fabric service from the command line it will just throw an exception as it is not running within the Service Fabric runtime:
 
 ```text
   System.Fabric.FabricException: An error occurred during this operation.  Please check the trace logs for more details. ---> System.Runtime.InteropServices.COMException: Exception from HRESULT: 0x80071CC0
@@ -35,13 +35,13 @@ However if we try to execute a Service Fabric service from the command line it w
     at Kevsoft.WordCount.Service.Program.Main(String[] args) in C:\dev\kevbite\MassTransit.ServiceFabric\src\WordCount.Service\Program.cs:line 22
 ```
 
-This is not that ideal, I was sold by the Service Fabric documentation that it ran just like a normal console application. So I did a bit of digging using my favourite tool [ILSpy](http://ilspy.net/) but it pretty much boils down calling some assemblies that are pretty impossible to mock out. So I resulted in sticking the question out there on [Stackoverflow](http://stackoverflow.com/questions/41495153/how-do-i-run-a-service-fabric-exe-locally) to see what everyone else thought about the problem.
+This is not that ideal, I was sold by the Service Fabric documentation that it ran just like a normal console application. So I did a bit of digging using my favourite tool [ILSpy](http://ilspy.net/) but it boils down to calling some assemblies that are pretty impossible to mock out. So I resulted in sticking the question out there on [Stackoverflow](http://stackoverflow.com/questions/41495153/how-do-i-run-a-service-fabric-exe-locally) to see what everyone else thought about the problem.
 
-It seems that the only way to get my services up and running was to build, package and deploy these up to a Service Fabric cluster. Everything in development is possible, it is just how much effort are we willing to put in (aka cost to benefit etc..).
+It seems that the only way to get my services up and running was to build, package and deploy a Service Fabric Application up to a Service Fabric cluster. I find that doing end-to-end testing throughout a project gives you a very high confidence that when you ship the software it is going to work as expected. So i decided to cost to benefit of spending the time investigating how I could achieve this was worth while.
 
 # Let's get it deploy via NUnit
 
-On the Service Fabric website there is an excessive amount of documentation on how to deploy our Service Fabric applications using PowerShell and Visual Studio which is useful for setting up our production environment but for my tests I want to be able to create, deploy and then destroy all programmatically using C#. A while back when I was looking at Service Fabric examples I stumbled across a class call [FabricClient](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient) which is a library for manipulating a Service Fabric cluster programmatically, this will allow us to perform operations related to applications.
+On the Service Fabric website there is an excessive amount of documentation on how to deploy Service Fabric applications using PowerShell or Visual Studio, this is useful for setting up our production environment but for my tests I want to be able to create, deploy and then destroy all programmatically using C#. A while back when I was looking at Service Fabric examples I stumbled across a class [FabricClient](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.fabricclient) which is a class for manipulating a Service Fabric cluster programmatically, this will allow us to perform operations related to applications.
 So to start with we need to access the `ApplicationManager` on the `FabricClient` so we can perform application related operations.
 
 ```csharp
@@ -61,33 +61,28 @@ After we have ran our tests we will also need to tear down our application insta
 
 ## Packaging the application
 
-Building a Service Fabric application (*.sfproj projects) does not build a deployable package. To create a deployable package we will have to write something execute a `msbuild.exe` script with a package argument.
+Building a Service Fabric application (*.sfproj projects) does not build a deployable package. To create a deployable package we will have to execute `msbuild.exe` with a package argument.
 
 The path to the `msbuild.exe` is located within the MS Build Tools, this location can be differ between the version of Visual Studio installed so it's best to lookup the location via the registry. Within the registry this can be found with the key of `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSBuild\ToolsVersions\4.0` and a value of `MSBuildToolsPath`.
 
 We can check this by dropping in to the command line and executing `REG.exe`.
 
 ```batch
-
 C:\>REG QUERY HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSBuild\ToolsVersions\4.0 /v MSBuildToolsPath
 
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSBuild\ToolsVersions\4.0
     MSBuildToolsPath    REG_SZ    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\
-
 ```
 
-We will need to execute `msbuild.exe` with the following command arguments, this will then build us a package in the `\pkg\Debug` directory.
+We will need to execute `msbuild.exe` with the following command arguments, this will then build a package in the `\pkg\Debug` directory.
 
 ```batch
-
 msbuild.exe c:\dev\SfApplication\SfApplication.sfproj /t:Package /p:Configuration=DEBUG,Platform=x64
-
 ```
 
-We can now just wrap this in some C# code to do the same thing.
+We can now wrap this in some C# code to do the same thing.
 
 ```csharp
-
   public class MsBuildPacker
   {
       public void Pack(string projPath)
@@ -118,7 +113,6 @@ We can now just wrap this in some C# code to do the same thing.
 This is a pretty simple step, all the applications that Service Fabric can provision have to be stored within the Service Fabric image store. Within the default Service Fabric development cluster this is located in `C:\SfDevCluster\Data\ImageStoreShare`. Using the `FabricClient` we can call the `CopyApplicationPackage` method passing in the `imageStoreConnectionString`, `applicationPackagePath` and `applicationPackagePathInImageStore`.
 
 ```csharp
-
 var client = new FabricClient();
 
 client.ApplicationManager.CopyApplicationPackage(@"file:C:\SfDevCluster\Data\ImageStoreShare",
@@ -131,7 +125,6 @@ client.ApplicationManager.CopyApplicationPackage(@"file:C:\SfDevCluster\Data\Ima
 This is another easy step, we have to pass in the `applicationPackagePathInImageStore` value that we used in the `CopyApplicationPackage` method call and pass it in to `ProvisionApplicationAsync` method. This will then registers our Service Fabric application type with the cluster.
 
 ```csharp
-
 await client.ApplicationManager.ProvisionApplicationAsync("SfApplication")
                 .ConfigureAwait(false);
 
@@ -142,7 +135,6 @@ await client.ApplicationManager.ProvisionApplicationAsync("SfApplication")
 The last step before we start writing our functional tests is to create an instance of our application. One of the benefits of using Service Fabric is we can spin up multiple applications with different names. This allows us to isolate an instance per a given set of tests and within each instance of the application we can vary how the application runs by passing in application parameters. To create an instance we will need an `ApplicationDescription` and we'll pass this in to the `CreateApplicationAsync` on the `FabricClient`.
 
 ```csharp
-
 var applicationDescription = new ApplicationDescription(new Uri($"fabric:/{Guid.NewGuid()}"),
                     "SfApplication",
                     "1.0.0",
@@ -154,7 +146,6 @@ var applicationDescription = new ApplicationDescription(new Uri($"fabric:/{Guid.
 
 await client.ApplicationManager.CreateApplicationAsync(applicationDescription)
                                     .ConfigureAwait(false);
-
 ```
 
 After executing the `CreateApplicationAsync` method Service Fabric will start deploying our application!
@@ -283,7 +274,6 @@ public class ProjectPaths
 Depending on how we run the tests we might need to change this around but the following implementation works well with `nunit3-console.exe` and _resharper_.
 
 ```csharp
-
 public class PathFinder
 {
     public ProjectPaths Find(string projectName)
@@ -303,12 +293,11 @@ public class PathFinder
         };
     }
 }
-
 ```
 
 # Let's write a test!
 
-So now we have got all our code in place to allow us to talk to our application that is deployed within the cluster so we will write a simple health checker test that makes sure that our application and services are running ok.
+Now we have all the code in place to allow us to create our application with Service Fabric, so we will write a simple health checker test that makes sure that our application and services are running ok.
 
 ```csharp
 
