@@ -351,4 +351,4 @@ public class ApplicationHealthTests
 
 ```
 
-This is a little simple but from this we can start testing our application end-to-end, be it either an API or an MVC website.
+This is a little simple but from this we can start testing our application end-to-end, be it either an API or an MVC website. I've added a little sample to my github ([EndToEndServiceFabric](https://github.com/kevbite/EndToEndServiceFabric)) this one shows an example of testing a REST API which is hosted within Service Fabric.
