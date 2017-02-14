@@ -65,7 +65,7 @@ public class AddNameHandler : IAddName
 
 ## Wiring up the listeners
 
-We will then need to modify the overridden method `CreateServiceInstanceListeners` to explicitly create two `FabricTransportServiceRemotingListener` and pass in a instance of each of our handlers. When we use 2 or more listeners we will have to explicitly name each one. Service Fabric uses these names to keep track of the listeners so they need to be unique.
+We will then need to modify the overridden method `CreateServiceInstanceListeners` to explicitly create two `FabricTransportServiceRemotingListener` and pass in an instance of each of our handlers. When we use 2 or more listeners we will have to explicitly name each one. Service Fabric uses these names to keep track of the listeners so they need to be unique.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
