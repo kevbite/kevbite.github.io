@@ -3,7 +3,7 @@ layout: post
 title: Transfering big payloads with MassTransit and Azure Blob Storage
 categories:
 tags: [MassTransit, Azure, Blob Storage, C#, ServiceBus, MessageData]
-description: Building Reactive reliable queues within Service Fabric
+description: How to use cloud storage providers to transfer large payloads within MassTransit
 comments: true
 ---
 
