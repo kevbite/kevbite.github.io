@@ -10,19 +10,19 @@ hasTwitterQuote: true
 
 # Background
 
-[DDD South West (DDDSW)](http://www.dddsouthwest.com/) 7 was hosted at [Redcliffe Sixth Form Centre](https://www.google.de/maps/place/Redcliffe+Sixth+Form+Centre/@51.4473108,-2.590279,15z/data=!4m2!3m1!1s0x0:0xd4bf667f74787e7c?sa=X&ved=0ahUKEwik8dfd__vTAhXIIVAKHXDiAS4Q_BIIfjAL) in Bristol. DDDSW hosted five one hour sessions sessions with four tracks for each session, these ranged from topics such as agile development to architecture.
+[DDD South West (DDDSW)](http://www.dddsouthwest.com/) 7 was hosted at [Redcliffe Sixth Form Centre](https://www.google.de/maps/place/Redcliffe+Sixth+Form+Centre/@51.4473108,-2.590279,15z/data=!4m2!3m1!1s0x0:0xd4bf667f74787e7c?sa=X&ved=0ahUKEwik8dfd__vTAhXIIVAKHXDiAS4Q_BIIfjAL) in Bristol. DDDSW hosted five one hour sessions with four tracks for each session, these ranged from topics such as agile development to architecture.
 
 [DDD conferences](https://en.wikipedia.org/wiki/Developer!_Developer!_Developer!) started back in 2005, they are community driven and organised by developers for developers. They provide a great way for people to share experience either good or bad and just get to chat with other like minded developers.
 
 You can get involved with any aspect within a DDD event, you can either put your self forward to be a speaker, a helper or just turn up and attend the talks and discussions what happened throughout the day.
 
-# Post event
+# Pre event
 
 The event started for me at around 16:00 where we set off on route down to Bristol from Sheffield. There were a few of us from the [dotnetsheff](https://dotnetsheff.co.uk) group that decided to car share, this gave us a good opportunity to chat about geeky subjects on the way down.
 
 We arrive in to our Bristol hotel around 20:00, and sadly I thought I had missed out on the pre-event speakers meal. So we decided to go grab a burger down the road and then catch up with the speakers later on that night.
 
-# Event
+# The event
 
 We arrived at the event around ​08:45 on Saturday morning, we collected our name badges and goodie bags and made our way up to the breakfast pastries.
 
@@ -32,7 +32,7 @@ I had already looked up the agenda prior to the event, but I still had not decid
 
 Having already published my own .NET Standard Library to nuget ([CompaniesHouse.NET](https://www.nuget.org/packages/CompaniesHouse)) I was a bit on the edge about attending this talk. I've read most of the .NET Standard content from the internet and wanted to get another person perspective on the subject. I feel it is so easy to just miss a few good points when just working on your own.
 
-The talk by [Adam Ralph](https://twitter.com/adamralph) was really imformative and even included some new topics such as _.NET Standard 2_. 
+The talk by [Adam Ralph](https://twitter.com/adamralph) was really informative and even included some new topics such as _.NET Standard 2_. 
 
 ![adam-ralph-dot-net-standard]
 
