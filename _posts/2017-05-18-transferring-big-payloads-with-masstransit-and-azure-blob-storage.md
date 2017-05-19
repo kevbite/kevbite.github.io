@@ -13,7 +13,7 @@ There is a lot of information out there regarding sending large files across mes
 
 ## Message Chunking
 
-One approach is chunking the payload into smaller parts and then sending each chunk in a separate message. The publisher of the large payload would need to split the message up into separate chunks then publish a message for each chunk. At the consumers end, it would then need to wait for all the message to be received and reassemble the payload. This allows the message brokers to keep running at high speeds without being compromised with large payloads.
+One approach is chunking the payload in to smaller parts and then sending each chunk in a separate message. The publisher of the large payload would need to split the message up in to separate chunks then publish a message for each chunk. At the consumers end, it would then need to wait for all the message to be received and reassemble the payload. This allows the message brokers to keep running at high speeds without being compromised with large payloads.
 
 ## Externally storing payload
 
