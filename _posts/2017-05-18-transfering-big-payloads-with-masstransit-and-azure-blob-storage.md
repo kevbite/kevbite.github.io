@@ -1,23 +1,23 @@
 ---
 layout: post
-title: Transfering big payloads with MassTransit and Azure Blob Storage
+title: Transferring big payloads with MassTransit and Azure Blob Storage
 categories:
 tags: [MassTransit, Azure, Blob Storage, C#, ServiceBus, MessageData]
-description: How to use cloud storage providers to transfer large payloads within MassTransit
+description: How to use cloud storage providers to transfer large payloads with MassTransit
 comments: true
 ---
 
 # Message Queues and Big Payloads
 
-There is a lot of information out there regarding sending large files across message based systems. No matter if you are using RabbitMQ or Azure Service Bus, it is always advised to one of the two approaches below.
+There is a lot of information out there regarding sending large files across message-based systems. No matter if you are using RabbitMQ or Azure Service Bus, it is always advised to use one of the two approaches below.
 
 ## Message Chunking
 
-One approach is chunking the payload in to smaller parts and then sending each chunk in a separate message. The publisher of the large payload would needs to split the message up in to separate chunks then publish a message for each chunk. At consumers end, it would then need to wait for all the message to be received and reassembly the payload. This allows the message brokers to keep running at high speeds without being compromised with large payloads.
+One approach is chunking the payload into smaller parts and then sending each chunk in a separate message. The publisher of the large payload would need to split the message up into separate chunks then publish a message for each chunk. At the consumers end, it would then need to wait for all the message to be received and reassemble the payload. This allows the message brokers to keep running at high speeds without being compromised with large payloads.
 
 ## Externally storing payload
 
-Another approach is to externally store the large payload in an external storage such as [Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) or [AWS S3](https://aws.amazon.com/s3/). When we publish the message containing the payload we upload it to our external storage and then include a reference inside the message of how or where the corrisponding payload can be found. This keeps our message sizes small and keeps our message brokers happily running along.
+Another approach is to externally store the large payload in external storage such as [Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) or [AWS S3](https://aws.amazon.com/s3/). When we publish the message containing the payload, we upload it to our external storage and then include a reference inside the message of how or where the corresponding payload can be found. This keeps our message sizes small and keeps our message brokers happily running along.
 
 # MassTransit External Message Data Storage Feature
 
@@ -61,7 +61,7 @@ The file system stores the files physically on disk based on a path, this howeve
 
 ### MongoDbMessageDataRepository
 
-Back in [April 2016](https://github.com/MassTransit/MassTransit/blob/master/src/Persistence/MassTransit.MongoDbIntegration/readme.md), a colleague and I worked with extended MassTransit to allow storing message data within the MongoDB GridFS. This worked great for a distributed system but you have to have a MongoDB cluster running just to send data around your system.
+Back in [April 2016](https://github.com/MassTransit/MassTransit/blob/master/src/Persistence/MassTransit.MongoDbIntegration/readme.md), a colleague and I extended MassTransit to allow storing message data within the MongoDB GridFS. This worked great for a distributed system but you have to have a MongoDB cluster running just to send data around your system. You can read more about the MongoDB integration [here](http://blundell89.github.io/data/2016/02/16/sharing-large-message-between-your-services-with-masstransit-and-mongodb.html).
 
 ### EncryptedMessageDataRepository
 
@@ -69,25 +69,25 @@ The encrypted message data repository is merely just a wrapper around any `IMess
 
 ## Cloud first
 
-The start of 2017 most companies are moving in to a era of _"cloud first"_, so we need to be able to store our data cost efficiently within our cloud provider of choice; for example if we are hosting on AWS we would use S3, Azure we would use Azure Blob Storage and Digital Ocean we have Block Storage. The problems arise as each one of these providers have their own APIs and their own ways of connecting to each of these services. What we need is some storage abstraction. This is where we can advantage of a open source project called [Enchilada](https://github.com/sparkeh9/Enchilada) which is a file system abstraction.
+At the start of 2017 most companies were moving in to an era of _"cloud first"_, so we need to be able to store our data cost efficiently within our cloud provider of choice; for example if we are hosting on AWS we would use S3, Azure we would use Azure Blob Storage and Digital Ocean we have Block Storage. The problems arise as each one of these providers have their own APIs and their own ways of connecting to each of these services. What we need is some storage abstraction. This is where we can take advantage of an open source project called [Enchilada](https://github.com/sparkeh9/Enchilada), which is a file system abstraction.
 
 ## Azure Blob Storage and MassTransit with Enchilada
 
 ### Configuration
 
-To get started we need to install the [Enchilada MessageData](https://www.nuget.org/packages/MassTransit.MessageData.Enchilada/) nuget package for MassTransit, this can be achieved by dropping in to command line and running:
+To get started we need to install the [Enchilada MessageData](https://www.nuget.org/packages/MassTransit.MessageData.Enchilada/) nuget package for MassTransit, this can be achieved by dropping in to the command line and running:
 
 ```bash
 $ dotnet add package MassTransit.MessageData.Enchilada
 ```
 
-The next package we will install is [Azure Enchilada](https://www.nuget.org/packages/Enchilada.Azure/) nuget package, this contains everything we need to connect to Azure Blob Storage.
+The next package we will install is [Azure Enchilada](https://www.nuget.org/packages/Enchilada.Azure/), this contains everything we need to connect to Azure Blob Storage.
 
 ```bash
 $ dotnet add package Enchilada.Azure
 ```
 
-Once we have the package installed we can configure a Enchilada adapter to use Azure Blob Storage.
+Once we have the package installed, we can configure a Enchilada adapter to use Azure Blob Storage.
 
 ```csharp
 var adapter = new BlobStorageAdapterConfiguration
@@ -108,7 +108,7 @@ var messageDataRepository = factory.Create(adapter);
 
 ### Sending a message
 
-To send a message with a large payload all we have to do is use the message data repository to store the payload before sending the message.
+To send a message with a large payload, all we have to do is use the message data repository to store the payload before sending the message.
 
 ```csharp
 var bytes = new byte[] {3, 1, 0, 4, 5, 5, 8 };
@@ -122,7 +122,7 @@ var message = new BigMessage
 
 ### Receive a message
 
-The configuration on the receive endpoint needs to have the same repository configured as the send endpoint. however for the receive endpoint we need a little more configuration to tell MassTransit which repository we want to use for each type of message we receive.
+The configuration on the receive endpoint needs to have the same repository configured as the send endpoint. However for the receive endpoint we need a little more configuration to tell MassTransit which repository we want to use for each type of message we receive.
 
 ```csharp
 cfg.ReceiveEndpoint("my_queue", e =>
@@ -133,9 +133,9 @@ cfg.ReceiveEndpoint("my_queue", e =>
 
 ## Other storages and MassTransit with Enchilada
 
-Now we are using an file system abstraction this means we can use any of the Enchilada's abstractions on top of MassTransit, a full list of these can be found on the main Enchilada [github](https://github.com/sparkeh9/Enchilada) page.
+Now we are using a file system abstraction, this means we can use any of Enchilada's abstractions on top of MassTransit. A full list of these can be found on the main Enchilada [github](https://github.com/sparkeh9/Enchilada) page.
 
-Enchilada also supports ASP.NET Core configuration which allows you to configure how MassTransit will store the large payloads with `appsettings.json` configuration files.
+Enchilada also supports ASP.NET Core configuration, which allows you to configure how MassTransit will store the large payloads, using `appsettings.json` configuration files.
 
 ## What's next?
 
