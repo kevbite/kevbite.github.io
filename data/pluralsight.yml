@@ -1,0 +1,200 @@
+--- 
+- 
+  name: "Building Windows 8 Style Apps in C# and XAML"
+  url: "https://app.pluralsight.com/library/courses/win8-csxaml"
+
+- 
+  name: "Web Performance"
+  url: "https://app.pluralsight.com/library/courses/web-performance"
+
+- 
+  name: "ASP.NET MVC 4 Fundamentals"
+  url: "https://app.pluralsight.com/library/courses/mvc4"
+
+- 
+  name: "Introduction to Async and Parallel Programming in .NET 4"
+  url: "https://app.pluralsight.com/library/courses/intro-async-parallel-dotnet4"
+
+- 
+  name: "Entity Framework in the Enterprise"
+  url: "https://app.pluralsight.com/library/courses/efarchitecture"
+
+- 
+  name: "Building Applications with ASP.NET MVC 4"
+  url: "https://app.pluralsight.com/library/courses/mvc4-building"
+
+- 
+  name: "Teaching Kids Programming with C#"
+  url: "https://app.pluralsight.com/library/courses/teaching-kids-programming"
+
+- 
+  name: "Introduction to Bootstrap"
+  url: "https://app.pluralsight.com/library/courses/bootstrap-introduction"
+
+- 
+  name: "ASP.NET MVC Advanced Topics"
+  url: "https://app.pluralsight.com/library/courses/aspdotnet-mvc-advanced-topics"
+
+- 
+  name: "Knockout Fundamentals"
+  url: "https://app.pluralsight.com/library/courses/knockout"
+
+- 
+  name: "Introduction to CSS"
+  url: "https://app.pluralsight.com/library/courses/css-intro"
+
+- 
+  name: "Single Page Apps with HTML5, Web API, Knockout and jQuery"
+  url: "https://app.pluralsight.com/library/courses/spa"
+
+- 
+  name: "HTML Fundamentals"
+  url: "https://app.pluralsight.com/library/courses/html-fundamentals"
+
+- 
+  name: "Understanding ASP.NET Core (Update)"
+  url: "https://app.pluralsight.com/library/courses/asp-dot-net-core-understanding"
+
+- 
+  name: "Introduction to F#"
+  url: "https://app.pluralsight.com/library/courses/fsintro"
+
+- 
+  name: "Building a Continuous Delivery Pipeline with TFS and Visual Studio 2015"
+  url: "https://app.pluralsight.com/library/courses/tfs-visual-studio-2015-implementing-continuous-delivery"
+
+- 
+  name: "What Every Developer Must Know About HTTPS"
+  url: "https://app.pluralsight.com/library/courses/https-every-developer-must-know"
+
+- 
+  name: "Introduction to WF 4"
+  url: "https://app.pluralsight.com/library/courses/wf4-fundamentals"
+
+- 
+  name: "Windows Workflow 3.5 by Example"
+  url: "https://app.pluralsight.com/library/courses/workflow-by-example"
+
+- 
+  name: "WF 4 Custom Activity Development"
+  url: "https://app.pluralsight.com/library/courses/wf4-custom-activities"
+
+- 
+  name: "Web Security and the OWASP Top 10: The Big Picture"
+  url: "https://app.pluralsight.com/library/courses/web-security-owasp-top10-big-picture"
+
+- 
+  name: "Introducing ASP.NET SignalR - Push Services with Hubs"
+  url: "https://app.pluralsight.com/library/courses/signalr-introduction"
+
+- 
+  name: "RabbitMQ for .NET Developers - Part 1"
+  url: "https://app.pluralsight.com/library/courses/rabbitmq-dotnet-developers"
+
+- 
+  name: "PostSharp Fundamentals"
+  url: "https://app.pluralsight.com/library/courses/postsharp-fundamentals"
+
+- 
+  name: "What's New in the OWASP Top 10 for 2013"
+  url: "https://app.pluralsight.com/library/courses/owasp-top-10-whats-new-2013"
+
+- 
+  name: "HTML5 Browser Caching"
+  url: "https://app.pluralsight.com/library/courses/html5-browser-caching"
+
+- 
+  name: "Git Fundamentals"
+  url: "https://app.pluralsight.com/library/courses/git-fundamentals"
+
+- 
+  name: "Domain-Driven Design Fundamentals"
+  url: "https://app.pluralsight.com/library/courses/domain-driven-design-fundamentals"
+
+- 
+  name: "Patterns for Building Distributed Systems for The Enterprise"
+  url: "https://app.pluralsight.com/library/courses/cqrs-theory-practice"
+
+- 
+  name: "Automatic .NET Code Weaving With Fody"
+  url: "https://app.pluralsight.com/library/courses/automatic-dotnet-code-weaving-fody"
+
+- 
+  name: "Building ASP.NET Web API OData Services"
+  url: "https://app.pluralsight.com/library/courses/aspnetwebapi-odata"
+
+- 
+  name: "Aspect Oriented Programming in .NET"
+  url: "https://app.pluralsight.com/library/courses/aop"
+
+- 
+  name: "Making .NET Applications Even Faster"
+  url: "https://app.pluralsight.com/library/courses/making-dotnet-applications-even-faster"
+
+- 
+  name: "Load Testing with Visual Studio 2013"
+  url: "https://app.pluralsight.com/library/courses/load-testing-visual-studio-2013"
+
+- 
+  name: "Static Websites with Jekyll"
+  url: "https://app.pluralsight.com/library/courses/static-websites-with-jekyll"
+
+- 
+  name: "Microsoft Azure Storage In-depth"
+  url: "https://app.pluralsight.com/library/courses/windows-azure-storage-in-depth"
+
+- 
+  name: "Using The Chrome Developer Tools"
+  url: "https://app.pluralsight.com/library/courses/chrome-developer-tools"
+
+- 
+  name: "AngularJS Application Development"
+  url: "https://app.pluralsight.com/library/courses/angular-application-development"
+
+- 
+  name: "What Every Developer Must Know About HTTPS"
+  url: "https://app.pluralsight.com/library/courses/https-every-developer-must-know"
+
+- 
+  name: "Microservices Architecture"
+  url: "https://app.pluralsight.com/library/courses/microservices-architecture"
+
+- 
+  name: "Building Your First ASP.NET Core Web Application"
+  url: "https://app.pluralsight.com/library/courses/aspdotnetcore-web-application-building"
+
+- 
+  name: "The Art of Speaking: Scott Hanselman"
+  url: "https://app.pluralsight.com/library/courses/hanselman-speaking"
+
+- 
+  name: "Building Serverless Applications in Azure"
+  url: "https://app.pluralsight.com/library/courses/azure-serverless-applications"
+
+- 
+  name: "Developing Alexa Skills for Amazon Echo"
+  url: "https://app.pluralsight.com/library/courses/amazon-echo-developing-alexa-skills"
+
+- 
+  name: "AWS Developer: Getting Started"
+  url: "https://app.pluralsight.com/library/courses/aws-developer-getting-started"
+
+- 
+  name: "Managing Certificates with AWS Certificate Manager"
+  url: "https://app.pluralsight.com/library/courses/aws-certificate-manager-managing-certificates"
+
+- 
+  name: "TCP/IP and Networking Fundamentals for IT Pros"
+  url: "https://app.pluralsight.com/library/courses/tcpip-networking-it-pros"
+
+- 
+  name: "Getting Started with AWS Developer Tools"
+  url: "https://app.pluralsight.com/library/courses/aws-developer-tools-getting-started"
+
+- 
+  name: "AWS Developer - An Introduction to AWS Lambda"
+  url: "https://app.pluralsight.com/library/courses/aws-developer-introduction-aws-lambda"
+
+- 
+  name: "Using Docker on AWS"
+  url: "https://app.pluralsight.com/library/courses/aws-developer-introduction-aws-lambda"
