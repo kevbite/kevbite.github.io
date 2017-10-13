@@ -1,0 +1,91 @@
+--- 
+- 
+  date: 2014-06-05
+  description: ~
+  group: dotnetsheff
+  name: "MongoDB: A Developer's Perspective"
+  url: "https://dotnetsheff.co.uk"
+- 
+  date: 014-07-08
+  description: ~
+  group: dotnetsheff
+  name: "MongoDB: Coding Session"
+  url: "https://dotnetsheff.co.uk"
+- 
+  date: 2014-11-04
+  description: ~
+  group: dotnetsheff
+  name: "I Hate Logging"
+  url: "https://dotnetsheff.co.uk"
+- 
+  date: 2015-04-07
+  description: "In this session we'll take a deep dive into NServiceBus. We'll cover its features, alternatives, getting started and a walkthrough of the different types of messaging."
+  group: dotnetsheff
+  name: "On the Bus with NServiceBus"
+  url: "https://dotnetsheff.co.uk"
+- 
+  date: 2015-07-07
+  description: ~
+  group: dotnetsheff
+  name: "C# Coding Kata"
+  url: "https://www.meetup.com/dotnetsheff/events/223149177"
+- 
+  date: 2015-10-06
+  description: ~
+  group: dotnetsheff
+  name: "C# Coding Dojo"
+  url: "https://www.meetup.com/dotnetsheff/events/225853679"
+- 
+  date: 2017-01-03
+  description: ~
+  group: dotnetsheff
+  name: "MongoDB using MLabs"
+  url: "https://www.meetup.com/dotnetsheff/events/233307020"
+- 
+  date: 2017-10-05
+  description: ~
+  group: dotnetYork
+  name: "Building APIs with Azure Functions"
+  url: "https://www.meetup.com/dotnetYork/events/243704196"
+- 
+  date: 2017-10-03
+  description: ~
+  group: dotnetsheff
+  name: "Building APIs with Azure Functions"
+  url: "https://www.meetup.com/dotnetsheff/events/239217247"
+- 
+  date: 2017-10-14
+  description: ~
+  group: "DDD North"
+  name: "Building APIs with Azure Functions"
+  url: "https://dddnorth.co.uk/Sessions/Details/335"
+- 
+  date: 2016-11-16
+  description: ~
+  group: "York Code Dojo"
+  name: "Robot Wars"
+  url: "https://www.meetup.com/York-Code-Dojo/events/235121337"
+- 
+  date: 2017-06-14
+  description: ~
+  group: "York Code Dojo"
+  name: "Robot Wars (using RoboCode)"
+  url: "https://www.meetup.com/York-Code-Dojo/events/239817109"
+- 
+  date: 2015-12-08
+  description: ~
+  group: "Dot Net North"
+  name: "On the Bus with NServiceBus"
+  url: "https://www.meetup.com/DotNetNorth/events/225841863"
+- 
+  date: 2017-05-06
+  description: ~
+  group: "DDD South West"
+  name: "Microservices with Azure Service Fabric"
+  url: "http://www.dddsouthwest.com/Pages/ddd-7-sessions/microservices-with-azure-service-fabric.aspx"
+- 
+  date: 2017-02-02
+  description: ~
+  group: "Tech//Connect 2.1"
+  name: "LiveCode: Microservices (Azure Service Fabric)"
+  url: "http://www.amsourcetechnology.com/events/tech-connect-2-1-livecode-microservices-71313105821"
