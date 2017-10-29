@@ -2,7 +2,7 @@
 layout: post
 title: CodeDeploy Agent Failing To Start
 categories:
-tags: [AWS, Windows, Services]
+tags: [AWS, Windows, Services, CodeDeploy]
 description: How to fix aws CodeDeploy agent when it fails to start
 comments: true
 ---
