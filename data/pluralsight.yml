@@ -198,3 +198,7 @@
 - 
   name: "Using Docker on AWS"
   url: "https://app.pluralsight.com/library/courses/aws-developer-introduction-aws-lambda"
+
+- 
+  name: "AWS DynamoDB Deep Dive"
+  url: "https://app.pluralsight.com/library/courses/aws-dynamodb-deep-dive"
