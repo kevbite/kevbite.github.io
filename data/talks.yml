@@ -89,3 +89,10 @@
   group: "Tech//Connect 2.1"
   name: "LiveCode: Microservices (Azure Service Fabric)"
   url: "http://www.amsourcetechnology.com/events/tech-connect-2-1-livecode-microservices-71313105821"
+
+- 
+  date: 2018-02-10
+  description: ~
+  group: "DDD Scotland"
+  name: "Building APIs with Azure Functions"
+  url: "https://ddd.scot/Sessions/Details/38"
