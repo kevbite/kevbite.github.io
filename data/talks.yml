@@ -42,11 +42,23 @@
   name: "MongoDB using MLabs"
   url: "https://www.meetup.com/dotnetsheff/events/233307020"
 - 
+  date: 2017-04-27
+  description: ~
+  group: Leeds Sharp
+  name: "MongoDB"
+  url: "https://www.meetup.com/Leeds-Sharp/events/236743638/"
+- 
   date: 2017-10-05
   description: ~
   group: dotnetYork
   name: "Building APIs with Azure Functions"
   url: "https://www.meetup.com/dotnetYork/events/243704196"
+- 
+  date: 2017-12-07
+  description: ~
+  group: Dot Net York
+  name: "MongoDB"
+  url: "https://www.meetup.com/dotnetYork/events/245111706/"
 - 
   date: 2017-10-03
   description: ~
