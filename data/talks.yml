@@ -108,3 +108,10 @@
   group: "DDD Scotland"
   name: "Building APIs with Azure Functions"
   url: "https://ddd.scot/Sessions/Details/38"
+
+- 
+  date: 2018-03-06
+  description: ~
+  group: "dotnetsheff"
+  name: "Messaging with MassTransit"
+  url: "https://www.meetup.com/dotnetsheff/events/240093894/"
