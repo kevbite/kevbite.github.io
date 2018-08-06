@@ -3,7 +3,7 @@ layout: post
 title: Configuring private VSTS NuGet feeds with Cake
 categories:
 tags: [CI, CakeBuild, VSTS, C#]
-description: Allowing your IoC to do all the AutoMapper configuration and wiring
+description: How to configure your CakeBuild scripts to use private VSTS NuGet feeds.
 comments: true
 ---
 
