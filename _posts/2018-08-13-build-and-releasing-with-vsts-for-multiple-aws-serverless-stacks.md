@@ -11,7 +11,7 @@ With any project it's always good to be able to split up the build and the relea
 
 ## Prerequisites
 
-For this example we'll following to be install or setup:
+For this example we will require the following to be setup:
 
 - [Visual Studio 2017 (Community edition will work fine)](https://visualstudio.microsoft.com/downloads/)
 - [AWS Toolkit for Visual Studio 2017](https://aws.amazon.com/visualstudio/)
@@ -20,17 +20,17 @@ For this example we'll following to be install or setup:
 
 ## Project
 
-To get started we will use one of the sample templates within the AWS Toolkit. Open up Visual studio and from the _New Project_ menu select _AWS Serverless Application (.NET Core), enter a name and location for your application and then click _OK_.
+To get started we will use one of the sample templates within the AWS Toolkit. Open up Visual studio and from the _New Project_ menu select _AWS Serverless Application (.NET Core)_, enter a name and location for your application and then click _OK_.
 
 ![visual-studio-new-project]
 
-For simplicity we'll just select the _Simple S3 Function_ template.
+For simplicity we will be using the _Simple S3 Function_ template.
 
 ![visual-studio-new-aws-serverless-application]
 
-This will create us a AWS Lambda function and also a CloudFormation template that will create us a S3 bucket and a Function that will trigger every time a object is created within the S3 bucket.
+This template will create us an AWS Lambda function and also a CloudFormation template that will create a S3 bucket and a Function that will trigger every time a object is created within the S3 bucket.
 
-Let's start by modifying this so when an object is created in our S3 bucket we call a http endpoint with the bucket name, object key and the cloud formation stack name:
+Let's start by modifying this so when an object is created in our S3 bucket we call a http endpoint with the bucket name, object key and the cloud formation stack name in which this function was created from:
 
 ```json
 {
@@ -41,7 +41,7 @@ Let's start by modifying this so when an object is created in our S3 bucket we c
 }
 ```
 
-Below is a the C# Lambda function modified to achieve this:
+We'll then need to modify the C# Lambda function to provide the required functionality.
 
 ```csharp
 public class Function
@@ -75,7 +75,7 @@ public class Function
 }
 ```
 
-Now let's extend the CloudFormation template (`serverless.template`) and also pass in the new environment variables we are using.
+The last step is to extend the CloudFormation template (`serverless.template`) and where we need to pass in our new environment variables required by our C# function.
 
 ```json
 {
@@ -190,17 +190,17 @@ git remote add origin https://mycompany.visualstudio.com/myproject/_git/MyCompan
 git push -u origin --all
 ```
 
-Notice we're also downloading the `VisualStudio.gitignore` from GitHub to be used, this will exclude all the files and folders that visual studio creates.
+Notice we're also downloading the `VisualStudio.gitignore` from GitHub to be used, this will exclude all the files and folders made by visual studio but not required.
 
 ## The Build
 
 ### Build Source
 
-Within the _Build and Release_ section of VSTS, select to create a new Build definition then select the source of the build, in our case it will be the git repository that we've just pushed to in the last section.
+Let's go to the _Build and Release_ section of VSTS, then we will create a new Build definition then select the source of the build, in our case it will be the git repository that we've just pushed to in the last section.
 
 ![create-build-select-your-repository]
 
-When asked to _select a template_ choose the _Empty Process_ option as we'll create our own build pipeline.
+When asked to _select a template_ choose the _Empty Process_ option as we will be creating our own build pipeline.
 
 ## Build Pipeline
 
@@ -224,7 +224,7 @@ The `dotnet restore` and `dotnet build` steps will just be the default dotnet co
 
 ### dotnet lambda package
 
-Our `dotnet lambda package` will be a dotnet core step with a custom command of `lambda` and then we'll also have to specify some additional arguments:
+Our `dotnet lambda package` will be a dotnet core step with a custom command of `lambda`, however, we will have to specify some additional arguments:
 
 ```bash
 package --output-package $(build.artifactstagingdirectory)/MyCompany.MyServerlessApp.zip
@@ -242,7 +242,7 @@ Well also need to include the CloudFormation template (`serverless.template`) in
 
 ### Publish Artifact
 
-This is just the default publish artifact task within VSTS that creates a artifact with the name of `drop` from the `$(build.artifactstagingdirectory)` path.
+We'll need to add a _Publish Artifacts_ task with the standard defaults that will creates a artifact with the name of `drop` from the `$(build.artifactstagingdirectory)` path.
 
 ![vsts-build-publish-artifact]
 
@@ -262,7 +262,7 @@ However, before we get started on our pipeline, we need to Install the AWS VSTS 
 
 ### New Pipeline
 
-Within the _All release pipelines_ section of VSTS, select to create a new Release pipeline then from the _Select a template_ screen, select _Empty process_.
+Now within the _All release pipelines_ section of VSTS, We can create a new Release pipeline then from the _Select a template_ screen, select _Empty process_ (once again we will be building our own pipeline).
 
 ![vsts-new-pipeline-select-a-template]
 
@@ -272,7 +272,7 @@ This will now give us an empty canvas to work with.
 
 #### Artifacts
 
-To start with we need to tell VSTS where to pull artifacts to use within our release pipeline. Select the _Add an artifact_ block and select the project where we build our artifacts within the last section. We'll just leave the settings as the default as this will work perfectly for our scenario.
+To start with we need to tell VSTS where to pull artifacts to use within our release pipeline. Select the _Add an artifact_ block and select the project where we build our artifacts within the last section. We will just leave the settings as the default as this will work perfectly for our scenario.
 
 ![vsts-release-add-an-artifact]
 
@@ -291,7 +291,7 @@ Our environment needs 2 tasks to deploy the serverless application:
 
 ###### Create temp project file
 
-We need to first create a temporary csproj file with a CLI Tool reference to `Amazon.Lambda.Tools` as the Lambda deploy task runs a `dotnet restore` and uses the `Amazon.Lambda.Tools` CLI internally. You can checkout this [GitHub Issue](https://github.com/aws/aws-vsts-tools/issues/80) for more information.
+We need to first create a temporary `csproj` file with a CLI Tool reference to `Amazon.Lambda.Tools` as the Lambda deploy task runs a `dotnet restore` and uses the `Amazon.Lambda.Tools` CLI internally. You can checkout this [GitHub Issue](https://github.com/aws/aws-vsts-tools/issues/80) for more information.
 
 We can create a file in multiple ways within VSTS but for simplicity we will use the [File Creator](https://marketplace.visualstudio.com/items?itemName=eliostruyf.build-task) VSTS Task.
 
@@ -317,7 +317,7 @@ For the file content we'll set it to the following:
 
 ###### AWS Lambda .NET Core Deployment
 
-Next we'll create a AWS Lambda deployment task that will fill-in the rest of the serverless.template and then push it to CloudFormation with our code to create us a new CloudFormation stack.
+Next we will create a AWS Lambda deployment task that will fill-in the rest of the serverless.template and then push it to CloudFormation with our code to create us a new CloudFormation stack.
 
 Select the _AWS Credentials_ you wish to use for this deployment, note that these will have to have the correct permissions within AWS to create all the given resources required by CloudFormation.
 
@@ -327,7 +327,7 @@ We will also be deploying a Serverless Application, so select the _Serverless Ap
 
 Give the stack a name, we'll call ours `DevTest-MyApp`, we'll also need a place to store the serverless templates, we've already created a S3 bucket of `faedb8aa-86a3-4575-8e0e-c106cbbaee67`.
 
-The tricky part is the additional lambda tools command line arguments, we need to pass in a `package` of the zip file within our deployment artifacts, `template` for the base template to use when deploying the CloudFormation template and also the template `template-parameters`. For our DevTest we'll use the following values
+The tricky part is the additional lambda tools command line arguments, we need to pass in a `package` of the zip file within our deployment artifacts, `template` for the base template to use when deploying the CloudFormation template and also the template `template-parameters`. For our DevTest we will use the following values
 
 ```bash
 --package "$(System.DefaultWorkingDirectory)/_MyApplication-CI/drop/MyCompany.MyServerlessApp.zip" --template "$(System.DefaultWorkingDirectory)/_MyApplication-CI/drop/serverless.template" --template-parameters "HttpEndpoint=http://requestbin.fullcontact.com/1f7hhs71;BucketName="
