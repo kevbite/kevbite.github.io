@@ -258,7 +258,7 @@ Save and queue a build, once it has completed successfully you will notice that 
 
 Now we have our build artifacts ready to deploy, we will need to create a Release pipeline to deploy to AWS.
 
-However, before we get started on our pipeline, we need to Install the AWS VSTS Extensions and Configure a AWS Service Endpoint. We will not the full details of setting this up but you can follow the [Getting Started](https://docs.aws.amazon.com/vsts/latest/userguide/getting-started.html) section of the AWS VSTS documentation which will guide you through the process.
+However, before we get started on our pipeline, we need to Install the AWS VSTS Extensions and Configure a AWS Service Endpoint. We will not cover the details of setting this up, but you can follow the [Getting Started](https://docs.aws.amazon.com/vsts/latest/userguide/getting-started.html) section of the AWS VSTS documentation which will guide you through the process.
 
 ### New Pipeline
 
@@ -393,13 +393,13 @@ Now that everything is built you'll notice that we now have identical stacks bet
 
 ![requestbin-production-capture]
 
-Below you can also see the 2 lambda functions that were create for each stack by CloudFormation.
+Below you can also see the 2 lambda functions that were created for each stack by CloudFormation.
 
 ![aws-functions]
 
 ## Combined Power of VSTS and AWS CloudFormation
 
-As you can appreciate this gives us lots of power to allow VSTS to track our work items and also allows us to progress them in to each environments instead of the default way of just having a stack deployed on every build.
+As you can appreciate this gives us lots of power to allow VSTS to track our work items and also allows us to progress them in to each environment instead of the default way of just having a stack deployed on every build.
 
 
 [aws-cloudformation-devtest-stack-overview]: \assets\posts\2018-08-13-build-and-releasing-with-vsts-for-multiple-aws-serverless-stacks\aws-cloudformation-devtest-stack-overview.png "aws cloudformation devtest stack overview"
