@@ -351,25 +351,25 @@ And eventually the CloudFormation will start to build our serverless application
 
 ###### Testing the DevTest Stack
 
-We can now test that dropping a file in to our newly created S3 bucket posts a message to our endpoint that we gave CloudFormation when creating our stack (http://requestbin.fullcontact.com/1f7hhs71).
+We can now test that our serverless application works as expected by dropping a file in to our newly created S3 bucket, which should posts a message to our endpoint that we gave CloudFormation when creating our stack (http://requestbin.fullcontact.com/1f7hhs71).
 
-If we navigate to the resources section of the CloudFormation stack, we'll see a link to our new S3 bucket that was created.
+If we navigate to the resources section of the CloudFormation stack, we will see a link to our new S3 bucket that was created.
 
 ![aws-cloudformation-devtest-stack-resources]
 
-Click the link and you'll end up at the S3 bucket within the AWS Console, upload a file and watch the magic begin!
+We can click the link and we will end up at the S3 bucket within the AWS Console, upload a file and watch the magic begin!
 
-Now if we flip back to [RequestBin](https://requestbin.fullcontact.com) we'll notice that we've had a post request hit our endpoint with all the information we'd expect.
+Now if we flip back to [RequestBin](https://requestbin.fullcontact.com) we will notice that we have had a post request hit our endpoint with all the information we would of expected.
 
 ![requestbin-devtest-capture]
 
-We can even see our log messages which are also automatically streamed to CloudWatch.
+We can also check CloudWatch to see our log messages which are also automatically streamed from Lambda to CloudWatch.
 
 ![aws-cloudwatch-devtest]
 
 ##### Production Environment
 
-With our DevTest environment now fully working, we need to setup our Production environment of the Serverless Application, We can simple do this by going back to our release pipeline and copying our current _AWS DevTest_ environment.
+Our DevTest environment now fully working, we need to setup our Production environment of the Serverless Application, we can simple do this by going back to our release pipeline and copying our current _AWS DevTest_ environment.
 
 ![vsts-release-pipeline-clone-devtest-environment]
 
@@ -377,9 +377,9 @@ Once cloned, rename the environment to _AWS Production_.
 
 ![vsts-release-pipeline-environments]
 
-We'll now have to alter our _Stack Name_ within our _AWS Lambda .NET Core Deployment_ task, we'll call this `Production-MyApp` and now we're ready to roll our application to production!
+We will now have to alter our _Stack Name_ within our _AWS Lambda .NET Core Deployment_ task, this time we will call it `Production-MyApp` and now we are ready to roll our application to production!
 
-Note: We could of also change our CloudFormation template parameters such as `HttpEndpoint` to point to another endpoint for production but for simplicity we'll keep them the same.
+> **Note**: We could of also change our CloudFormation template parameters such as `HttpEndpoint` to point to another endpoint for production but for simplicity we'll keep them the same.
 
 ###### Create another release
 
