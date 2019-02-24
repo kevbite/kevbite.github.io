@@ -11,6 +11,8 @@
 	<!-- Enable responsive viewport -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<link rel="canonical" href="https://kevsoft.net{{ page.url }}" />
+
 	<link rel="shortcut icon" href="{{ site.BASE_PATH }}/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" href="{{ site.BASE_PATH }}/apple-touch-icon.png" />
 	<link rel="apple-touch-icon" sizes="57x57" href="{{ site.BASE_PATH }}/apple-touch-icon-57x57.png" />
@@ -21,6 +23,11 @@
 	<link rel="apple-touch-icon" sizes="144x144" href="{{ site.BASE_PATH }}/apple-touch-icon-144x144.png" />
 	<link rel="apple-touch-icon" sizes="152x152" href="{{ site.BASE_PATH }}/apple-touch-icon-152x152.png" />
 	<link rel="apple-touch-icon" sizes="180x180" href="{{ site.BASE_PATH }}/apple-touch-icon-180x180.png" />
+
+	<meta property="og:title" content="{{ page.title }}">
+	<meta property="og:description" content="{{ page.description }}">
+	<meta property="og:image" content="{{ site.BASE_PATH }}/assets/images/twitter-card-image.png">
+	<meta property="og:url" content="https://kevsoft.net{{ page.url }}">
 
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@{{site.author.twitter}}" />
