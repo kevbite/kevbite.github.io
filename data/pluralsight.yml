@@ -216,5 +216,21 @@
   url: "https://app.pluralsight.com/library/courses/aws-ssm-ec2-getting-started"
 
 - 
-  name: "React Native: Getting Started"
-  url: "https://app.pluralsight.com/library/courses/react-native-getting-started"
+  name: "Microsoft Azure Architecture for AWS Architects"
+  url: "https://app.pluralsight.com/library/courses/microsoft-azure-architecture-aws-architects"
+
+- 
+  name: "Microsoft Azure Developer: Enterprise Messaging and Eventing"
+  url: "https://app.pluralsight.com/library/courses/microsoft-azure-enterprise-messaging-eventing"
+  
+- 
+  name: "Isomorphic React"
+  url: "https://app.pluralsight.com/library/courses/isomorphic-react"
+
+- 
+  name: "Terraform - Getting Started"
+  url: "https://app.pluralsight.com/library/courses/terraform-getting-started"
+
+- 
+  name: "Terraform - Getting Started"
+  url: "https://app.pluralsight.com/library/courses/terraform-getting-started"
