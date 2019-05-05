@@ -2,8 +2,8 @@
 layout: post
 title: Multi-line PowerShell in Terraform
 categories:
-tags: [Powershell, Terraform]
-description: How to use multi-line PowerShell in terraform scripts.
+tags: [Powershell, Terraform, DevOps]
+description: How to use multi-line PowerShell in Terraform scripts.
 comments: true
 ---
 
