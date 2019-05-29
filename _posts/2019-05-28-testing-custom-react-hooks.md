@@ -309,7 +309,7 @@ export const useCounter = () => {
   const context = useContext(Context);
 
   if (!context) {
-    throw new Error("useDeliveries must be used within a CounterProvider");
+    throw new Error("useCounter must be used within a CounterProvider");
   }
 
   const [value, setValue] = context;
