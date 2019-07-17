@@ -115,3 +115,33 @@
   group: "dotnetsheff"
   name: "Messaging with MassTransit"
   url: "https://www.meetup.com/dotnetsheff/events/240093894/"
+
+- 
+  date: 2018-07-03
+  description: ~
+  group: "dotnetsheff"
+  name: "Error Monitoring with Raygun"
+  url: "https://www.meetup.com/dotnetsheff/events/245135202/"
+  
+- 
+  date: 2019-03-02
+  description: ~
+  group: "DDD North"
+  name: "A more flexible way to store your data with MongoDB"
+  url: "https://www.dddnorth.co.uk/Sessions/Details/419"
+  
+- 
+  date: 2019-03-05
+  description: ~
+  group: "dotnetsheff"
+  name: "A more flexible way to store your data with MongoDB"
+  url: "https://www.meetup.com/dotnetsheff/events/254554781/"
+
+- 
+  date: 2018-06-04
+  description: ~
+  group: "dotnetsheff"
+  name: "Forming clouds with Terraform"
+  url: "https://www.meetup.com/dotnetsheff/events/254579825/"
+
+
