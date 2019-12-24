@@ -11,7 +11,10 @@ layout: default
       <div class="author-name">{{site.author}}</div>
       <p>{{site.about-author | markdownify }}</p>
     </div>
-  </header> <!-- End Header -->
+  </header>
+  <div class="awards">
+    <a href="https://mvp.microsoft.com/en-us/PublicProfile/5003489" target="_blank"><img src="{{site.baseurl}}/assets/img/microsoft-mvp.png" alt="Microsoft MVP"></a>
+  </div>
   <footer>
     <section class="contact">
       <h3 class="contact-title">Contact me</h3>
@@ -46,8 +49,8 @@ layout: default
     <div class="copyright">
       <p>{{site.time | date: '%Y'}} &copy; {{site.author}}</p>
     </div>
-  </footer> <!-- End Footer -->
-</aside> <!-- End Sidebar -->
+  </footer>
+</aside>
 <div class="content-box clearfix">
   {{ content }}
 </div>

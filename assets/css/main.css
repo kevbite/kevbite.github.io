@@ -960,7 +960,6 @@ template {
 /* Name.Builtin */
 .highlight .nc {
   color: #447fcf;
-  text-decoration: underline;
 }
 
 /* Name.Class */
@@ -996,7 +995,6 @@ template {
 /* Name.Label */
 .highlight .nn {
   color: #447fcf;
-  text-decoration: underline;
 }
 
 /* Name.Namespace */
@@ -1303,6 +1301,26 @@ table tfoot td {
   height: 100%;
   padding: 20px 10px;
   background-color: #ffffff;
+}
+
+.sidebar .awards {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .about {
