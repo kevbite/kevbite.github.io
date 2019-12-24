@@ -15,7 +15,7 @@ However, being good software engineers we want to gain confident in our code by 
 
 So let's start off with a simple component (`counter.tsx`) that uses the [`useState`](https://reactjs.org/docs/hooks-state.html) Hook. This simple component has a button to increment a value, we also have a `<div>` that will be displaying the current state value. It also has some basic logic whereby when the value gets to 5 it won't be able to increment anymore.
 
-```typescript
+```jsx
 import React, { useState } from 'react';
 
 export default () => {
@@ -81,7 +81,7 @@ it('does not increments value over 5', () => {
 
 As you can see we're not having to do anything different while testing the component compared to a normal [class based component](https://reactjs.org/docs/components-and-props.html#function-and-class-components). We can actually swap out the current implementation (`counter.tsx`) for the following class and all our tests will continue to pass as the expose functionality is the same.
 
-```typescript
+```jsx
 export default class Counter extends React.Component<{}, { value: number }> {
   constructor(props: {}) {
     super(props);
@@ -121,7 +121,7 @@ export default class Counter extends React.Component<{}, { value: number }> {
 
 One of the great things about React Hooks is the ability to abstract away functionality in to custom Hooks and reuse them with multiple components. We'll pull out our current functionality for our counter in to a `useCounter` custom Hook (`counter-hook.tsx`).
 
-```typescript
+```jsx
 import React, { useState } from 'react';
 
 export const useCounter = () => {
@@ -143,7 +143,7 @@ export const useCounter = () => {
 
 We can then update out function based component consume our custom hook.
 
-```typescript
+```jsx
 import React from 'react';
 import { useCounter } from './counter-hook';
 
@@ -239,7 +239,7 @@ it('Does not increment value over 5', () => {
 
 Now we are testing our custom Hook in isolation it might worth mocking our custom Hook so we can control our component behavior, we'll just the standard [jest modules mocking](https://jestjs.io/docs/en/mock-functions#mocking-modules), this will allow us to return any values we like back from the `useCounter` call on our custom Hook.
 
-```typescript
+```jsx
 import React from 'react';
 import { shallow } from 'enzyme';
 import Counter from './counter';
@@ -266,7 +266,7 @@ As you'll see we are just passing a value of `50` back now and expecting `"50"` 
 
 We can do the same for pressing the `+1` button, we don't really care about the logic behind the `useCounter` Hook anymore, only that when we click the button it calls the `increment` method and delegated the work on from our component, for this we can use the [jest mock functions](https://jestjs.io/docs/en/mock-functions#mock-return-values) (`jest.fn()`).
 
-```typescript
+```jsx
 it('Calls counter increment when clicking +1', () => {
   const incrementMock = jest.fn();
   const mockedCounterHook = CounterHook as jest.Mocked<typeof CounterHook>;
@@ -287,7 +287,7 @@ it('Calls counter increment when clicking +1', () => {
 
 So imagine we want to use our custom scoped across multiple component, this is where context objects become useful. We can change around the implementation of our counter Hook to be the following:
 
-```typescript
+```jsx
 import React, {
   useState,
   createContext,
@@ -330,7 +330,7 @@ export const useCounter = () => {
 
 However now our test will throw a `useCounter must be used within a CounterProvider` exception. This is because the Hook now needs to be within a `CounterProvider` component. Lucky enough the second argument to the `renderHook` function has an option that allows the hook to be wrapped in a given component. We can use this to specify our `CounterProvider` above.
 
-```typescript
+```jsx
 import React from 'react';
 import { useCounter, CounterProvider } from './counter-hook';
 import { renderHook, act } from 'react-hooks-testing-library'
