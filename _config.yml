@@ -1,34 +1,43 @@
-# visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+title: Developer Ramblings of Kevin Smith
+description: >
+  Developer Ramblings of Kevin Smith
+#permalink: ':title/'
+baseurl: ""
+url: ""
+site-twitter: kev_bite
 
-gems: [jekyll-paginate]
-paginate: 10 # pagination based on number of posts
-paginate_path: "page:num"
-exclude: ["README.md", "categories.html"] # files to exclude
-highlighter: rouge
-markdown: redcarpet
-disqus: kevsoft
+author: Kevin Smith
+author-img: kevin-smith.png
+about-author: |
+  [Microsoft MVP](https://mvp.microsoft.com/en-us/PublicProfile/5003489),
+  Developer,
+  technology enthusiast
+  and [@dotnetsheff](https://dotnetsheff.co.uk)/[@dotnetYork](https://dotnetYork.co.uk) organiser.
+social-twitter: kev_bite
+social-facebook:
+social-github: kevbite
+social-linkedin: kevbite
+social-email: kev_bite@msn.com
+
+discus-identifier: kevsoft
+
+analytics:
 google_tag_manager: GTM-5N8RNG
 
-defaults:
-  -
-    scope:
-      path: "" # empty string for all files
-    values:
-      title: Kevsoft
+highlighter: rouge
+markdown: kramdown
 
-description: Developer ramblings
-author:
-  name: Kevin Smith
-  email: kev_bite@msn.com
-  github: kevbite
-  twitter: kev_bite
-  linkedin: kevbite
-  flickr: kev_bite
-  bio: "Developer, technology enthusiast and @dotnetsheff organiser."
-  email_md5: 112b8fad8d523dcfb981cf94767fb86b
 
-rss_path: feed.xml
-categories_path:
-tags_path: tags.html
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jemoji
 
-BASE_PATH:
+paginate: 8
+paginate_path: "/page/:num"
+
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
+
+collections:
+  events:
+    output: true
