@@ -5,7 +5,7 @@ description: >
 baseurl: ""
 url: ""
 site-twitter: kev_bite
-
+site-img: site-image.png
 author: Kevin Smith
 author-img: kevin-smith.png
 about-author: |
