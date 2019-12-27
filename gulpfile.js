@@ -45,14 +45,14 @@ gulp.task('sass', function () {
 
 // Compression images
 gulp.task('img', function() {
-	return gulp.src('assets/img/**/*')
+	return gulp.src('assets/**/*.jpg')
 		.pipe(cache(imagemin({
 			interlaced: true,
 			progressive: true,
 			svgoPlugins: [{removeViewBox: false}],
 			use: [pngquant()]
 		})))
-    .pipe(gulp.dest('_site/assets/img'))
+    .pipe(gulp.dest('_site/assets'))
     .pipe(browserSync.reload({stream:true}));
 });
 
