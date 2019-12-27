@@ -4,7 +4,8 @@ layout: main
 {% for event in site.events %}
 <article class="post">
   {% if event.img %}
-    <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : event.img}})" href="{{event.url | prepend: site.baseurl}}"></a>
+    {% assign name = event.path | split:"/" | last | split:"." | first %}
+    <a class="post-thumbnail" style="background-image: url({{"/assets/events/" | prepend: site.baseurl | append: name | append: "/" | append : event.img}})" href="{{event.url | prepend: site.baseurl}}"></a>
   {% else %}
   {% endif %}
   <div class="post-content">
