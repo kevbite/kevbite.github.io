@@ -2,11 +2,12 @@
 <html lang="en">
 {% include head.html %}
 <body>
-
+  {% include navbar.html %}
   <div class="wrapper">
     {{ content }}
   </div>
   
+  {% include javascripts.html %}
   {% include analytics.html %}
   {% include google_tag_manager.html %}
 </body>

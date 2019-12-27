@@ -1278,6 +1278,199 @@ table tfoot td {
   clear: both;
 }
 
+.pagination {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+nav {
+  background: #cccccc;
+  background: -webkit-gradient(linear, left top, right top, color-stop(19%, #fbfbfb), to(#cccccc));
+  background: -webkit-linear-gradient(left, #fbfbfb 19%, #cccccc 100%);
+  background: -o-linear-gradient(left, #fbfbfb 19%, #cccccc 100%);
+  background: linear-gradient(90deg, #fbfbfb 19%, #cccccc 100%);
+  padding: 0 20px;
+  /* Mobile menu */
+  /* Tablet menu */
+  /* Desktop menu */
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #666;
+}
+
+nav .menu li {
+  font-size: 16px;
+  padding: 15px 5px;
+  white-space: nowrap;
+}
+
+nav .logo a,
+nav .toggle a {
+  font-size: 20px;
+}
+
+nav .button.secondary {
+  border-bottom: 1px #444 solid;
+}
+
+nav .menu {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .toggle {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+nav .item.button {
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+nav .item {
+  width: 100%;
+  text-align: center;
+  -webkit-box-ordinal-group: 4;
+  -webkit-order: 3;
+      -ms-flex-order: 3;
+          order: 3;
+  display: none;
+  border-left: thin ridge;
+}
+
+nav .item.active {
+  display: block;
+  border-left: none;
+}
+
+@media all and (min-width: 600px) {
+  nav .menu {
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  nav .logo {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+  nav .toggle {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    text-align: right;
+  }
+  nav .item.button {
+    width: auto;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
+    display: block;
+  }
+  nav .toggle {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  nav .button.secondary {
+    border: 0;
+  }
+  nav .button a {
+    padding: 7.5px 15px;
+    background: #8e8e8e;
+    border: 1px #000000 solid;
+  }
+  nav .button.secondary a {
+    background: transparent;
+  }
+  nav .button a:hover {
+    text-decoration: none;
+  }
+  nav .button:not(.secondary) a:hover {
+    background: #006d6d;
+    border-color: #005959;
+  }
+  nav .button.secondary a:hover {
+    color: #ddd;
+  }
+}
+
+@media all and (min-width: 900px) {
+  nav .item {
+    display: block;
+    width: auto;
+  }
+  nav .toggle {
+    display: none;
+  }
+  nav .logo {
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+        -ms-flex-order: 0;
+            order: 0;
+  }
+  nav .item {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  nav .button {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  nav .menu li {
+    padding: 15px 10px;
+  }
+  nav .menu li.button {
+    padding-right: 0;
+  }
+}
+
 /* - - - - - - - - - - Home Page Styles - - - - - - - - - - */
 .sidebar {
   display: -webkit-box;
@@ -1862,5 +2055,8 @@ a.newer-posts:hover {
   }
   .post .post-content .post-title a {
     font-size: 21px;
+  }
+  .pagination {
+    padding: 2%;
   }
 }

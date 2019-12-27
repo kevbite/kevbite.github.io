@@ -137,6 +137,15 @@ table tfoot td {
   clear: both;
 }
 
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@import 'parts/nav-bar';
+
+
 /* - - - - - - - - - - Home Page Styles - - - - - - - - - - */
 @import 'parts/home-page';
 
