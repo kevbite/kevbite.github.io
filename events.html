@@ -1,0 +1,16 @@
+---
+layout: main
+---
+{% for event in site.events %}
+<article class="post">
+  {% if event.img %}
+    <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : event.img}})" href="{{event.url | prepend: site.baseurl}}"></a>
+  {% else %}
+  {% endif %}
+  <div class="post-content">
+    <h2 class="post-title"><a href="{{event.url | prepend: site.baseurl}}">{{event.title}}</a></h2>
+    <p>{{ event.description | strip_html | truncatewords: 15 }}</p>
+    <span class="post-date">{{event.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+  </div>
+</article>
+{% endfor %}
