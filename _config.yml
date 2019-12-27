@@ -27,6 +27,7 @@ google_tag_manager: GTM-5N8RNG
 highlighter: rouge
 markdown: kramdown
 
+future: true
 
 plugins:
   - jekyll-sitemap
