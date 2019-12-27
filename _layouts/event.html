@@ -13,8 +13,7 @@ layout: main
           <figcaption>{{page.fig-caption}}</figcaption>
         {% endif %}
       </figure>
-    </div> <!-- End Page Cover Image -->
-    {% else %}
+    </div>
     {% endif %}
     <div class="wrap-content">
       <header class="header-page">
@@ -30,6 +29,11 @@ layout: main
         <p>{{page.talk-description | markdownify}}</p>
       {% endif %}
       
+      {% if page.youtube-video-id %}
+        <h2>YouTube Video</h2>
+        <iframe class="event-video" src="https://www.youtube.com/embed/{{page.youtube-video-id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      {% endif %}
+
       {{content | markdownify}}
 
       <h2>Links</h2>
