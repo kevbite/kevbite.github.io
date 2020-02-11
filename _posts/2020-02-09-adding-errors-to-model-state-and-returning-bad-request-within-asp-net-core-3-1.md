@@ -9,13 +9,17 @@ comments: true
 
 Sometimes we just want to add some extra validation to a bound model within the body of the action within a controller, it's the most simplest approach to adding some custom validation to your models without going overboard.
 
-You'd think this would be fairly simple but we'll soon see that it doesn't send the same response as the framework by just calling `BadRequest(ModelState)`.
+You'd think this would be fairly simple but we'll soon see that it doesn't send the same response as the framework by just calling
+
+```
+return BadRequest(ModelState);
+```
 
 ## Invalid Models
 
 The ASP.NET Core framework is really helpful, most of the handling of invalid models is done for us by the framework.
 
-Take for example the following code:
+Take the following code for example.
 
 ```csharp
 [Route("api/values")]
@@ -39,11 +43,11 @@ public class ValuesController : Controller
     }
 }
 ```
-Our `GetValuesQueryParameters` model has a couple of `[Required]` attributes on its properties which tells the framework these are required to progress the request. There are loads of different validation attributes that you can apply, you can check out the comprehensive list on the [documentation site](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation?view=aspnetcore-3.1#built-in-attributes).
+Our `GetValuesQueryParameters` model has a couple of `[Required]` attributes on it, this tells the framework these are required properties to progress the request. There are loads of different validation attributes that you can apply, you can check out the comprehensive list on the [documentation site](https://docs.microsoft.com/en-us/aspnet/core/mvc/models/validation?view=aspnetcore-3.1#built-in-attributes).
 
-Because we've got the `[ApiController]` attribute on the controller this tells the framework to apply the [api behaviors](https://docs.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-3.1#apicontroller-attribute), one of these is to [automatically check](https://docs.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-3.1#automatic-http-400-responses) if there are any errors on the ModelState and if there is, it will return a 400 bad request.
+You might have also noticed we have got an attribute of `[ApiController]` on the controller, this tells the framework to apply the [api behaviors](https://docs.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-3.1#apicontroller-attribute), one of these is to [automatically check](https://docs.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-3.1#automatic-http-400-responses) if there are any errors on the ModelState and if there is, it will return a 400 bad request.
 
-The response that we get back from the api from calling `/api/values` with no query string will be following:
+The response that we get back from the api from calling `/api/values` with no query string will be:
 
 ```json
 {
@@ -65,12 +69,11 @@ As you can see it's nice and descriptive and even includes a trace id!
 
 ## Extending Validation in Controller Action
 
-Say we want to extend the validation in our controller action, for this example we'll make sure that our date ranges are no more than 31 days apart.
+Say we want to extend the validation in our controller action, for this example we will make sure that our date ranges are no more than 31 days apart.
 
-We'll check the date ranges and then add a model error to the `ModelState` with the given property and then return a `BadRequest` with the `ModelState`.
+We will check the date ranges and then add a model error to the `ModelState` with the given property and then return a `BadRequest` with the `ModelState`.
 
 ```csharp
-    // GET: api/values?from=2020-01-01&to=2020-01-31
     [HttpGet]
     public IActionResult Get([FromQuery] GetValuesQueryParameters parameters)
     {
@@ -102,7 +105,7 @@ So our extra bit of validation is now running and we're getting the right respon
 
 ## Returning The Same Response Body
 
-It would be nice to keep the response the same as what the framework was giving us originally, We can do that by injecting in `ApiBehaviorOptions` in to our action, these options are used to describe how the api should behavior. One of the options is a factory to create the response back from the api when the model state is invalid, this is called `InvalidModelStateResponseFactory`. We can call this factory with the `ControllerContext` which will give us back an `IActionResult` in which we can return back to the action.
+It would be nice to keep the response the same as what the framework was giving us originally, to do that, we need to injecting in `ApiBehaviorOptions` in to our action, these options are used to describe how the api should behavior. One of the options is a factory to create the response back from the api when the model state is invalid, this is called `InvalidModelStateResponseFactory`. We can call this factory with the `ControllerContext` which will give us back an `IActionResult` in which we can return back to the action.
 
 ```csharp
 [HttpGet]
@@ -121,7 +124,7 @@ public IActionResult Get(
 }
 ```
 
-Now if we do another GET request to the same url `/api/values?from=2020-01-01&to=2020-12-01` we'll get the same response as originally from the framework:
+Now if we do another GET request to the same url `/api/values?from=2020-01-01&to=2020-12-01` we will get the same response as originally from the framework:
 
 ```json
 {
@@ -163,4 +166,4 @@ Hello there?
 
 ## Respect the API Behavior Options
 
-From this we now should see that we should respect the API behavior options within out controller, that way if we ever wanted to globally change how the invalid model state responses are create, we only have one place to change it.
+From this we now should see that we should respect the API behavior options within our controller, that way if we ever wanted to globally change how the invalid model state responses are create, we only have one place to change it.
