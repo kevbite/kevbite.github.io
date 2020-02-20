@@ -46,7 +46,7 @@ Content-Type: application/json
 ```
 
 We can also pull out the function name and the host and port in to variables.
-
+{% raw %}
 ```text
 @function = SendDataFunction
 @host = localhost:7071
@@ -58,6 +58,7 @@ Content-Type: application/json
     "input": null
 }
 ```
+{% endraw %}
 
 Now if we execute the request we will get the following output in our Azure Functions console.
 
@@ -97,18 +98,19 @@ As you can see it has accepted the http POST request we sent and then went on to
 You're now wondering, you've tested your timer trigger function locally and you've pushed it up to azure to a test/qa instance, and you want to manually run the timer trigger?
 
 Now if we just change the `@host` variable to our deployed function app (in my instance `functionapp120200220100513.azurewebsites.net`).
-
+{% raw %}
 ```
 @function = SendDataFunction
-@hostAndPort = functionapp120200220100513.azurewebsites.net
+@host = functionapp120200220100513.azurewebsites.net
 
-POST https://{{hostAndPort}}/admin/functions/{{function}}&code=STX64cqIdG9Ic5rRDTs4fVgVvu2WTFUaEat9Vj3phpIE8dHNiSe9Ow==
+POST https://{{host}}/admin/functions/{{function}}
 Content-Type: application/json
 
 {
     "input": null
 }
 ```
+{% endraw %}
 
 And execute the http request we'll get an `401` Unauthorized response back from the API, this is because once the Azure Functions app is deployed we don't want anyone who has access to an internet connection to go trigger off any of our functions.
 
@@ -124,7 +126,7 @@ These functions are now secured using host keys, and we can find these keys in t
 ![manage-azure-function]
 
 If we copy the value for the `_master` key we can add this to a `x-functions-key` header on our request.
-
+{% raw %}
 ```text
 @function = SendDataFunction
 @host = functionapp120200220100513.azurewebsites.net
@@ -137,6 +139,7 @@ x-functions-key: {{functionsKey}}
     "input": null
 }
 ```
+{% endraw %}
 
 Now if we execute the http request again we will get a `202` Accepted.
 
