@@ -128,6 +128,23 @@ var @event = await _collection.Find(filter)
 
 Our above example allows us to compose filters together, even with conditions of what filters we want to apply and when.
 
+### Language Integrated Query (LINQ)
+
+The MongoDB driver supports LINQ, this is very beneficial for C# developers wanting to utilize their current skills from using libraries such as [Entity Framework](https://docs.microsoft.com/en-us/ef/).
+
+Using LINQ is achieved by calling `AsQueryable` method on the `IMongoCollection<T>` object, then you can chain the normal [LINQ methods](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/) together before executing them.
+
+```csharp
+var @event = _collection.Find(filter)
+                .AsQueryable()
+                .Where(x => x.Id == id)
+                .Single();
+```
+
+Even though using LINQ makes the entry level for C# developer to MongoDB easier there are a few things to note.
+- Currently no async methods for the the LINQ syntax which means these are IO blocking call.
+- You might end up with runtime exceptions as not all LINQ expressions map directly to MongoDB queries.
+
 ### BsonDocument
 
 The last approach is to use a `BsonDocument`, this is an object that represents the dynamic data of the Bson document but in a typed way, because of this it allows us to do anything we really want.
