@@ -132,3 +132,11 @@ info: Microsoft.Hosting.Lifetime[0]
 ```
 
 You might have noticed already that we can keep calling the create index method and it won't try to create an index if an index with the same signature exists.
+
+## Caution ⚠
+
+Creating indexes on a database comes at a cost, so always be wary of putting extra increased workloads on your databases at unforgiving times. Make sure you plan you index creation accordingly to limit the impact on database.
+
+It might not always be ideal to create indexes within your application on first launch and you might want to pull these out in to external scripts so they can be deployed in isolation to the application changes.
+
+You might even want to consider [building rolling index](https://docs.mongodb.com/manual/tutorial/build-indexes-on-replica-sets/#build-indexes-on-replica-sets) in certain scenarios to minimize the impact.
