@@ -259,7 +259,7 @@ public static class MongoCollectionQueryByPageExtensions
             .First()
             .Count;
 
-        var totalPages = (int)count / pageSize;
+        var totalPages = (int)Math.Ceiling((double)count/ pageSize);
 
         var data = aggregation.First()
             .Facets.First(x => x.Name == "data")
