@@ -3,7 +3,7 @@ description: >
   Developer Ramblings of Kevin Smith
 #permalink: ':title/'
 baseurl: ""
-url: ""
+url: "https://kevsoft.net"
 site-twitter: kev_bite
 site-img: site-image.png
 author: Kevin Smith
