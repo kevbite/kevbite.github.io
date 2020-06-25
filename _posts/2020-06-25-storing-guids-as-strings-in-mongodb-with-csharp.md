@@ -187,7 +187,7 @@ The above throws the following exception.
 
 >System.ArgumentException: 'Value type of serializer is System.Guid and does not match member type System.Nullable`1[[System.Guid, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]. (Parameter 'serializer')'
 
-This is because we're trying to tell the GuidSerializer to serialize a nullable guid, which has no idea who to do that. What we need to do here is wrap it in a `NullableSerializer` which will take care of the null and unwrap the value.
+This is because we're trying to tell the GuidSerializer to serialize a nullable guid, which has no idea how to do that. What we need to do here is wrap it in a `NullableSerializer` which will take care of the null and unwrap the value.
 
 ```csharp
 BsonClassMap.RegisterClassMap<Order>(
