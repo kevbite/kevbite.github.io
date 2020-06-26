@@ -32,7 +32,6 @@ await orders.InsertOneAsync(new Order
 });
 ```
 
-`shell>`
 ```javascript
 > db.orders.findOne()
 {
@@ -72,7 +71,6 @@ await orders.InsertOneAsync(new Order
 });
 ```
 
-`shell>`
 ```javascript
 var order = db.orders.findOne();
 > order
