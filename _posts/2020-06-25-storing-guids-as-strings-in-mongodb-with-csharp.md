@@ -7,7 +7,7 @@ description: How to store GUID fields as strings when serializing objects in Mon
 comments: true
 ---
 
-It's fairly common within C# to use GUIDs as IDs even when we're storing data inside MongoDB. It does have a little overhead as the size of a GUID is 128 bits compared to ObjectIDs which are 96 bits. However, for most application the performance overhead is negotiable.
+It's fairly common within C# to use GUIDs as IDs even when we're storing data inside MongoDB. It does have a little overhead as the size of a GUID is 128 bits compared to ObjectIDs which are 96 bits. However, for most application the performance overhead is negligible.
 
 One thing we'll notice is that the GUID is stored as [`BinData`](https://docs.mongodb.com/manual/reference/bson-types/). If we execute the following C#, we'll get a document in our collection with BinData for the `_id` field.
 
