@@ -14,8 +14,8 @@ Prior MongoDB version 3.4 there was no [Decimal BSON Type](http://bsonspec.org/s
 By default, in version [2.10.4](https://www.nuget.org/packages/MongoDB.Driver/2.10.4) of the C# driver it stores C# decimals are strings in MongoDB.
 
 ```csharp
-var Order = new MongoClient();
-var db = Order.GetDatabase("test");
+var client = new MongoClient();
+var db = client.GetDatabase("test");
 var collection = db.GetCollection<Order>("orders");
 
 await db.DropCollectionAsync(collection.CollectionNamespace.CollectionName);
