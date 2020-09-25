@@ -239,7 +239,7 @@ public static class EnumerableCombine
 }
 ```
 
-As you can see the complexity of our code has increase dramatically, however, all our tests are still passing.
+As you can see the complexity of our code has increased dramatically, however, all our tests are still passing.
 
 ## Comparing the Techniques
 
