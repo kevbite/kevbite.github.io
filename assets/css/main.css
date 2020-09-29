@@ -765,6 +765,11 @@ template {
 
 .highlight pre {
   background-color: #404040;
+  word-wrap: normal;
+}
+
+.highlight pre code {
+  white-space: pre;
 }
 
 .highlight .hll {
