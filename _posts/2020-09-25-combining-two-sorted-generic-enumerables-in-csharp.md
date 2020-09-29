@@ -340,6 +340,6 @@ As you can see our manually coded approach is **1176% faster**, That's amazing e
 
 ## Does it Really Matter?
 
-As we've noted our manually coded approach is 1175% faster, which as a percentage is a lot! However, the speed that it takes to execute our method with large amount of data is still significantly small with a mean of ~74ms. If you're writing a standard business application, you most likely won't even notice the speed difference, in this context I'd would value the readability of the Linq statement over the speed of execution. However, if you're building a library that will be consumed by many different clients that have different performance requirements you may value the performance gains.
+As we've noted our manually coded approach is 1176% faster, which as a percentage is a lot! However, the speed that it takes to execute our method with large amount of data is still significantly small with a mean of ~74ms. If you're writing a standard business application, you most likely won't even notice the speed difference, in this context I'd would value the readability of the Linq statement over the speed of execution. However, if you're building a library that will be consumed by many different clients that have different performance requirements you may value the performance gains.
 
 On another side note when performance tuning your code, ensure you have adequate amount of test coverage to safeguard you against any broken functionality while tuning your code.
