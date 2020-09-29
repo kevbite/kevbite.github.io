@@ -187,7 +187,7 @@ public class SquareBox : IComparable<SquareBox>
 }
 ```
 
-Now we've got that final test passing, we should be fairly confident that our `Combine` method will our with any set of generics.
+Now we've got that final test passing, we should be fairly confident that our `Combine` method will work with any set of generics.
 
 ## Alternative Technique
 
