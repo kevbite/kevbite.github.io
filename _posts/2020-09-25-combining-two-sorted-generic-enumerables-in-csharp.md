@@ -7,13 +7,13 @@ description: How to combining two sorted generic enumerables in C#
 comments: true
 ---
 
-I recently got challenged to write a C# method that would take two `IEnumerable<T>` and return a sorted `IEnumerable<T>` that would contain every item of the two `IEnumerable<T>` inputs. For the challenge it was assumed that both `IEnumerable<T>`s were already sorted.
+I recently got a challenge to write a C# method that would take two `IEnumerable<T>` and return a sorted `IEnumerable<T>` that would contain every item of the two `IEnumerable<T>` inputs. For the challenge, it was assumed that both `IEnumerable<T>`s were already sorted.
 
-I thought this was an interesting challenge as it can be tackled many different ways and I personally don't think there's a right or wrong way it all depends on your current context.
+I thought this was an interesting challenge as it can be tackled in many different ways and I personally don't think there's a right or wrong way as it all depends on your current context.
 
 ## Defining a Signature
 
-Most of my development work I try to drive with tests, so the simplest test I could write for building up the method signature was to take two empty enumerables and assert that I get an empty one back.
+For most of my development work, I try to drive with tests, and the simplest test I could write for building up the method signature was to take two empty enumerable and assert that I get an empty one back.
 
 ```csharp
 [Fact]
@@ -28,7 +28,7 @@ public void CombiningTwoEmptyEnumerablesOfIntReturnsEmptyEnumerable()
 }
 ```
 
-The above test is using [xUnit](https://xunit.net/) and [FluentAssertions](https://fluentassertions.com/), these are 2 of my favorite tools for testing.
+The above test is using [xUnit](https://xunit.net/) and [FluentAssertions](https://fluentassertions.com/), these two are my favorite tools for testing.
 
 After writing the test and watching it fail we can fill in the blanks and end up with a solution like the following.
 
@@ -59,7 +59,7 @@ public void CombiningTwoSortedIntegerArraysReturnsCombinedAndSortedEnumerable()
 }
 ```
 
-After we've seen our test fail we'll implement the simplest approach which is to embrace the power of [Linq](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/) and concatenate both enumerables and order them.
+After we've seen that our test failed, we'll implement the simplest approach which is to embrace the power of [Linq](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/) and concatenate both enumerables and order them.
 
 ```csharp
 public static class EnumerableCombine
@@ -74,7 +74,7 @@ public static class EnumerableCombine
 
 One of the best things about Linq is how easy it is to read and reason about.
 
-After we've seen this pass we also might also want to write extra tests around the method to verify that we'll get duplicates in order when combining them together.
+After we've seen this pass, we also might also want to write extra tests around the method to verify that we'll get duplicates in order when combining them together.
 
 ```csharp
 [Fact]
@@ -89,7 +89,7 @@ public void CombiningTwoSortedIntegerArraysWithDuplicatesReturnsCombinedAndSorte
 }
 ```
 
-We can also write tests for when `input1` and `input2` would be empty.
+We can also write tests for the condition when `input1` and `input2` would be empty.
 
 ```csharp
 [Fact]
@@ -117,13 +117,13 @@ public void CombiningInput2WithEmptyEnumerableOfIntReturnsInput2()
 
 ## Order By with Generics?
 
-With our method being a generic you're most likely wondered how is Linq comparing the values for sorting the arrays? It's actually using the default comparer for the generic type that we pass in. We can fetch this ourselves by calling the following.
+With our method being generic, you're most likely wondering how is Linq comparing the values for sorting the arrays? It's actually using the default comparer for the generic type that we pass in. We can fetch this ourselves by calling the following.
 
 ```csharp
 var comparer = Comparer<int>.Default;
 ```
 
-This `comparer` has a `int Compare(T x, T y)` method that when called with 2 values returns the following result:
+This `comparer` has an `int Compare(T x, T y)` method that when called with 2 values returns the following result:
 
 | Value             | Meaning                 |
 |-------------------|-------------------------|
@@ -131,9 +131,9 @@ This `comparer` has a `int Compare(T x, T y)` method that when called with 2 val
 | Zero              | `x` equals `y`          |
 | Greater than zero | `x` is greater than `y` |
 
-Lots of types throughout the .NET Framework have comparers, however, if we use our own type we'll have to create a comparer so our function works correctly.
+Lots of types throughout the .NET Framework have comparers, however, if we use our own type we'll have to create a comparer so that our function works correctly.
 
-So let's start by writing another failing test, for this test we're going to create our own type of `SquareBox` which will have a single int size property and we want to be able to combined a few of these together and get a result with our Combine method.
+So let's start by writing another failing test, for this test, we're going to create our own type of `SquareBox` which will have a single int size property and we want to be able to combine a few of these together and get a result with our Combine method.
 
 ```csharp
 public class SquareBox
@@ -164,7 +164,7 @@ This test will fail with the following exception.
 System.InvalidOperationException
 Failed to compare two elements in the array.
 ```
-However there's a inner exception which has the full details what went wrong.
+However, there's an inner exception that has the full details of what went wrong.
 ```text
 System.ArgumentException
 At least one object must implement IComparable.
@@ -172,7 +172,7 @@ At least one object must implement IComparable.
 
 This is because the default object comparer needs our objects to implement the `IComparable` interface.
 
-So let's get this test passing by implementing the `IComparable` on our `SquareBox`. For simplicity we'll just delegate our `CompareTo` method straight on to the `CompareTo` method of the `Size` property.
+So let's get this test passing by implementing the `IComparable` on our `SquareBox`. For simplicity, we'll just delegate our `CompareTo` method straight on to the `CompareTo` method of the `Size` property.
 
 ```csharp
 public class SquareBox : IComparable<SquareBox>
@@ -191,11 +191,11 @@ Now we've got that final test passing, we should be fairly confident that our `C
 
 ## Alternative Technique
 
-The Linq approach which we have at the moment is nice, clean and readable. however, with any abstraction we don't really know what it's doing under the covers, looking at how the statements are layed out. We first concatenating the two enumerables then it looks like we are going over the whole enumerable again and ordering it.
+The Linq approach which we have at the moment is nice, clean, and readable. However, with any abstraction we don't really know what it's doing under the covers, looking at how the statements are laid out. We first concatenate the two enumerable then it looks like we are going over the whole enumerable again and ordering it.
 
-We might want to try to optimise our approach for performance as we already know that both enumerables are already sorted before they get passed on to our function.
+We might want to try to optimize our approach for performance as we already know that both enumerables are already sorted before they get passed on to our function.
 
-What we can do is enumerate both of our enumerables one at a time and compare each value and yielding each result back one at a time.
+What we can do is enumerate both of our enumerable one at a time and compare each value, yielding each result back one at a time.
 
 ```csharp
 public static class EnumerableCombine
@@ -243,7 +243,7 @@ As you can see the complexity of our code has increased dramatically, however, a
 
 ## Comparing the Techniques
 
-Now we have two techniques, and we are only assuming that the alternative to the Linq approach is faster. However, we can take advantage of [BenchmarkDotNet](https://benchmarkdotnet.org) to show us if our hand crafted approach is actually faster and more efficient.
+Now we have two techniques, and we are only assuming that the alternative to the Linq approach is faster. However, we can take advantage of [BenchmarkDotNet](https://benchmarkdotnet.org) to show us if our handcrafted approach is actually faster and more efficient.
 
 To get started we can install the BenchmarkDotNet global tool using the dotnet CLI.
 
@@ -340,6 +340,6 @@ As you can see our manually coded approach is **1176% faster**, That's amazing e
 
 ## Does it Really Matter?
 
-As we've noted our manually coded approach is 1176% faster, which as a percentage is a lot! However, the speed that it takes to execute our method with large amount of data is still significantly small with a mean of ~74ms. If you're writing a standard business application, you most likely won't even notice the speed difference, in this context I'd would value the readability of the Linq statement over the speed of execution. However, if you're building a library that will be consumed by many different clients that have different performance requirements you may value the performance gains.
+As we've noted that our manually coded approach is 1176% faster, which as a percentage is a lot! However, the speed that it takes to execute our method with a large amount of data is still significantly small with a mean of ~74ms. If you're writing a standard business application, you most likely won't even notice the speed difference, in this context I'd would value the readability of the Linq statement over the speed of execution. However, if you're building a library that will be consumed by many different clients that have different performance requirements you may value the performance gains.
 
-On another side note when performance tuning your code, ensure you have adequate amount of test coverage to safeguard you against any broken functionality while tuning your code.
+On another side note when performance tuning your code, ensure that you have an adequate amount of test coverage to safeguard you against any broken functionality while tuning your code.
