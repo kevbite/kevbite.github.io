@@ -7,7 +7,7 @@ description: How to augmenting MongoDB LINQ with low level mongo query.
 comments: true
 ---
 
-.NET landscape change back in November 2017 when .NET Framework 3.5 was release which included the Language Integrated Query, which we all call today as "LINQ". This release also included some new C#3 language feature that enabled us to write a SQL-like language in the middle of our C# code.
+.NET landscape change back in November 2017 when .NET Framework 3.5 was released which included the Language Integrated Query, which we all call today as "LINQ". This release also included some new C#3 language features that enabled us to write a SQL-like language in the middle of our C# code.
 
 ```csharp
 var q = from x in data
@@ -24,11 +24,11 @@ var q = data.Where(x => x % 2 == 1)
           .Select(x => x * x);
 ```
 
-LINQ release back in 2017 was revolutionary due to many reasons. It is a general-purpose query language, this means that it works with any types and collections, that means we can use collections of objects, databases, json, xml and our query syntax is always the same.
+LINQ release back in 2017 was revolutionary due to many reasons. It is a general-purpose query language, this means that it works with any types and collections, which means we can use collections of objects, databases, JSON, XML and our query syntax is always the same.
 
-The reduction in amount of code to be written was substantial as all the loops were taken care of by LINQ, thus making it a lot easier to read and maintain.
+The reduction in the amount of code to be written was substantial as all the loops were taken care of by LINQ, thus making it a lot easier to read and maintain.
 
-As a C# developer in 2020, even the simplest bits of aggregation in collections is done by LINQ as it's simple, concise and easy to maintain.
+As a C# developer in 2020, even the simplest bits of aggregation in collections are done by LINQ as it's simple, concise, and easy to maintain.
 
 ## MongoDB and LINQ
 
@@ -49,9 +49,9 @@ As you can see above we're calling a method `.AsQueryable()` on our MongoDB coll
 
 ## Not Everything is Supported
 
-As you can imagine not everything is going to be supported in LINQ, this is due to LINQ being an abstraction, it is general purpose and not just designed for MongoDB. This is a limitation that other LINQ Providers have too such as Entity Framework.
+As you can imagine not everything is going to be supported in LINQ, this is due to LINQ being an abstraction, it is general-purpose and not just designed for MongoDB. This is a limitation that other LINQ Providers have too such as Entity Framework.
 
-For example if we change around the code above to find every book that has its title having more than 5 'a' characters, The MongoDB LINQ Provider will throw an `InvalidOperationException`.
+For example, if we change around the code above to find every book that has its title having more than 5 'a' characters, The MongoDB LINQ Provider will throw an `InvalidOperationException`.
 
 ```csharp
 var result = await collection.AsQueryable()
@@ -64,13 +64,13 @@ var result = await collection.AsQueryable()
 System.InvalidOperationException: '{document}{Title}.Count(c => (Convert(c, Int32) == 97)) is not supported.'
 ```
 
-However if we ran the same code with just a `List<T>` instead of a MongoDB collection it would run perfectly fine.
+However, if we ran the same code with just a `List<T>` instead of a MongoDB collection it would run perfectly fine.
 
-This also works the other way too, where MongoDB supports more features than what LINQ can provide. For this we can't use tell MongoDB to use a text search or geo location search by just using LINQ. This is where we need to augmenting our LINQ statement with some lower level MongoDB query.
+This also works the other way too, where MongoDB supports more features than what LINQ can provide. For this, we can't use tell MongoDB to use a text search or geolocation search by just using LINQ. This is where we need to augment our LINQ statement with some lower level MongoDB query.
 
 ## Augmenting LINQ
 
-Most LINQ providers have a way to inject in some custom support to enable some more native support for a feature. For example it's common for people using EF Core to use the `EF.Property` static method to access shadow properties when executing queries using LINQ.
+Most LINQ providers have a way to inject in some custom support to enable some more native support for a feature. For example, it's common for people using EF Core to use the `EF.Property` static method to access shadow properties when executing queries using LINQ.
 
 ```csharp
 context.Blogs
@@ -79,7 +79,7 @@ context.Blogs
 
 MongoDB Driver like other LINQ providers supports a way to inject in more functionality.
 
-We can build up extra queries with the [MongoDB filter definition builders](https://mongodb.github.io/mongo-csharp-driver/2.7/reference/driver/definitions/#filter-definition-builder) and then inject these in to a LINQ queries.
+We can build up extra queries with the [MongoDB filter definition builders](https://mongodb.github.io/mongo-csharp-driver/2.7/reference/driver/definitions/#filter-definition-builder) and then inject these into LINQ queries.
 
 Below is an example of how to create a text search and then inject it in to our LINQ query that MongoDB Driver will execute.
 
@@ -100,9 +100,8 @@ This is great for querying for anything that is not native to LINQ such as geo q
 
 ## Augmenting LINQ Caveat
 
-The caveat to injecting in a native MongoDB query is that now the LINQ statement will only run on a LINQ provider that understands what to do when the `Inject` method is called within an where expression.
+The caveat to injecting in a native MongoDB query is that now the LINQ statement will only run on a LINQ provider that understands what to do when the `Inject` method is called within a where expression.
 
 If we try to run the above LINQ statement on just a standard `List<Book>` type, you'll be presented with an `InvalidOperationException` with a message of `The LinqExtensions.Inject method is only intended to be used in LINQ Where clauses.`.
 
-This can make it hard to test if you're just testing you LINQ queries in isolation to the database.
-
+This can make it hard to test if you're just testing your LINQ queries in isolation to the database.
