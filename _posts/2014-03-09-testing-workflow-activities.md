@@ -8,20 +8,20 @@ comments: true
 ---
 
 ## It's Simple!
-When we have all the data upfront that synchronous activity requires, we can just test it using the built in `WorkflowInvoker`:
+When we have all the data upfront that synchronous activity requires, we can just test it using the built-in `WorkflowInvoker`:
 
 ```csharp
 [Test]
 public void MathActivityReturnsCorrectResult()
 {
-    // Arrange.
-    var workflow = new WorkflowInvoker(new MathsActivity() {Number1 = 4, Number2 = 3, SelectedOperator = Operator.Add});
+    // Arrange.
+    var workflow = new WorkflowInvoker(new MathsActivity() {Number1 = 4, Number2 = 3, SelectedOperator = Operator.Add});
 
-    // Act.
-    var outputs = workflow.Invoke();
+    // Act.
+    var outputs = workflow.Invoke();
 
-    // Assert.
-    Assert.AreEqual(7, outputs["Result"]);
+    // Assert.
+    Assert.AreEqual(7, outputs["Result"]);
 }
 ```
 
@@ -33,57 +33,57 @@ If we change our MathsActivity so that it needs to wait for its selected operato
 ```csharp
 public sealed class MathsActivity : NativeActivity<decimal>
 {
-    protected override bool CanInduceIdle
-    {
-        get { return true; }
-    }
+    protected override bool CanInduceIdle
+    {
+        get { return true; }
+    }
 
-    [RequiredArgument]
-    public InArgument<decimal> Number1 { get; set; }
+    [RequiredArgument]
+    public InArgument<decimal> Number1 { get; set; }
 
-    [RequiredArgument]
-    public InArgument<decimal> Number2 { get; set; }
+    [RequiredArgument]
+    public InArgument<decimal> Number2 { get; set; }
 
-    public InArgument<Operator?> SelectedOperator { get; set; }
+    public InArgument<Operator?> SelectedOperator { get; set; }
 
-    protected override void Execute(NativeActivityContext context)
-    {
-        if (SelectedOperator.Get(context).HasValue)
-        {
-            var result = DoMaths(context);
-            this.Result.Set(context, result);
-        }
-        else
-        {
-            context.CreateBookmark("BookmarkName", OnMathematicsOperatorEntered);
-        }
-    }
+    protected override void Execute(NativeActivityContext context)
+    {
+        if (SelectedOperator.Get(context).HasValue)
+        {
+            var result = DoMaths(context);
+            this.Result.Set(context, result);
+        }
+        else
+        {
+            context.CreateBookmark("BookmarkName", OnMathematicsOperatorEntered);
+        }
+    }
 
-    private void OnMathematicsOperatorEntered(NativeActivityContext context, Bookmark bookmark, object value)
-    {
-        var op = (Operator)value;
+    private void OnMathematicsOperatorEntered(NativeActivityContext context, Bookmark bookmark, object value)
+    {
+        var op = (Operator)value;
 
-        this.SelectedOperator.Set(context, op);
+        this.SelectedOperator.Set(context, op);
 
-        var result = DoMaths(context);
-        this.Result.Set(context, result);
-    }
+        var result = DoMaths(context);
+        this.Result.Set(context, result);
+    }
 
-    private decimal DoMaths(NativeActivityContext context)
-    {
-        decimal number1 = this.Number1.Get(context);
-        decimal number2 = this.Number2.Get(context);
+    private decimal DoMaths(NativeActivityContext context)
+    {
+        decimal number1 = this.Number1.Get(context);
+        decimal number2 = this.Number2.Get(context);
 
-        switch (this.SelectedOperator.Get(context))
-        {
-            case Operator.Add:
-                return number1 + number2;
-            case Operator.Subtract:
-                return number1 - number2;
-            default:
-                throw new NotImplementedException();
-        }
-    }
+        switch (this.SelectedOperator.Get(context))
+        {
+            case Operator.Add:
+                return number1 + number2;
+            case Operator.Subtract:
+                return number1 - number2;
+            default:
+                throw new NotImplementedException();
+        }
+    }
 }
 ```
 
@@ -93,14 +93,14 @@ When we start to write tests using the WorkflowInvoker class you'll notice that 
 [Test]
 public void MathActivityReturnsCorrectResult()
 {
-    // Arrange.
-    var workflow = new WorkflowInvoker(new MathsActivity() {Number1 = 4, Number2 = 3});
+    // Arrange.
+    var workflow = new WorkflowInvoker(new MathsActivity() {Number1 = 4, Number2 = 3});
 
-    // Act.
-    var result = workflow.Invoke(); // Hangs on this statement.
+    // Act.
+    var result = workflow.Invoke(); // Hangs on this statement.
 
-    // Assert.
-    Assert.AreEqual(7, result["Result"]);
+    // Assert.
+    Assert.AreEqual(7, result["Result"]);
 }
 ```
 
@@ -109,7 +109,7 @@ To allow us to test this activity we now need to use the `WorkflowApplication` o
 We would have to have our test waiting on a signal which is raised from one of the many events that the `WorkflowApplication` raises, then we would have to poke around in the `WorkflowApplication` object to find the data which we are asserting on.
 **Frankly it's just a lot of hard work.**
 
-But thankfully there is a nice nuget package that wraps all this functionality up in to a nice testing class.
+But thankfully there is a nice NuGet package that wraps all this functionality up into a nice testing class.
 
 So if we start by downloading the nuget package from [Microsoft.Activities.UnitTesting](http://www.nuget.org/packages/Microsoft.Activities.UnitTesting "Microsoft.Activities.UnitTesting").
 
@@ -141,28 +141,28 @@ Even better we can even check the resumption of the bookmark:
 [Test]
 public void MathActivitySetsBookmarkWhenSelectedOperatorNotSet()
 {
-  // Arrange.
-  var workflow = WorkflowApplicationTest.Create(new MathsActivity() {Number1 = 4, Number2 = 3});
-  
-  // Act.
-  workflow.TestActivity();
-  
-  // Asserts.
-  
-  // Check that the workflow went in to idle when hasnt got all the data required.
-  Assert.IsTrue(workflow.WaitForIdleEvent());
-  
-  // Check that we set the correct bookmark.
-  Assert.True(workflow.Bookmarks.Contains("BookmarkName"));
-  
-  // Resume bookmark and check the status.
-  Assert.AreEqual(BookmarkResumptionResult.Success,  workflow.TestWorkflowApplication.ResumeBookmark("BookmarkName", Operator.Add));
-  
-  // Wait until complete and check it completed.
-  Assert.IsTrue(workflow.WaitForCompletedEvent());
-  
-  // Check the result of the activity.
-  Assert.AreEqual(7, workflow.Results.Output["Result"]);
+  // Arrange.
+  var workflow = WorkflowApplicationTest.Create(new MathsActivity() {Number1 = 4, Number2 = 3});
+  
+  // Act.
+  workflow.TestActivity();
+  
+  // Asserts.
+  
+  // Check that the workflow went in to idle when hasn't got all the data required.
+  Assert.IsTrue(workflow.WaitForIdleEvent());
+  
+  // Check that we set the correct bookmark.
+  Assert.True(workflow.Bookmarks.Contains("BookmarkName"));
+  
+  // Resume bookmark and check the status.
+  Assert.AreEqual(BookmarkResumptionResult.Success,  workflow.TestWorkflowApplication.ResumeBookmark("BookmarkName", Operator.Add));
+  
+  // Wait until complete and check it completed.
+  Assert.IsTrue(workflow.WaitForCompletedEvent());
+  
+  // Check the result of the activity.
+  Assert.AreEqual(7, workflow.Results.Output["Result"]);
 }
 ```
 
