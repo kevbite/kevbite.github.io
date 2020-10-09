@@ -12,7 +12,7 @@ comments: true
 The secure string class lives within the `System.Security` namespace and has been around since .NET Framework 2.0 was released.
 
 MSDN description of `SecureString`:
-> Represents text that should be kept confidential. The text is encrypted for privacy when being used, and deleted from computer memory when no longer needed.
+> Represents text that should be kept confidential. The text is encrypted for privacy when being used and deleted from computer memory when no longer needed.
 
 ## Is It Already Used?
 If we take a quick look within the .NET framework, we will see that it's used in a fair few places.
@@ -24,18 +24,18 @@ The below 2 classes came up within ILSpy search with the assemblies that I had a
 * `System.Net.NetworkCredential`
 * `System.Windows.Controls.PasswordBox`
 
-If you've ever worked with the `NetworkCredential` object you might have seen that there is 2 properties on it, one of `Password` of type string and another of `SecurePassword` of type SecureString.
+If you've ever worked with the `NetworkCredential` object you might have seen that there are 2 properties on it, one of `Password` of type string and another of `SecurePassword` of type SecureString.
 
-The `PasswordBox` object is similar having a `Password` property of type string and a `SecurePassword` property of type SecureString.
+The `PasswordBox` object is similar to having a `Password` property of type string and a `SecurePassword` property of type SecureString.
 
-If we dig a little deeper in the code for these objects you'll see that all the internals for storing the passwords are actually secure string, the property that is exposing the string version of the password is converting it to a string from its secure form.
+If we dig a little deeper into the code for these objects you'll see that all the internals for storing the passwords are actually secure string, the property that is exposing the string version of the password is converting it to a string from its secure form.
 
 This will be by design so that the consumer of the NetworkCredential and PasswordBox objects don't really have to concern them themselves with knowing about secure strings if they don't have to, but allows consumers that are concerned about the security of their system to take full control over how they expose the secure text.
 
 ## string vs SecureString
 
-* strings are not encrypted, SecureStrings are encrypted using user, logon session and process.
-* strings are not mutable, every time you alter a string you get a new one and the old one if left in memory.
+* strings are not encrypted, SecureStrings are encrypted using user, login session, and process.
+* strings are not mutable, every time you alter a string you get a new one, and the old one if left in memory.
 * Since strings are not mutable we can't clean the memory (zero all the memory address out).
 * strings are not pinned (stored on the managed heap), so the garbage collector could move them around resulting in copies within memory.
 * SecureStrings can be marked as read-only and forced to be disposed (using statements).
@@ -44,7 +44,7 @@ This will be by design so that the consumer of the NetworkCredential and Passwor
 
 If you are working with confidential data such as credit cards, passwords, etc... You should be using SecureString as much as possible when passing it between in methods. Even though it’s not going to be possible to cover all situations you should try to minimize the overall attack surface on your application.
 
-Also try to look for other components that you are using that may expose SecureStrings which then you can continue using in your own stack.
+Also, try to look for other components that you are using that may expose SecureStrings which then you can continue using in your own stack.
 
 ## Overkill.
 
@@ -119,19 +119,19 @@ I'm guessing for the time being a nice copy and paste job will sort us out.
 
 ##Conclusion
 
-Using `SecureString` is well worth it, but at the same time I wouldn't go overboard with it. Try keeping the sensitive data as inaccessible as possible when it's not being used and being able to erase your records of it when it is no longer needed. Keep in your mind that you are trying to reduce the attack surface, rather than eliminate it.
+Using `SecureString` is well worth it, but at the same time, I wouldn't go overboard with it. Try keeping the sensitive data as inaccessible as possible when it's not being used and being able to erase your records of it when it is no longer needed. Keep in your mind that you are trying to reduce the attack surface, rather than eliminate it.
 
-I like to try to sum things up using code examples so below puts this in to perspective.
+I like to try to sum things up using code examples so below puts this into perspective.
 
 ```csharp
 static void Main(string[] args)
 {
-    // Simulate receiving password in non secure form.
-    Console.WriteLine("Enter Password");
-    var password = Console.ReadLine();
+    // Simulate receiving password in non secure form.
+    Console.WriteLine("Enter Password");
+    var password = Console.ReadLine();
 
-    // Our Internals takes SecureString.
-    using(var securePassword = SecureStringHelper.CreateSecureString(password))
+    // Our Internals takes SecureString.
+    using(var securePassword = SecureStringHelper.CreateSecureString(password))
 	{
 		CheckPassword(securePassword);
 
