@@ -73,19 +73,23 @@ This means we can model our documents as typed objects in C# and they'll automat
 
 The most basic way to find a document using the C# driver is just to pass a string json object in to the `Find` method on the collection, this means we can take our above matching and pass it as a string.
 
+{% raw %}
 ```csharp
-var @event = await _collection.Find($"{ { _id: ObjectId('507f1f77bcf86cd799439011') } }")
+var @event = await _collection.Find($"{{ _id: ObjectId('507f1f77bcf86cd799439011') }}")
     .SingleAsync(); 
 ```
+{% endraw %}
 
 In theory we can parameterize the string by using string concatenation, which will allow us to pass in any object Id.
 
+{% raw %}
 ```csharp
 var id = new ObjectId("507f1f77bcf86cd799439011");
 
-var @event = await _collection.Find($"{ { _id: ObjectId('{id}') } }")
+var @event = await _collection.Find($"{{ _id: ObjectId('{id}') }}")
     .SingleAsync(); 
 ```
+{% endraw %}
 
 Be careful though, if you are accepting arbitrary input as string from the user they might be able to execute something that you wasn't expecting.
 

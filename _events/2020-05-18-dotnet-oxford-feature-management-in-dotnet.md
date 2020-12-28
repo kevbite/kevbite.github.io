@@ -1,7 +1,7 @@
 ---
 layout: event
 title: .NET Oxford - Feature Management in .NET
-description: Talk on how to use MongoDB
+description: Talk on how to use Microsoft.FeatureManagement
 img: main.jpg
 youtube-video-id: ioE9Bg-KOic
 talk-title: Feature Management in .NET
