@@ -148,8 +148,8 @@ class Program
         var count = aggregation.First()
             .Facets.First(x => x.Name == "count")
             .Output<AggregateCountResult>()
-            .First()
-            .Count;
+            ?.FirstOrDefault()
+            ?.Count ?? 0;
 
         var totalPages = (int)count / pageSize;
 
@@ -256,8 +256,8 @@ public static class MongoCollectionQueryByPageExtensions
         var count = aggregation.First()
             .Facets.First(x => x.Name == "count")
             .Output<AggregateCountResult>()
-            .First()
-            .Count;
+            ?.FirstOrDefault()
+            ?.Count;
 
         var totalPages = (int)Math.Ceiling((double)count/ pageSize);
 
