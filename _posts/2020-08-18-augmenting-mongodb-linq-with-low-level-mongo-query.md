@@ -7,7 +7,7 @@ description: How to augmenting MongoDB LINQ with low level mongo query.
 comments: true
 ---
 
-.NET landscape change back in November 2017 when .NET Framework 3.5 was released which included the Language Integrated Query, which we all call today as "LINQ". This release also included some new C#3 language features that enabled us to write a SQL-like language in the middle of our C# code.
+.NET landscape change back in November 2007 when .NET Framework 3.5 was released which included the Language Integrated Query, which we all call today as "LINQ". This release also included some new C#3 language features that enabled us to write a SQL-like language in the middle of our C# code.
 
 ```csharp
 var q = from x in data
@@ -24,7 +24,7 @@ var q = data.Where(x => x % 2 == 1)
           .Select(x => x * x);
 ```
 
-LINQ release back in 2017 was revolutionary due to many reasons. It is a general-purpose query language, this means that it works with any types and collections, which means we can use collections of objects, databases, JSON, XML and our query syntax is always the same.
+LINQ release back in 2007 was revolutionary due to many reasons. It is a general-purpose query language, this means that it works with any types and collections, which means we can use collections of objects, databases, JSON, XML and our query syntax is always the same.
 
 The reduction in the amount of code to be written was substantial as all the loops were taken care of by LINQ, thus making it a lot easier to read and maintain.
 
