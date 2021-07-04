@@ -12,8 +12,7 @@ comments: true
 X-Ray is a great tool for AWS developers, It allows you to analyze and debug distributed applications by monitoring application traces which can include performance metrics of down stream components or services.
 
 ## X-Ray SDK for .NET
-s
-The X-Ray SDK for .NET already comes with a range of built handlers to allow you to trace segments within your application and push them to X-Rays.
+The X-Ray SDK for .NET comes with a range of built handlers to allow you to trace segments within your application and push them to X-Rays.
 
 These currently include:
 - [Instrumenting incoming HTTP requests](https://docs.aws.amazon.com/xray/latest/devguide/xray-sdk-dotnet-messagehandler.html)
@@ -26,7 +25,7 @@ MongoDB is a document-oriented database that has had rapid growing since 2009, t
 
 ## Tracing MongoDB Calls in .NET
 
-The X-Ray SDK for .NET doesn't come with anything to trace MongoDB calls, however, I recently created a [NuGet package](https://www.nuget.org/packages/Kevsoft.AWSXRayRecorder.Handlers.MongoDB/) to allow tracing of MongoDB calls.
+The X-Ray SDK for .NET doesn't come with anything to trace MongoDB operations, however, I recently created a [NuGet package](https://www.nuget.org/packages/Kevsoft.AWSXRayRecorder.Handlers.MongoDB/) to allow tracing of MongoDB calls.
 
 This package can be installed via the dotnet CLI or the package manager.
 
@@ -34,7 +33,7 @@ This package can be installed via the dotnet CLI or the package manager.
 dotnet add package Kevsoft.PDFtk
 ```
 
-## Setup MongoClient
+## Setup MongoClient with X-Ray
 
 When we create a new instance of a `MongoClient` we'll need to pass in a X-Ray configured `MongoClientSettings`. You can do this by calling the `ConfigureXRay` extension method on the `MongoClientSettings` object. This `ConfigureXRay` has an optional `MongoXRayOptions` object that we'll cover later.
 
@@ -49,7 +48,7 @@ var client = new MongoClient(settings);
 
 Normally once we've got the MongoClient created we can register it as a singleton with our dependency injection (DI) container of choice. 
 
-Anytime we use our configured `MongoClient` any operation to our MongoDB database will be trace with X-Ray segments.
+Anytime we do any operation (`find`, `update`, `aggregate`) on our configured `MongoClient`  they will be trace with X-Ray subsegments.
 
 ```csharp
 var database = mongoClient.GetDatabase("test");
@@ -109,9 +108,9 @@ More information on these options can be found on the [GitHub Page](https://gith
 
 ## Monitor is Key
 
-Modern day application software development requires monitoring to be at the forefront of software development, especially now we're heading towards everyone working with distributed applications.
+Modern day application software development requires monitoring to be at the forefront of software development, especially now we're heading towards working with distributed applications.
 
-X-Ray can start to help tease out problems within your application and spot issues before your customers.
+X-Ray can start to help with problems within your application and spot issues before your customers.
 
 
 
