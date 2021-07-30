@@ -47,10 +47,10 @@ When the pipeline is run then we'll get the following logs:
 Images used:
     mongo : docker.io/library/mongo@sha256:d78c7ace6822297a7e1c7076eb9a7560a81a6ef856ab8d9cde5d18438ca9e8bf
     build : docker.io/library/mongo@sha256:90db999680d7f6c3fbed7a85e4de59771823a322f389d49fbbaafc5963824871
-+ mongo mongodb://127.0.0.1 --eval "print('Hello from mongodb shell');"
-MongoDB shell version v5.0.1
++ mongo mongodb://127.0.0.1 --eval "db.adminCommand('listDatabases');"
+MongoDB shell version v4.4.7
 connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
-Implicit session: session { "id" : UUID("e8766f28-1a14-450e-92bf-63f7e3d83862") }
+Implicit session: session { "id" : UUID("ee867a8f-83f3-41b7-bfab-e588d39bcc13") }
 MongoDB server version: 5.0.1
 WARNING: shell and server versions do not match
 {
