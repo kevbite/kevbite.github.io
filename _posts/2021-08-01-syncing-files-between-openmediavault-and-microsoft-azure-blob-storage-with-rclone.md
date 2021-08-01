@@ -20,7 +20,7 @@ The Raspberry Pi currently has 1x [256GB SSD](https://amzn.to/3C3Rnvr) for the O
 
 ![Raspberry Pi 4 4GB](/assets/posts/2021-08-01-syncing-files-between-openmediavault-and-microsoft-azure-blob-storage-with-rclone/raspberry_pi.gif "Raspberry Pi 4 4GB")
 
-The only downside I see to this setup is the bandwidth for the USB ports as the HP MicroServer has dedicated ports and even PCI-E expansion slots, however, I'm now shoveling a lot of data around with multiple users.
+The only downside I see to this setup is the bandwidth for the USB ports as the HP MicroServer has dedicated ports and even PCI-E expansion slots, however, I'm not shoveling a lot of data around with multiple users.
 
 ## OpenMediaVault
 
@@ -50,7 +50,7 @@ Once logged in we will need to create a resource group to create our storage acc
 az group create --location WestEurope --name rg-my-backup
 ```
 
-Then we'll need to create a storage account, the name of the storage account has to be globally unique across all storage accounts. So to start with we'll need to choose a unique name and check it's available.
+Then we'll need to create a storage account, the name of the storage account has to be globally unique across all storage accounts. So to start with we'll choose a unique name and check it's available.
 
 ```bash
 az storage account check-name --name stmybackupf722170c
@@ -64,7 +64,7 @@ Once you've found a name that is available we can go ahead and create the storag
 az storage account create –-name stmybackupf722170c -–resource-group rg-my-backup -–location WestEurope –-sku Standard_LRS
 ```
 
-This will create us our storage account named `stmybackupf722170c` in the resource group `rg-my-backup` that has a SKU which provides Locally Redundant Storage. There's many other [types of SKUs](https://docs.microsoft.com/en-us/rest/api/storagerp/srp_sku_types) to pick from so it's worth picking one that suits your requirements.
+This will create us our storage account named `stmybackupf722170c` in the resource group `rg-my-backup` that has a SKU which provides [Locally Redundant Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy#locally-redundant-storage). There is a range of [SKU types](https://docs.microsoft.com/en-us/rest/api/storagerp/srp_sku_types) to pick from so it's worth picking one that suits your requirements.
 
 To authenticate our requests later on with Rclone, let's just grab the access keys for our storage account.
 
@@ -91,7 +91,7 @@ This will then output 2 keys which can be used to rotate the keys if required.
 
 There's also other securer ways to authenticate, such as SAS Tokens(Shared Access Signature) and azure identities. However, for this small project it's fairly isolated.
 
-Now we'll have everything in Azure ready to go for our syncing process!
+Everything in Azure is ready to go, now we just need to setup the syncing process.
 
 ### Installing Rclone
 
@@ -108,6 +108,8 @@ curl https://rclone.org/install.sh | sudo bash
 This will take a few seconds to install but once finished we can configure Rclone.
 
 ### Configure Azure Blob in Rclone
+
+Next we'll need to run `rclone config`.
 
 ```
 rclone config
