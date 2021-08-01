@@ -60,7 +60,7 @@ Note that there is [restrictions of the characters](https://docs.microsoft.com/e
 
 Once you've found a name that is available we can go ahead and create the storage account with the `create` command.
 
-``bash
+```bash
 az storage account create –-name stmybackupf722170c -–resource-group rg-my-backup -–location WestEurope –-sku Standard_LRS
 ```
 
