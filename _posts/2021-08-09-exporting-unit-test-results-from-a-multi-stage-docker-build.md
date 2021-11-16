@@ -173,7 +173,7 @@ Now we've got our `export-test-results` stage to contain our tests results in a 
 For our example we'll just output them directly to the local file system in an `out` folder.
 
 ```bash
-docker build --target test --output type=local,dest=out .
+docker build --target export-test-results --output type=local,dest=out .
 ```
 
 Once we've got our files on our filesystem these can be pushed up to your CI/CD solution.
