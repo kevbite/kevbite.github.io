@@ -3,7 +3,7 @@ layout: event
 title: dotnetsheff - Testing with Cypress
 description: Lightning talk on how to test with Cypress
 img: main.jpg
-youtube-video-id: 
+youtube-video-id: GcyHHrifRYI
 talk-title: Testing with Cypress
 talk-description: |
   A short lightning talk on how to test with Cypress
