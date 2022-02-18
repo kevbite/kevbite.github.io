@@ -324,3 +324,12 @@ Once the profiler is enabled we can run our C# app and the profile will collect 
 ```
 
 Just what we expected right? 😉
+
+## Facet Caveats
+
+The solution above creates a less chatty communication between our application and the database, however, if the pipeline before the facet doesn't limit the returned amount of documents before entering the facet it won't utilize the best index for the query compared to 2 single queries.
+
+As of current MongoDB 5.0, it cannot make use of indexes for facets, which means it will always perform a scan during execution.
+
+If you fancy tracking the progression of this issue, follow (and maybe up vote) [SERVER-30474](https://jira.mongodb.org/browse/SERVER-30474) on the MongoDB Jira site, so let's hope this get resolved soon!
+
