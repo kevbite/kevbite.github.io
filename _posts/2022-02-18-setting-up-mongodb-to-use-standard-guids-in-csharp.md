@@ -50,7 +50,7 @@ The default setup for the C# driver is to use the GUID representation of C# lega
 We can set the driver to use the standard representation before we do any operations with the MongoDB driver, This is done by registering a new BSON serializer for the GUIDs.
 
 ```csharp
-BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.CSharpLegacy));
+BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
 ```
 
 Now if we execute the same code again we'll get the following results
