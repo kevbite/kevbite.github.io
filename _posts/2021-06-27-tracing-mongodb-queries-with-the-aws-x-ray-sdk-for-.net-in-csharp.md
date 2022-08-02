@@ -30,7 +30,7 @@ The X-Ray SDK for .NET doesn't come with anything to trace MongoDB operations, h
 This package can be installed via the dotnet CLI or the package manager.
 
 ```bash
-dotnet add package Kevsoft.PDFtk
+dotnet add package Kevsoft.AWSXRayRecorder.Handlers.MongoDB
 ```
 
 ## Setup MongoClient with X-Ray
