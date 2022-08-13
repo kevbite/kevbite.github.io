@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Atomically upsert a Document into an Array with Mongodb
+title: Atomically Upsert a Document into an Array with MongoDB
 categories:
 tags: [MongoDB, JavaScript]
 description: How to atomically upsert (update or insert) a document into an array with MongoDB update aggregation pipelines
