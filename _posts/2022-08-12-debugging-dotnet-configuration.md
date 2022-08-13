@@ -90,7 +90,7 @@ Knowing that we can be a bit more creative with hiding our secrets, for this ins
 ```csharp
 Console.WriteLine(configurationRoot.GetDebugView(context => context switch
 {
-    { ConfigurationProvider: SecretsManagerConfigurationSource } => "Super Secret",
+    { ConfigurationProvider: SecretsManagerConfigurationProvider } => "Super Secret",
     _ => context.Value
 }));
 ```
