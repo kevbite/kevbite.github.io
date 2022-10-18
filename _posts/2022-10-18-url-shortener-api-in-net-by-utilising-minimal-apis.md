@@ -1,6 +1,6 @@
 ---
 layout: post
-title: URL Shortener API in .NET by utilising Minimal APIs
+title: URL Shortener API in .NET by Utilising Minimal APIs
 categories:
 tags: [.NET, Minimal APIs, URL Shortener]
 description: How to Create a URL Shortener with Minimal APIs in .NET.
