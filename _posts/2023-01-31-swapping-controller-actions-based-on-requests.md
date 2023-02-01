@@ -96,10 +96,10 @@ We can then use the `ApplyAsync` method to flag the validity of each endpoint ag
     for (var i = 0; i < candidates.Count; i++)
     {
         var candidate = candidates[i];
-        var capOnTapEndpoint = candidate.Endpoint.Metadata.GetOrderedMetadata<ControllerActionDescriptor>()
+        var specialEndpoint = candidate.Endpoint.Metadata.GetOrderedMetadata<ControllerActionDescriptor>()
             .Any(x => x.ControllerName.StartsWith("Special"));
 
-        if (capOnTapEndpoint)
+        if (specialEndpoint)
         {
             candidates.SetValidity(i, isSpecialRequest);
         }
