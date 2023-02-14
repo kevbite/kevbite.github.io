@@ -114,7 +114,7 @@ POST /companies
 }
 ```
 
-### Get company addresses
+### Get company offices
 
 ```http
 GET /companies/5a934e000102030405000000/offices
@@ -146,7 +146,7 @@ dotnet add package MongoDB.Driver
 
 ### Database models
 
-We'll create a few database models for our service, these will be `Company`, `Office` and `Address` and will match the above data. We'll use the record type within .NET to make these immutable.
+We'll create a few database models for our service, these will be `Company`, `Office` and `Address` and will match the above same request data. We will use record type within .NET to make these immutable.
 
 ```csharp
 public record Company(ObjectId Id, string Name, IReadOnlyCollection<Office> Offices);
@@ -156,7 +156,7 @@ public record Address(string Line1, string Line2, string PostalCode, string Coun
 
 ### Service collection setup
 
-We'll need to also add a few items to the service collection within .NET, this is so that our endpoints can access MongoDB. If we open the `Program.cs` file then we can add the following lines for adding extra configuration to the builder.
+Let's start by configuring the service collection within .NET, this is so that our endpoints can access MongoDB via the `MongoClient`. If we open the `Program.cs` file then we can add the following lines for adding extra configuration to the service collection builder.
 
 ```csharp
 var builder = WebApplication.CreateBuilder(args);
@@ -203,7 +203,7 @@ If we try out the above code we'll notice that the `id`'s that are getting retur
 }
 ```
 
-This is because `System.Text.Json` doesn't understand what to do with the `ObjectId` for serialization so it'll traverse the object and serialize each property instead. We can get around this by adding our own custom `JsonConverter`, we'll not go in the full details but this can be found on the Microsoft Website - [How to write custom converters](https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/converters-how-to).
+This is because `System.Text.Json` doesn't understand what to do with the type `ObjectId` for serialization so it traverses the object and serialize each property instead. We can get around this by adding our own custom `JsonConverter`, we'll not go in the full details but this can be found on the Microsoft Website - [How to write custom converters](https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/converters-how-to).
 
 ```csharp
 public class ObjectIdJsonConverter : JsonConverter<ObjectId>
@@ -246,7 +246,7 @@ Now you'll notice our response gets generated correctly
 
 #### Get company offices
 
-The other endpoint we want to get is to just be able to fetch all of a single companies offices. We can add another `MapGet` configuration which fetches a company based on id and projects the offices.
+The other endpoint we want to build is to just be able to fetch all of a single company offices. We can add another `MapGet` configuration which fetches a company based on id and projects the offices.
 
 ```csharp
 app.MapGet("/companies/{companyId}/offices", async (IMongoCollection<Company> collection, ObjectId companyId)
