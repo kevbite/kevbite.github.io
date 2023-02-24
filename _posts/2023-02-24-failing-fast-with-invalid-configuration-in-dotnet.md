@@ -37,8 +37,8 @@ await app.RunAsync();
 
 sealed class AppOptions
 {
-    public int Min { get; init; }
-    public int Max { get; init; }
+    public int? Min { get; init; }
+    public int? Max { get; init; }
     public string Message { get; init; }
 }
 ```
@@ -81,9 +81,9 @@ Let's add some attributes to our `AppOptions` model.
 public sealed class AppOptions
 {
     [Required, Range(0, 100)]
-    public int Min { get; init; }
+    public int? Min { get; init; }
     [Required, Range(0, 100)]
-    public int Max { get; init; }
+    public int? Max { get; init; }
     [Required, MinLength(1)]
     public string Message { get; init; }
 }
@@ -102,8 +102,7 @@ Now if we run our application and do a `GET` request to the `/` endpoint we'll g
 info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
       Executed endpoint 'HTTP: GET /'
 fail: Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware[1]
-      An unhandled exception has occurred while executing the request.
-      Microsoft.Extensions.Options.OptionsValidationException: DataAnnotation validation failed for 'AppOptions' members: 'Message' with the error: 'The Message field is required.'.
+      Unhandled exception. Microsoft.Extensions.Options.OptionsValidationException: DataAnnotation validation failed for 'AppOptions' members: 'Min' with the error: 'The Min field is required.'.; DataAnnotation validation failed for 'AppOptions' members: 'Max' with the error: 'The Max field is required.'.; DataAnnotation validation failed for 'AppOptions' members: 'Message' with the error: 'The Message field is required.'.
          at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
          at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
          at Program.<>c.<<Main>$>b__0_0(IOptions`1 myOptions) in C:\dev\throw-away\FailFastConfig\Program.cs:line 13
@@ -158,7 +157,7 @@ builder.Services.AddOptions<AppOptions>()
 
 ```text
 dotnet run
-Unhandled exception. Microsoft.Extensions.Options.OptionsValidationException: DataAnnotation validation failed for 'AppOptions' members: 'Message' with the error: 'The Message field is required.'.
+Unhandled exception. Microsoft.Extensions.Options.OptionsValidationException: DataAnnotation validation failed for 'AppOptions' members: 'Min' with the error: 'The Min field is required.'.; DataAnnotation validation failed for 'AppOptions' members: 'Max' with the error: 'The Max field is required.'.; DataAnnotation validation failed for 'AppOptions' members: 'Message' with the error: 'The Message field is required.'.
    at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
    at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
    at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
