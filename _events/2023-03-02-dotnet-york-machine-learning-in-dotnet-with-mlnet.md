@@ -2,6 +2,7 @@
 layout: event
 title: dotnet York - Machine Learning with ML.NET
 description: Learning Machine Learning with ML.NET
+img: main.jpg
 youtube-video-id: 
 talk-title: Machine Learning with ML.NET
 talk-description: |
