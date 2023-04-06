@@ -61,3 +61,32 @@ Now if we execute the same code again we'll get the following results
 
 This is now using the new UUID BinData sub type which will make it easier to deal with.
 
+However, mentioned in the comments not all queries seem to work using this method. If you take the following code for example.
+
+```csharp
+
+var guid = Guid.NewGuid();
+await collection.InsertOneAsync(new Data
+{
+    Guid1 = guid
+});
+
+var result = await collection.Find(Builders<Data>.Filter.Eq(x => x.Guid1, guid)).SingleAsync();
+
+Console.WriteLine("{0}: {1}", result.Id, result.Guid1);
+```
+It'll throw an `InvalidOperationException` exception with a message of `Sequence contains no elements` as nothing is returned in the query.
+
+To fix this issue we'll also need to set the `GuidRepresentationMode` to `V3`. We'll also need to disable some warnings as the property is obsolete and will be removed in the next version of the driver.
+
+```csharp
+#pragma warning disable CS0618
+BsonDefaults.GuidRepresentation = GuidRepresentation.Standard;
+BsonDefaults.GuidRepresentationMode = GuidRepresentationMode.V3;
+#pragma warning restore CS0618
+BsonSerializer.RegisterSerializer(new GuidSerializer(GuidRepresentation.Standard));
+```
+
+Now when we run the above `find` query we'll get the correct results.
+
+More information on this can be found by reading [C# GUID Style dont work article](https://www.mongodb.com/community/forums/t/c-guid-style-dont-work/126901/4)
