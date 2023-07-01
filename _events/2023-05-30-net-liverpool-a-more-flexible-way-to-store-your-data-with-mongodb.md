@@ -11,5 +11,4 @@ talk-description: |
   
 links:
   - https://www.meetup.com/dot-net-liverpool/events/293143360
-  - https://dotnetyork.co.uk/
 ---
