@@ -84,7 +84,7 @@ Again, you might have noticed, that we didn't have to do a `JsonValue.Create` to
 The last and the cleanest approach is to use the index initializers on creation.
 
 ```csharp
-var jsonObject = new JsonObject(dictionary)
+var jsonObject = new JsonObject
 {
     ["name1"] = "value1",
     ["name2"] = 2
@@ -103,7 +103,7 @@ jsonObject.Remove("name1");
 
 There's also an extra `Remove` extension method on `IDictionary<TKey, TValue>` that can be useful if you want to remove the pair and keep hold of it's value to move or rename it.
 ```csharp
-var jsonObject = new JsonObject(dictionary)
+var jsonObject = new JsonObject
 {
     ["name1"] = "value1",
     ["name2"] = 2
