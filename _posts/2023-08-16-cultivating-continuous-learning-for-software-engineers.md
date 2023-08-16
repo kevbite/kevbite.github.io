@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: Cultivating Continuous Learning for Software Engineers
