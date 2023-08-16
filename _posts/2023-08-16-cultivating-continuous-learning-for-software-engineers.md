@@ -64,11 +64,11 @@ I personally run 2 in the north of England [dotnetsheff](https://dotnetsheff.co.
 Conferences offer an extended version of the meetup experience, requiring more commitment due to their duration. They provide substantial content and unparalleled networking opportunities. While the cost can be a deterrent, there are budget-friendly single-day conferences with valuable content and networking opportunities.
 
 DDD Events, held in various UK cities, exemplify developer-focused conferences that facilitate learning and networking.
-- [Reading - https://developerdeveloperdeveloper.com/](https://developerdeveloperdeveloper.com/)
-- [Bristol - DDD South West](https://dddsouthwest.com/)
-- [Nottingham - DDD East Midlands](https://dddeastmidlands.com/)
-- [Cambridge - DDD EAST ANGLIA](https://www.dddeastanglia.com/)
-- [Hull - DDD North](https://www.dddnorth.co.uk/)
+- [Reading (DeveloperDeveloperDeveloper)](https://developerdeveloperdeveloper.com/)
+- [Bristol (DDD South West)](https://dddsouthwest.com/)
+- [Nottingham (DDD East Midlands)](https://dddeastmidlands.com/)
+- [Cambridge (DDD East Anglia)](https://www.dddeastanglia.com/)
+- [Hull (DDD North)](https://www.dddnorth.co.uk/)
 
 Conferences also serve as team-building opportunities, allowing team members to explore diverse tracks and engage in insightful discussions during breaks.
 
