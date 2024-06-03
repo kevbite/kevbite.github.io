@@ -1,6 +1,6 @@
 ---
 layout: event
-title: Peru .NET Dev - How I test my ASP.NET Core APIs
+title: Peru .NET Development - How I test my ASP.NET Core APIs
 description: I’m passionate about testing, and what better than this talk I’ll be sharing my experience over the last 10+ years of testing APIs.
 img: main.jpg
 youtube-video-id: 
