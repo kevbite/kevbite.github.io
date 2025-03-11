@@ -78,7 +78,7 @@ We can also write the update statement as the following, however it's not type s
 var update = Builders<Member>.Update.Set("Friends.$", 10);
 ```
 
-> Note that previous to MongoDB Driver v[2.19.0](https://www.nuget.org/packages/MongoDB.Driver/2.19.0) or where [LINQ3](https://www.mongodb.com/docs/drivers/csharp/current/fundamentals/linq/) was explictly configured in MongoDB Driver greater than or equal to v[2.16.0](https://www.nuget.org/packages/MongoDB.Driver/2.16.0) we'd have to use the indexer of `-1` of the array. For example:
+> Note that previous to MongoDB Driver v[2.19.0](https://www.nuget.org/packages/MongoDB.Driver/2.19.0) or where [LINQ2](https://www.mongodb.com/docs/drivers/csharp/current/fundamentals/linq/) was explictly configured in MongoDB Driver greater than or equal to v[2.16.0](https://www.nuget.org/packages/MongoDB.Driver/2.16.0) we'd have to use the indexer of `-1` of the array. For example:
 
 ```csharp
 var filter = Builders<Member>.Filter.Eq(x => x.Id, 1)
