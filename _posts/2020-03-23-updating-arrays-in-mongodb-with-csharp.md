@@ -48,7 +48,7 @@ Now, say we want to update the member with an `_id` of `1` and their friends `3`
 var filter = Builders<Member>.Filter.Eq(x => x.Id, 1)
     & Builders<Member>.Filter.AnyEq(x => x.Friends, 3);
 
-var update = Builders<Member>.Update.Set(x => x.Friends[-1], 10);
+var update = Builders<Member>.Update.Set(x => x.Friends.FirstMatchingElement(), 10);
 
 await members.UpdateOneAsync(filter, update);
 ```
@@ -63,7 +63,7 @@ db.members.find().pretty()
 { "_id" : 4, "Friends" : [ 1, 3 ] }
 ```
 
-You might find it weird that we're using the `-1` index in our set expression. It also creates a compiler warning of "CS0251 Indexing an array with a negative index (array indices always start at zero)", however this gets converted into the [positional operator](https://docs.mongodb.com/manual/reference/operator/update/positional/). So the update statement is equivalent to the following:
+You might find it weird that we're using the `FirstMatchingElement()` in our set expression as this is bespoke to MongoDB LINQ3. The update statement which is generated is equivalent to the following:
 
 ```javascript
 const filter = { "_id" : 1, "Friends" : 3 };
@@ -77,6 +77,17 @@ We can also write the update statement as the following, however it's not type s
 ```csharp
 var update = Builders<Member>.Update.Set("Friends.$", 10);
 ```
+
+> Note that previous to MongoDB Driver v[2.19.0](https://www.nuget.org/packages/MongoDB.Driver/2.19.0) or where [LINQ3](https://www.mongodb.com/docs/drivers/csharp/current/fundamentals/linq/) was explictly configured in MongoDB Driver greater than or equal to v[2.16.0](https://www.nuget.org/packages/MongoDB.Driver/2.16.0) we'd have to use the indexer of `-1` of the array. For example:
+
+```csharp
+var filter = Builders<Member>.Filter.Eq(x => x.Id, 1)
+    & Builders<Member>.Filter.AnyEq(x => x.Friends, 3);
+
+var update = Builders<Member>.Update.Set(x => x.Friends[-1], 10);
+```
+
+This would generate exactly the same output as above, however does generate a compiler warning of "CS0251 Indexing an array with a negative index (array indices always start at zero)" which you may want to supress.
 
 ## Update a single array document
 
