@@ -1,10 +1,10 @@
 ---
 layout: event
-title: DDD South West - Fixing Broken Messaging: Pitfalls, Failures, and Solutions
+title: "DDD South West - Fixing Broken Messaging: Pitfalls, Failures, and Solutions"
 description: In this session we'll cover pitfalls, failures, and solutions for messaging
 img: main.jpg
 youtube-video-id: 
-talk-title: Fixing Broken Messaging: Pitfalls, Failures, and Solutions
+talk-title: "Fixing Broken Messaging: Pitfalls, Failures, and Solutions"
 talk-description: |
   Messaging is a fundamental part of distributed systems, but poor messaging practices can lead to performance bottlenecks, increased coupling, and system failures.
 
