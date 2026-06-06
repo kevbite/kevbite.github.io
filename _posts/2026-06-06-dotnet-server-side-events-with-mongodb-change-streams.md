@@ -125,10 +125,9 @@ app.MapGet("/orders", (IMongoCollection<Order> orders) =>
 			{
 				if (change.FullDocument is not null)
 				{
-					yield return new SseItem<Order>(change.FullDocument)
+					yield return new SseItem<Order>(change.FullDocument, "order")
 					{
-						EventId = EncodeResumeToken(change.ResumeToken),
-						EventType = "order"
+						EventId = EncodeResumeToken(change.ResumeToken)
 					};
 				}
 			}
