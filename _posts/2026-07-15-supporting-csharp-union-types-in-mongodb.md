@@ -347,7 +347,7 @@ None of these are hard blockers for the "store a closed set of shapes and read t
 
 Union types are one of the best things coming to C# in years, and the gap between "the language has them" and "my database understands them" is exactly the kind of gap a serializer is built to close. A provider to spot the union, a serializer to read the `Value` and write the active case, and a bit of care around the discriminator and MongoDB's `_id`, and you've got clean, System.Text.Json-compatible documents with no wrapper cruft.
 
-You can find the full working solution, including the unit and integration tests, on GitHub: [kevbite/MongoUnion](https://github.com/kevbite/MongoUnion) (placeholder link for now, I'll update it once it's published).
+You can find the full working solution, including the unit and integration tests, on GitHub: [kevbite/MongoUnion](https://github.com/kevbite/MongoUnion).
 
 And if this is something you'd like to see properly supported, go and vote on [CSHARP-6127](https://jira.mongodb.org/browse/CSHARP-6127). The more interest it gets, the sooner unions become something you just store, without thinking about it at all.
 
