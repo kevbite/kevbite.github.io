@@ -3,89 +3,189 @@ layout: post
 title: Cultivating Continuous Learning for Software Engineers
 categories:
 tags: [Learning, Engineering Excellence]
-description: How your company can encorrage continuous learning to strive for engineering excellence
+description: How your company can encourage continuous learning to strive for engineering excellence
 comments: true
 ---
 
-## Introduction
+# A bit of a different one
 
-In the rapidly evolving landscape of technology, the days of engineers being universally passionate and treating tech as a hobby are behind us. After finishing university, nearly every software engineer I encountered in the industry had numerous side projects outside of work hours, driven by a thirst for knowledge. Unfortunately, the dynamics have shifted, and today a significant portion of professionals view software engineering merely as a job, seeking it for its financial rewards rather than intrinsic motivation. This shift has led to a decline in the number of individuals engaging in extra side projects, contributing to open source projects, or participating in tech events.
+This post breaks away from my usual technical ramblings. I want to talk about
+something I care about a lot: how we keep learning as software engineers, and
+how the companies we work for can help (or hinder) that.
 
-With the escalating demand for software engineers, companies can no longer rely on cherry-picking those who are proactively upskilling themselves. In the present milieu, it's imperative to establish a culture of continuous learning within the organization to ensure engineers stay abreast of the latest developments and best practices in the field.
+When I first got into the industry, nearly everyone I met had a pile of side
+projects on the go. People were tinkering at home, contributing to open source,
+turning up to meetups. Tech wasn't just the day job, it was the hobby too.
 
-This blog post breaks away from my usual technical content to explore strategies that may foster a culture of learning within your company.
+Things have shifted since then. A lot of people now see software engineering as
+_just a job_, and that's completely fine, there's nothing wrong with wanting a
+steady wage and switching off at 5pm. But it does mean fewer people are
+upskilling themselves in their own time, and companies can no longer rely on
+cherry-picking the handful who are. If you want your engineers to keep up with
+where the industry is going, you have to build the learning into the culture.
 
-## Cultivating Engineering Excellence
+# Hiring a good engineer isn't the finish line
 
-While a robust skill set is a desirable trait when hiring engineers, the dynamic nature of the tech industry demands ongoing skill enhancement. Simply hiring a fully qualified engineer doesn't guarantee their ongoing qualification, as the industry rapidly evolves. Engineers must continually update their skills to align with industry trends.
+We all love hiring someone with a great skill set, but tech doesn't sit still.
+The person you hired as a "fully qualified" engineer today isn't going to stay
+that way if nothing changes around them. The tools, the frameworks, the
+practices, they all move on. So the skills need to keep moving on too, and that
+only happens if there's time and space for it.
 
+# Give people some direction
 
-## Strategic Direction
+One of the easiest ways to waste learning time is to have no idea what to learn.
+If you leave engineers to guess, some will pick things that never get used and
+others won't pick anything at all.
 
-To guide engineers effectively, companies should delineate the forthcoming techniques, tools, platforms, libraries, and frameworks that engineers are expected to master. Furthermore, it's advantageous to highlight emerging technologies to help engineers prioritize their learning efforts. Offering clear guidance prevents aimless upskilling and ensures that all learning directly contributes to the company's progress.
+It helps to be clear about the techniques, tools, platforms and libraries you
+actually want people to get good at, and to flag the up-and-coming stuff worth
+keeping an eye on. That way the learning is pointed in a useful direction rather
+than being a bit aimless.
 
-Many companies adopt an internal ThoughtWorks tech radar to communicate technologies the company is adopting, testing, or evaluating. This radar aids engineers in pinpointing areas for upskilling that align with the company's objectives, thus maximizing productivity.
+A lot of places do this with an internal
+[tech radar](https://www.thoughtworks.com/radar) (the ThoughtWorks one is the
+usual starting point). It's a simple way of saying "we're adopting this, we're
+trialling that, we're keeping an eye on this other thing", and it gives people a
+map of where to spend their effort.
 
-## Diverse Learning Approaches
+# So how do people actually learn?
 
-Encouraging a variety of learning techniques tailored to individual preferences is pivotal. Every engineer possesses distinct learning styles, such as a preference for reading books versus learning from videos.
+Everyone learns differently. Some folk love a technical book, some can't stand
+them and would rather watch a video or just get their hands dirty. There's no
+single right way, so the more options you can offer, the better. Here's a few
+that I've seen work well.
 
-### Pair and Mob Programming
+## Pair and mob programming
 
-Team collaboration is essential to blend diverse engineering skills and elevate the overall proficiency of the team. Consistent pairing and mobbing foster a deeper grasp of various approaches and techniques through continuous collaboration.
+Pairing and mobbing are brilliant for spreading knowledge around a team. When
+you're sat working through a problem together you naturally pick up each other's
+tricks, shortcuts and ways of thinking.
 
-In pair or mob programming, it's crucial to ensure that the driver possesses less expertise in the domain than the navigator. This practice keeps discussions focused on current changes and their rationale.
+One little thing I'd say: try to have the person _with less_ knowledge of the
+area driving, and the person with more knowledge navigating. It keeps the
+conversation on what you're changing and _why_, rather than the expert quietly
+racing ahead while everyone else nods along.
 
+## Sharing what you've learnt across teams
 
-### Sharing Knowledge Across Teams
+Pairing is great within a team, but a lot of good stuff gets stuck there. When
+one team cracks a tricky problem, finds a nicer library, or lands on a better
+way of doing something, it's worth getting that in front of everyone else.
 
-While pair and mob programming excel at intra-team learning, it's beneficial to extend this approach throughout the organization. Not every member can participate in joint programming sessions due to resource constraints. Nonetheless, when a team tackles a specific challenge, adopts a more efficient library, or develops new practices, sharing the experience with a broader audience is invaluable.
+This usually happens in a tech town hall, in person or remotely. Some companies
+run dedicated engineering days where teams get together to share what they've
+been up to and run workshops. In-person is lovely if the budget stretches to it,
+mostly because of the chats you have in the corridor afterwards, but remote
+sessions still do the job.
 
-These presentations often take place in tech town halls, either in person or remotely. Some companies arrange dedicated engineering gatherings, where teams assemble to share insights and conduct workshops. While budget constraints may limit in-person events, remote sessions remain effective, though they lack the post-presentation hallway conversations that deepen understanding.
+## Hackathons
 
-### Hackathons and Innovation Challenges
+Taking a couple of days away from the normal work to hack on something is a
+great way to learn and to get people collaborating who don't normally work
+together. There are no sprint commitments hanging over you, so you can just
+explore.
 
-Devoting time away from regular project work for hackathons can nurture learning and collaboration within engineering teams. Hackathons offer a conducive environment for exploring new technologies and practices unhindered by typical project constraints. Structured hackathons with predefined goals and gamified elements create an exciting atmosphere that encourages learning.
+I've been to [Hack24](https://hack24.co.uk/) a couple of times, a 24-hour
+hackathon held in the Council House in Nottingham. Both times taught me
+something, but in very different ways.
 
-Teams participating in hackathons should present their achievements and the challenges they encountered. This aids the broader organization in comprehending the nuances of applied practices and technologies.
+The **first time** we bit off way more than we could chew. We were building a
+peer-to-peer DJ'ing app (BeMyDJ), and by the end of the 24 hours we had a big
+pile of half-working features and nothing you could really call presentable. We
+learnt a load about SignalR and streaming music in the browser, which was
+genuinely useful, but we had no real output to show for it.
 
-Diverse team compositions within hackathons encourage cross-functional interactions, allowing individuals to connect with colleagues from different areas of the organization.
+<iframe width="100%" height="480px" src="https://www.youtube.com/embed/cyT7JPeslfY" frameborder="0" allowfullscreen>
+</iframe>
 
-### Meetups and User Groups
+The **second time** we were much better prepared. The very first thing we did
+was break the idea down into small parts and get a Minimal Viable Product
+working within a few hours, then we just kept stacking feature after feature on
+top of it. We built a "Family Calendar" running on a Raspberry Pi, where you
+could scan a QR code from your phone to sync your calendar into a shared one. We
+even got a decent night's sleep and came back fresh the next day, and we won a
+prize for it too! The big lesson second time round wasn't really technical, it
+was all about planning and scoping something small enough to actually ship.
 
-Tech meetup groups provide a rich avenue for learning and networking. Encouraging employee participation in these groups promotes communication between developers. The value lies not only in formal presentations but also in casual conversations before or after the events.
+<iframe width="100%" height="480px" src="https://www.youtube.com/embed/ue3heruUQ8Y" frameborder="0" allowfullscreen>
+</iframe>
 
-Companies can support meetup attendance by covering travel expenses or classifying participation as working hours for later reimbursement.
+That's the thing with hackathons, even the "failures" teach you something, and
+they're a lot of fun.
 
-I personally run 2 in the north of England [dotnetsheff](https://dotnetsheff.co.uk) and [dotnetYork](https://dotnetYork.co.uk). There are meetups for every variety of tech, the groups also normally get sponsored with free drinks and pizza so it's a relaxed and inclusive environment.
+## Meetups and user groups
 
-### Conferences
+Meetups are one of my favourite ways to learn, and a big part of that is the
+chats before and after the talks rather than just the talks themselves.
 
-Conferences offer an extended version of the meetup experience, requiring more commitment due to their duration. They provide substantial content and unparalleled networking opportunities. While the cost can be a deterrent, there are budget-friendly single-day conferences with valuable content and networking opportunities.
+Here's a little story. Long before I ran dotnetsheff, someone else was running
+it, and they used to put on Kata sessions done in TDD. That was my very first
+exposure to test-driven development, and honestly it changed the direction of my
+career. I started applying TDD back at work, and I genuinely think it was a big
+part of me landing my next job over at Alpharooms. All from turning up to a
+free meetup one evening.
 
-DDD Events, held in various UK cities, exemplify developer-focused conferences that facilitate learning and networking.
+These days I help run two of them in the north of England,
+[dotnetsheff](https://dotnetsheff.co.uk) and
+[dotnetYork](https://dotnetYork.co.uk). There's a group out there for pretty
+much every flavour of tech, they're usually sponsored so there's free drinks and
+pizza, and they're a really relaxed, welcoming way to meet other developers.
+Companies can help here by covering travel or counting attendance as work time.
+
+## Conferences
+
+Conferences are a bit like meetups turned up a notch. They ask for more
+commitment because they run for longer, but you get loads more content and the
+networking is second to none. They can be pricey, but there are some brilliant
+single-day conferences that won't break the bank.
+
+The [DDD events](https://en.wikipedia.org/wiki/Developer!_Developer!_Developer!)
+are a great example, they're community-run, developer-focused and dotted around
+the UK:
+
 - [Reading (DeveloperDeveloperDeveloper)](https://developerdeveloperdeveloper.com/)
 - [Bristol (DDD South West)](https://dddsouthwest.com/)
 - [Nottingham (DDD East Midlands)](https://dddeastmidlands.com/)
 - [Cambridge (DDD East Anglia)](https://www.dddeastanglia.com/)
 - [Hull (DDD North)](https://www.dddnorth.co.uk/)
 
-Conferences also serve as team-building opportunities, allowing team members to explore diverse tracks and engage in insightful discussions during breaks.
+They double up nicely as a team day out too, everyone can wander off to
+different tracks and then compare notes over a coffee at the break.
 
+## Dedicated learning time (10% time)
 
-### Dedicated Learning Time (10% time)
+Having proper, ring-fenced learning time is ideal, because it takes away the
+guilt of "I should really be shipping features". The pressure to deliver always
+eats into learning otherwise.
 
-Having dedicated learning time is ideal for engineers, that way you can remove the stress of getting features shipped which always pushes back time for learning. Google was known for its "20% time" policy, where employees were allowed to spend 20% of their work time pursuing projects of their own interest, even if those projects were not directly tied to their job roles. This policy led to the development of several successful Google products, including Gmail and Google News.
+Google famously had its "20% time", where people could spend a fifth of their
+week on their own projects, and it gave us things like Gmail and Google News. You
+don't need to go that far, but a bit of structure helps. The setup I've seen work
+well is to start the day with a quick standup where everyone says what they're
+going to try, people pair up to help each other out, and then at the end of the
+day everyone gives a 5–10 minute report back on how it went.
 
-However, it's always good to have structured learning time. where I've seen this work before is to start the day with a daily standup where everyone talks about what they're going to try to achieve, people then sometimes pair together to help each other achieve the goals of the dedicated learning time. Then at the end of the day, you report back 5 to 10 mins of how it went. It might not always be a positive result, maybe the technology which you were looking into to improve the testability of the system just wasn't feasible, then this is still beneficial learning.
+And it's fine if it _didn't_ go well! Maybe the shiny library you hoped would
+make the system more testable just wasn't a good fit. That's still a useful thing
+to learn, and now the whole team knows it too.
 
+## Learning resources
 
-### Learning Resources
+Because everyone learns differently, it pays to offer a spread of resources. Some
+people want technical books, some want online video courses. A few things worth
+providing:
 
-Recognizing diverse learning preferences, providing a range of resources is essential. Engineers have different inclinations, with some favoring technical books, while others prefer online videos. Offering various learning materials ensures inclusivity and caters to individual learning styles.
+- Free books, or a shared book library
+- Subscriptions to the likes of Pluralsight or Udemy
+- University or training courses
+- Access to paywalled blogs and publications
 
-Possible resources include free books or a book library, subscriptions to platforms like Pluralsight or Udemy, university courses, and access to paywalled blogs and online publications.
+# Wrapping up
 
-## Conclusion
-
-In a landscape where software engineering has transitioned from a passion-driven endeavor to a job pursuit, fostering a culture of continuous learning becomes paramount. As the demand for software engineers rises, it is incumbent upon companies to cultivate an environment where engineers can thrive through ongoing skill enhancement. By implementing a blend of strategies tailored to diverse learning styles, companies can create an ecosystem that not only empowers engineers but also propels the business forward in the ever-evolving tech industry.
+Software engineering has drifted from being a passion project for most people to
+being a job, and that's just the reality now. But that makes building a culture
+of continuous learning more important, not less. If you give people direction, a
+bit of time, and a mix of ways to learn that suit how they actually like to
+learn, you end up with engineers who keep growing, and a company that keeps up
+with a industry that never sits still.
