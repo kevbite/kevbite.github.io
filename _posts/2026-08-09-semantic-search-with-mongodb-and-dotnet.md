@@ -377,7 +377,9 @@ The effect is that both of our pipelines collapse. The Ollama step disappears fr
 
 ## Going further than the talk
 
-Everything up to here is roughly what I covered in the lightning talk. I only had fifteen minutes, so I kept it to the core idea. But if you are actually going to build search into a real application, there are a few more things worth knowing about, and they are genuinely some of the best parts. None of these were in the talk, so treat this as the bonus material.
+Everything up to here is roughly what I covered in the lightning talk. I only had fifteen minutes, so I kept it to the core idea. What follows is really down to all of you who came along, because after I wrapped up there were some brilliant questions from the audience, and a fair few good chats afterwards over a drink too. A lot of those questions poked at exactly the practical stuff you run into the moment you try to build real search on top of this, rather than the neat happy path in a demo.
+
+So I wanted to jot them all down here while they were fresh, partly so the people who asked have something to refer back to, and partly in case anyone else reading this was sitting there wondering the same thing but did not get the chance to put their hand up. None of this was in the talk itself, so treat it as bonus material, and honestly it is some of the most useful stuff, because it is the part that decides whether your search feels great or merely okay in production.
 
 ### Reading the score
 
