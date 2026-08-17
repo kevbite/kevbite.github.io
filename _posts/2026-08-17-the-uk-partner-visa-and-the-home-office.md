@@ -711,14 +711,14 @@ I build software for a living, which means I've watched a lot of teams get
 measured, and I have never once seen a metric that didn't eventually get gamed.
 Goodhart's Law never loses.
 
-![xkcd 2899: after hearing Goodhart's Law, one character suggests offering a bonus to anyone who identifies a metric that has become a target](/assets/posts/the-uk-partner-visa-and-the-home-office/xkcd-2899-goodharts-law.png "Goodhart's Law, xkcd 2899")
+![xkcd 2899: after hearing Goodhart's Law, one character suggests offering a bonus to anyone who identifies a metric that has become a target](/assets/posts/2026-08-17-the-uk-partner-visa-and-the-home-office/xkcd-2899-goodharts-law.png "Goodhart's Law, xkcd 2899")
 
 
 So when I see the Home Office posting cheerful stats on social media about
 processing performance, my first instinct isn't "how nice", it's "which number
 are we optimising".
 
-![Home Office post on X about visa processing](/assets/posts/the-uk-partner-visa-and-the-home-office/home-office-x-post.jpeg)
+![Home Office post on X about visa processing](/assets/posts/2026-08-17-the-uk-partner-visa-and-the-home-office/home-office-x-post.jpeg)
 
 Let's play this out. Say 100 couples apply. All 100 get refused on some technical
 evidential point. All 100 apply again, this time with a solicitor, and all 100 get
