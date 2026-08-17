@@ -711,6 +711,9 @@ I build software for a living, which means I've watched a lot of teams get
 measured, and I have never once seen a metric that didn't eventually get gamed.
 Goodhart's Law never loses.
 
+![xkcd 2899: after hearing Goodhart's Law, one character suggests offering a bonus to anyone who identifies a metric that has become a target](/assets/posts/the-uk-partner-visa-and-the-home-office/xkcd-2899-goodharts-law.png "Goodhart's Law, xkcd 2899")
+
+
 So when I see the Home Office posting cheerful stats on social media about
 processing performance, my first instinct isn't "how nice", it's "which number
 are we optimising".
