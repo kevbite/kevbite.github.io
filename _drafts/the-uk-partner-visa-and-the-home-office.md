@@ -24,10 +24,10 @@ meaningful difference between the two applications was that the second one had a
 solicitor's letterhead on the front of it.
 
 That whole experience was, without exaggeration, the most stressful thing either
-of us has been through. And the thing that got us through it wasn't the Home
-Office, or our MP, or Citizens Advice. It was random people on the internet who'd
-been through the same thing and were generous enough to tell us what they'd
-learnt.
+of us has been through. And the thing that actually got us through it, in the
+window where it mattered, wasn't any official channel. It was random people on
+the internet who'd been through the same thing and were generous enough to tell
+us what they'd learnt.
 
 So this is me paying that forward. If you're staring at a refusal letter right
 now wondering what on earth just happened, hopefully some of this helps. And if
@@ -447,17 +447,26 @@ find.
 ### The MP
 
 Rachael Maskell is the MP for York Central. I rang her office **six times**. I
-left a voicemail. I sent a detailed email laying the whole thing out with the
-refusal letter, the employment letters and the mortgage statement attached.
+left a voicemail. On the **13th of June**, the day after the refusal landed, I
+sent a detailed email laying the whole thing out, with the refusal letter, the
+employment letters and the mortgage statement attached. The subject line began
+with the word "Urgent", because it was.
 
-Nothing. Not a call back, not an acknowledgement, not a "we've received your
-email". Complete silence, from the one person whose actual job includes helping
-constituents with exactly this.
+What came back, the same afternoon, was an automatic reply. It explained that an
+MP can only help their own constituents, and so it was important that I **resend
+my email** with my full name, postal address and contact telephone number.
+
+And then we waited. Nothing came back for a long time, which when you're
+pregnant, refused and watching a due date come towards you feels considerably
+longer than it looks written down.
+
+They did get back to us in the end, and they've since been genuinely helpful. But
+the timing of it deserves its own section later on, so hold that thought.
 
 ### Citizens Advice
 
-We were pointed at Citizens Advice in York. They did reply, which puts them ahead
-of the MP. Unfortunately the reply was a generic wall of links back to the Home
+We were pointed at Citizens Advice in York. They did reply, and quickly, which I
+appreciated. Unfortunately the reply was a generic wall of links back to the Home
 Office website, plus some advice that didn't apply to our situation at all.
 
 Cheers. We'd read those pages. That's how we got here.
@@ -915,6 +924,84 @@ Anahi then slept for over an hour on the train back, which she maintains was
 We got home safe. We did not accidentally have a baby in Brussels, which I'm told
 would have created an entirely new and exciting set of paperwork.
 
+## Remember our MP?
+
+Two months of silence had gone by since that automatic reply, and I'd more or
+less given up on it. Then our next-door neighbour asked whether we'd ever chased
+them properly. We hadn't. So on the morning of the **11th of August** I sent a
+follow-up laying out where we'd got to: the solicitor's fees, the second
+application, the priority service, the £2.74 enquiry that told us nothing, and
+the fact that Anahi was 36 weeks pregnant and still needed to leave the country
+and come back once a decision arrived.
+
+That was the same morning our solicitor emailed to say she was baffled, and a few
+hours before the approval landed. Busy day.
+
+Two days later, on the Eurostar home from Brussels with Anahi asleep beside me,
+my phone buzzed. It was our MP's office, saying they'd sent the Home Office an
+urgent enquiry that day.
+
+So the urgent enquiry about whether we'd miss the birth of our child went in two
+days after we'd already fixed it ourselves, for six grand, and reached us on a
+train back from Belgium.
+
+None of which is on the caseworker, who has been nothing but decent with us.
+I assume constituency offices are drowning, and I'd put money on ours drowning
+specifically in Home Office cases. It just shows you how little help there
+actually is while the thing is happening to you. The one
+thing that did shake anything loose was a neighbour, over a fence, saying "have
+you tried asking again?"
+
+Then, forty-three minutes later, a follow-up. Before the Home Office would tell
+an MP anything about the case, they needed a Letter of Authority from Anahi.
+Fine. Except:
+
+> It must be signed (**with a wet pen signature, as electronic signatures are not
+> accepted**) and be dated.
+
+A wet pen signature. From the department that has just spent the year moving
+everybody onto a **digital** immigration status, which lives in an online account
+and is checked electronically at the border. Electronic signatures have been
+[legally valid here since 2019](https://lawcom.gov.uk/project/electronic-execution-of-documents/),
+but not, apparently, for this.
+
+Which is how we discovered that we don't own a working printer. Nobody does. It's
+2026, every printer I know of is either broken, out of ink, or sat in a cupboard
+awaiting a repair that is never going to happen.
+
+So off we went to the library to print one page, so that a pen could be dragged
+across it, so that it could be scanned back into a computer and emailed, which is
+exactly where it had started.
+
+**30p a sheet.** After nearly six thousand pounds, the Home Office found one last
+coin down the back of the sofa.
+
+Oh, and they gave us **five days** to produce that letter or they'd close the
+case. Their own reply time?
+
+> Please note that any responses we are able to offer are usually provided with
+> 20 working days (this is the service standard for MP responses and will not
+> cover urgent enquiries).
+
+Five days for us, a month for them. Which tracks, because time has never really
+been a Home Office thing. They dated our refusal the 8th and sent it on the 12th.
+They missed a statutory FOI deadline by five working days. They sold us a
+priority service that turned out to mean "at some point". This is a department
+that has been late to its own refusal, late to its own legal deadline and late to
+its own fast lane, and it's now handing me a five day deadline with a completely
+straight face.
+
+And read that bracket again: the service
+standard for MP enquiries **will not cover urgent enquiries.** There is a process
+for urgent cases. It does not do urgent. It says so, in writing, in brackets,
+without a trace of embarrassment.
+
+We're now waiting to see whether there are any next steps, whether anyone will
+explain how the same finances got two different answers, and whether there's any
+route to getting some of that money back. Rachael Maskell's caseworker is helping
+us work through it, which I'm grateful for. I'll let you know if it goes
+anywhere.
+
 ## The whole thing, in order
 
 Because I think the shape of it matters as much as the individual bits, here's
@@ -928,18 +1015,21 @@ the entire saga on one page.
 | **~10 Jun 2026** | 12 weeks up, nothing heard. We pay £2.74 to ask what's happening |
 | **11 Jun 2026** | "Your application is being considered and is currently awaiting a decision" |
 | **12 Jun 2026** | Refusal email arrives. The letter attached to it is dated **8 June** |
+| **13 Jun 2026** | Email to our MP. Auto-reply asks me to resend the details already in it |
 | **15 Jun 2026** | Government announces a total social media ban for under-16s, because it harms children |
 | **17 Jun 2026** | UKVI ask us to send them copies of the emails they sent us |
 | **24 Jun 2026** | "Dear [reference number]" - customer satisfaction survey |
 | **26 Jun 2026** | FOI request submitted. Rejected over the format of my name |
-| **7 Jun 2026** | FOI resubmitted. Solicitor engaged, second application prepared |
+| **7 Jul 2026** | Second application submitted, with the £500 priority service |
 | **23 Jul 2026** | Solicitor's letter for Border Force drafted (and corrected) |
 | **25 Jul 2026** | Anahi flies to the UK as a visitor. "Everything ok in border control" |
 | **30 Jul 2026** | FOI refused under section 12 - too expensive to answer. 5 working days late |
 | **31 Jul 2026** | Second £2.74 enquiry: "awaiting a decision", priority "does not guarantee" |
 | **6 Aug 2026** | Anahi chases the solicitor. Still nothing |
-| **11 Aug 2026** | Solicitor: "we should have their decision already". We chase hard. **Approved** |
+| **11 Aug 2026** | Chaser to the MP, at a neighbour's suggestion. Solicitor: "we should have their decision already". We chase hard. **Approved** |
 | **12-13 Aug 2026** | Eurostar to Brussels and back to activate the eVisa. 37 weeks pregnant, 37°C |
+| **13 Aug 2026** | MP's office replies while we're on the train home. Home Office wants a wet-ink signature |
+| **14 Aug 2026** | Trip to the library to print one page so it can be signed with a pen. 30p |
 | **5 Sep 2026** | Baby due |
 
 
@@ -1008,7 +1098,8 @@ have spent if the first application had been decided correctly.
 | Hotel in Brussels | £84.48 |
 | Shortfall on the health surcharge refund | £17.05 |
 | Two extra £2.74 enquiries | £5.48 |
-| **Total** | **£5,994.05** |
+| Printing one page at the library | £0.30 |
+| **Total** | **£5,994.35** |
 
 Just under **six thousand pounds**, before you count the food, the trams and
 buses round Brussels, and the hours we spent killing time in London between
@@ -1113,7 +1204,11 @@ solicitor's letterhead.
 
 That's the whole story, really. Everything else - the dollars, the £2.74, the
 manual trawl, the survey addressed to a reference number, the social media
-suggestion, the heatwave in Brussels - is just decoration on that one fact.
+suggestion, the heatwave in Brussels, the 30p at the library - is just decoration
+on that one fact.
+
+It's not quite finished, mind. There may yet be next steps, and if anything comes
+of them I'll update this post.
 
 I'm not anti-immigration-control. Have rules. Enforce them. But if you're going
 to charge people two grand a go and hold their families hostage to the outcome,
