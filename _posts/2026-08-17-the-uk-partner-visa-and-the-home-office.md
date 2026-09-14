@@ -1005,6 +1005,88 @@ route to getting some of that money back. Rachael Maskell's caseworker is helpin
 us work through it, which I'm grateful for. I'll let you know if it goes
 anywhere.
 
+## Update: I asked them to show their working
+
+The FOI request was me trying to understand the machine from the outside. But
+there was one lever I hadn't pulled yet, and it's the obvious one: a **Subject
+Access Request**. Under the
+[Data Protection Act 2018](https://www.gov.uk/government/publications/requests-for-personal-data-uk-visas-and-immigration)
+you can ask the Home Office for the personal data they hold on you, and crucially
+you can ask for the **caseworker notes**, the actual record of how a human being
+looked at your application and decided.
+
+That was the whole point. Not the outcome, which we now had. Not the letter,
+which we'd read forty times. I wanted to see the *working*. Show me the bit where
+someone weighed the payslips against the threshold and reasoned their way to a
+"no". Because from where we were sat, it looked an awful lot like nobody had.
+
+Anahi submitted the request on the **14th of August**. It came back on the **7th
+of September**, which is a date worth pausing on, because our son was due on the
+**5th**. The wait to find out how they'd made the decision outlasted the
+pregnancy it nearly derailed.
+
+Forty-one pages arrived. Here's the entirety of what forty-one pages of "how we
+decided" turned out to contain:
+
+- A **cover letter**, explaining that bits had been redacted under four separate
+  exemptions, including Legal Professional Privilege and the catch-all
+  "Immigration Exemption".
+- A full-page **glossary of abbreviations**. Absconder. Asylum Fingerprint
+  Bureau. Failed Asylum Seeker. Detention Centre. Pages of enforcement acronyms,
+  not one of which has the faintest thing to do with a bloke in York sponsoring
+  his pregnant partner.
+- A single **database screenshot** from an old UK Border Agency system: one row,
+  showing her name, her date of birth, "PERU", and an "App Status" of
+  **Refused**. The sum total of the record, on one line.
+- A **photocopy of our own application.** The one we submitted.
+- The **refusal letter** we already had.
+- A **"Document Details"** page, on which there is a field marked **"Application
+  Notes"**, and that field is **blank.**
+- A **checks log**, with the interesting lines blacked out, on which the field
+  "Was Biometric information material to Application decision?" reads, in full,
+  **"NO SELECTION MADE".**
+- And, my favourite, a final page that says nothing but **"END"**, stamped, like
+  every other page, **"FILE COPY".**
+
+That's it. That's the working.
+
+Here's the same thing as a table, because I think the gap between the two columns
+says everything:
+
+| What I asked for | What they actually sent |
+| --- | --- |
+| The caseworker's notes and reasoning | A blank "Application Notes" box |
+| How they assessed our finances | A copy of our own application |
+| The decision-making record | A glossary of asylum acronyms |
+| Whether the decision was properly considered | "Was this material to the decision? *No selection made*" |
+
+Look at those two empty fields again, because they're the whole story. There is a
+box, in their own system, literally labelled **Application Notes** - the place a
+human writes down what they thought, and it is empty. And there is a field
+asking whether a key piece of information was **material to the decision**, and
+the honest, system-generated answer is that **nobody selected anything.** The two
+spots where a person's judgement is supposed to leave a fingerprint, and both are
+blank.
+
+I said earlier in this post that the refusal read like someone following a
+decision tree, hitting a branch with no valid path, and taking the exit marked
+*refuse*. I was speculating when I wrote that. The SAR is the closest thing I'm
+ever going to get to a receipt for it.
+
+The redactions are their own small insult. They withheld material under **Legal
+Professional Privilege** and the Immigration Exemption, so whatever thinking
+might exist, we're not allowed to see it. Then, having blacked out anything of
+substance, they padded the bundle out with a copy of our own paperwork and a
+dictionary of terms for a completely different kind of case. The one genuinely
+useful thing in there was the checks log confirming **"checks completed"** on the
+**8th of June**. That's the exact date printed on a refusal letter that didn't
+reach us until the 12th. Even the SAR corroborates that the decision was sat on a
+shelf.
+
+I requested the record of how a decision was made about my family. What I
+received was proof that, as far as anyone can tell from the paper trail, it
+barely was.
+
 ## The whole thing, in order
 
 Because I think the shape of it matters as much as the individual bits, here's
@@ -1034,6 +1116,7 @@ the entire saga on one page.
 | **13 Aug 2026** | MP's office replies while we're on the train home. Home Office wants a wet-ink signature |
 | **14 Aug 2026** | Trip to the library to print one page so it can be signed with a pen. 30p |
 | **5 Sep 2026** | Baby due |
+| **7 Sep 2026** | SAR response arrives. We'd asked for the caseworker notes; the "Application Notes" box is blank |
 
 
 Five months, two applications, one refusal, one approval, and precisely zero
