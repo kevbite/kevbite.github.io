@@ -418,7 +418,7 @@ these positions at once:
 - Social media is a perfectly adequate substitute for a child's father.
 
 Under his own government's policy, our lad won't be allowed on Instagram until
-2042. Which is a bit awkward, given the Home Office has it written down as his
+2042\. Which is a bit awkward, given the Home Office has it written down as his
 primary means of maintaining a relationship with his dad.
 
 They did exempt WhatsApp and Signal from the ban, mind. So there was a version of
