@@ -1198,6 +1198,31 @@ pre code {
   word-break: break-all;
 }
 
+.language-text.highlighter-rouge {
+  max-width: 100%;
+  padding: 0;
+  border: 1px solid #394758;
+  border-radius: 6px;
+}
+
+.language-text.highlighter-rouge .highlight pre {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  background-color: #202833;
+  border-radius: 5px;
+  color: #e6edf3;
+  line-height: 1.6;
+  white-space: pre;
+  word-break: normal;
+}
+
+.language-text.highlighter-rouge .highlight pre code {
+  overflow: visible;
+  white-space: inherit;
+  word-break: normal;
+}
+
 ul li a {
   overflow-wrap: break-word;
 }
