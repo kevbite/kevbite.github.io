@@ -97,8 +97,8 @@ ul li a {
 table {
   width: 100%;
   margin: 1.5rem 0;
-  background-color: #fff;
-  color: #273444;
+  background-color: $white;
+  color: $body-color;
   text-align: left;
   border-collapse: collapse;
   overflow-wrap: anywhere;
@@ -106,25 +106,25 @@ table {
 
 table th, table td {
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid #dbe3eb;
+  border-bottom: 1px solid $gray;
   vertical-align: top;
 }
 
 table thead,
 table tfoot {
-  background-color: #e8eef4;
-  color: #1c344b;
+  background-color: $lightgray;
+  color: $dark;
 }
 
 table tbody tr:nth-child(even) {
-  background-color: #f7f9fb;
+  background-color: $lightgray;
 }
 
 table code.highlighter-rouge {
   padding: 0.1em 0.3em;
   border: 0;
-  background-color: #edf2f7;
-  color: #334e68;
+  background-color: #faf9f9;
+  color: #8a5045;
 }
 
 .wrapper {
