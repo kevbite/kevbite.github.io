@@ -65,11 +65,15 @@ pre {
   }
 }
 
-.language-text.highlighter-rouge {
+div.highlighter-rouge {
   max-width: 100%;
   padding: 0;
   border: 1px solid #394758;
   border-radius: 6px;
+
+  .highlight {
+    background-color: #202833;
+  }
 
   .highlight pre {
     margin: 0;
@@ -87,6 +91,29 @@ pre {
       white-space: inherit;
       word-break: normal;
     }
+  }
+
+  .highlight .hll {
+    background-color: #394758;
+  }
+
+  .highlight .m, .highlight .mf, .highlight .mh,
+  .highlight .mi, .highlight .mo, .highlight .il,
+  .highlight .nc, .highlight .nf, .highlight .nn {
+    color: #8fb8ef;
+  }
+
+  .highlight .nb, .highlight .bp {
+    color: #65c4cf;
+  }
+
+  .highlight .cp, .highlight .cs, .highlight .gd,
+  .highlight .gr, .highlight .gt {
+    color: #ff8e86;
+  }
+
+  .highlight .gi {
+    color: #94cf70;
   }
 }
 

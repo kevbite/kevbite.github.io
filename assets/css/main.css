@@ -1198,14 +1198,18 @@ pre code {
   word-break: break-all;
 }
 
-.language-text.highlighter-rouge {
+div.highlighter-rouge {
   max-width: 100%;
   padding: 0;
   border: 1px solid #394758;
   border-radius: 6px;
 }
 
-.language-text.highlighter-rouge .highlight pre {
+div.highlighter-rouge .highlight {
+  background-color: #202833;
+}
+
+div.highlighter-rouge .highlight pre {
   margin: 0;
   padding: 1rem 1.25rem;
   overflow-x: auto;
@@ -1217,10 +1221,33 @@ pre code {
   word-break: normal;
 }
 
-.language-text.highlighter-rouge .highlight pre code {
+div.highlighter-rouge .highlight pre code {
   overflow: visible;
   white-space: inherit;
   word-break: normal;
+}
+
+div.highlighter-rouge .highlight .hll {
+  background-color: #394758;
+}
+
+div.highlighter-rouge .highlight .m, div.highlighter-rouge .highlight .mf, div.highlighter-rouge .highlight .mh,
+div.highlighter-rouge .highlight .mi, div.highlighter-rouge .highlight .mo, div.highlighter-rouge .highlight .il,
+div.highlighter-rouge .highlight .nc, div.highlighter-rouge .highlight .nf, div.highlighter-rouge .highlight .nn {
+  color: #8fb8ef;
+}
+
+div.highlighter-rouge .highlight .nb, div.highlighter-rouge .highlight .bp {
+  color: #65c4cf;
+}
+
+div.highlighter-rouge .highlight .cp, div.highlighter-rouge .highlight .cs, div.highlighter-rouge .highlight .gd,
+div.highlighter-rouge .highlight .gr, div.highlighter-rouge .highlight .gt {
+  color: #ff8e86;
+}
+
+div.highlighter-rouge .highlight .gi {
+  color: #94cf70;
 }
 
 ul li a {
