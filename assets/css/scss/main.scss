@@ -206,6 +206,17 @@ table code.highlighter-rouge {
   }
 }
 
+/* Mermaid diagrams (rendered by _includes/mermaid.html) */
+div.mermaid {
+  margin: 0 0 1.5em;
+  text-align: center;
+
+  .tick text {
+    font-size: 13px;
+    fill: $body-color;
+  }
+}
+
 
 
 

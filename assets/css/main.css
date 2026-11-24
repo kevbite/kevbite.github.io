@@ -1347,6 +1347,17 @@ table code.highlighter-rouge {
   }
 }
 
+/* Mermaid diagrams (rendered by _includes/mermaid.html) */
+div.mermaid {
+  margin: 0 0 1.5em;
+  text-align: center;
+}
+
+div.mermaid .tick text {
+  font-size: 13px;
+  fill: #515151;
+}
+
 nav {
   background: #cccccc;
   background: -webkit-gradient(linear, left top, right top, color-stop(19%, #fbfbfb), to(#cccccc));
